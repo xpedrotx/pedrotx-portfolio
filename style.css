@@ -1,0 +1,301 @@
+/* ESTILO GERAL */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', Arial, sans-serif;
+  }
+  
+  body{
+    background-color: black;
+    background-image: url('images/BACKGROUND.jpg'); /* Substitua pelo caminho da sua imagem */
+    background-size: cover; /* Ajusta a imagem para cobrir todo o fundo */
+    background-repeat: no-repeat; /* Evita repetição da imagem */
+    background-attachment: fixed; /* Torna a imagem fixa */
+    background-position: center; /* Centraliza a imagem */
+  }
+  
+  .interface{
+    max-width: 80%;
+    margin: 0 auto;
+  }
+  
+  .flex{
+    display: flex;
+  }
+  
+  .btn-contato button{
+    padding: 10px 40px;
+    font-size: 18px;
+    font-weight: 600;
+    background-color: red;
+    border: 0;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: .2s;
+  }
+  
+  h2.titulo{
+    color: white;
+    font-size: 37px;
+    text-align: center;
+  }
+  
+  h2.titulo span{
+    color: red;
+  }
+  
+  button:hover, form .btn-enviar input:hover{
+    box-shadow: 0px 0px 8px red;
+    transform: scale(1.05);
+  }
+  
+  /* ESTILO DO CABEÇALHO */
+  header .logo img {
+    max-width: 100px; /* Limita a largura da logo */
+    height: auto; /* Mantém a proporção */
+  }
+  
+  header{
+    padding: 40px 4%;
+  }
+  
+  header > .interface{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  header a{
+    color: rgb(106, 106, 106);
+    text-decoration: none;
+    display: inline-block;
+    transition: 0.2s;
+  }
+  
+  header a:hover{
+    color: white;
+    transform: scale(1.05);
+  }
+  
+  header nav ul{
+    list-style-type: none;
+  }
+  
+  header nav ul li{
+    display: inline-block;
+    padding: 0 40px;
+  }
+  
+  /* ESTILO DO TOPO DO SITE */
+  section.topo-do-site{
+    padding: 40px 4%;
+  }
+  
+  section.topo-do-site .flex{
+    align-items: center;
+    justify-content: center;
+    gap: 90px;
+  }
+  
+  .topo-do-site h1{
+    color: white;
+    font-size: 41px;
+    line-height: 40px;
+  }
+  
+  .topo-do-site .txt-topo-site h1 span{
+    color: red;
+  }
+  
+  .topo-do-site .txt-topo-site p{
+    color: white;
+    margin: 40px 0;
+  }
+  
+  .topo-do-site .img-topo-site img{
+    position: relative;
+    animation: flutuar 2s ease-in-out infinite alternate;
+  }
+  
+  @keyframes flutuar{
+    0%{
+      top: 0;
+    }
+    100%{
+      top: 30px;
+    }
+  }
+  
+  /* ESTILO DAS ESPECIALIDADES */
+  section.especialidades{
+    padding: 40px 4%;
+  }
+  
+  section.especialidades .flex{
+    gap: 60px;
+  }
+  
+  .especialidades .especialidades-box{
+    color: white;
+    padding: 40px;
+    border-radius: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.18);
+    margin-top: 45px;
+    transition: .2s;
+  }
+  .especialidades .especialidades-box:hover{
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.168);
+  }
+  .especialidades .especialidades-box i{
+    font-size: 90px;
+    color: red;
+  }
+  .especialidades .especialidades-box h3{
+    font-size: 28px;
+    margin: 15px 0;
+  }
+  
+  /* ESTILO DO SOBRE MIM */
+  section.sobre{
+    padding: 80px 4%;
+  }
+  
+  section.sobre .flex{
+    align-items: center;
+    gap: 40px;
+  }
+  
+  .sobre .txt-sobre{
+    color: white;
+  }
+  
+  .sobre .txt-sobre h2{
+    font-size: 40px;
+    line-height: 40px;
+    margin-bottom: 30px;
+  }
+  
+  .sobre .txt-sobre h2 span{
+    color: red;
+    display: block;
+  }
+  
+  .sobre .txt-sobre p{
+    margin: 20px 0;
+    text-align: justify;
+  }
+  
+  .sobre .txt-sobre .btn-social button{
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    border: none;
+    background-color: red;
+    font-size: 25px;
+    cursor: pointer;
+    margin: 0 10px;
+    transition: 0.2;
+  }
+  
+  /* ESTILO PORTFOLIO */
+  section.portifolio{
+    padding: 80px 0;
+    box-shadow: 0 0 40px 10px rgba(255, 255, 255, 0.318);
+  }
+  
+  section.portfolio .flex{
+    justify-content:space-around;
+    margin-top: 60px;
+  }
+  
+  .img-port{
+    width: 360px;
+    height: 460px;
+    background-size: cover;
+    background-position: 100% 0%;
+    transition: 8s;
+    cursor: pointer;
+    border-radius: 40px;
+    position: relative;
+  }
+  
+  .img-port:hover{
+    background-position: 100% 100%;
+  }
+  
+  .overlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.385);
+    border-radius: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: 600;
+    color: white;
+    opacity: 0;
+    transition: .5s;
+  }
+  
+  .overlay:hover{
+    opacity: 1;
+  }
+  
+  /* ESTILO FORMULARIO CONTATO */
+  section.formulario{
+    padding: 80px 4%;
+  }
+  
+  form{
+    max-width: 500px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 40px;
+  }
+  
+  form input, form textarea{
+    width: 100%;
+    background-color: rgb(45, 45, 45);
+    border: 0;
+    outline: 0;
+    padding: 20px 15px;
+    border-radius: 15px;
+    color: white;
+    font-size: 18px;
+  }
+  
+  form textarea{
+    width: 100%;
+    height: 200px; /* Ajuste a altura aqui */
+    background-color: rgb(45, 45, 45);
+    border: 0;
+    outline: 0;
+    padding: 20px 15px;
+    border-radius: 15px;
+    color: white;
+    font-size: 18px;
+    resize: none; /* Impede o redimensionamento manual */
+  }
+  
+  form .btn-enviar{
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  form .btn-enviar input{
+    width: 120px;
+    background-color: red;
+    color: black;
+    font-weight: 700;
+    cursor: pointer;
+    transition: .2s;
+  }
