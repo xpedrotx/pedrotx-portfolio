@@ -3,46 +3,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Leia a Política de Privacidade da PEDROTXDEV. Saiba como coletamos, utilizamos e protegemos seus dados.">
     <title>Política de Privacidade - PEDROTXDEV</title>
     <link rel="stylesheet" href="politica-termos.css">
+    <link rel="icon" href="../images/icone_aba.png" type="image/x-icon">
 </head>
 <body>
     <header>
         <div class="interface">
+            <img src="../images/logo_pedrotxdev.png" alt="Logo PEDROTXDEV" class="logo">
             <h1>Política de Privacidade</h1>
             <p>Última atualização: <span id="lastUpdate"></span></p>
         </div>
-    </header>
+    </header>    
 
     <main class="interface">
-        <h2>1. Informações Coletadas</h2>
-        <p>Podemos coletar informações pessoais, como nome e e-mail, quando você preenche nosso formulário de contato.</p>
+        <section>
+            <h2>1. Informações Coletadas</h2>
+            <p>Podemos coletar informações pessoais, como nome e e-mail, quando você preenche nosso formulário de contato.</p>
+        </section>
 
-        <h2>2. Uso das Informações</h2>
-        <p>As informações coletadas são utilizadas para responder a suas mensagens e melhorar nossos serviços. Não compartilhamos seus dados com terceiros.</p>
+        <section>
+            <h2>2. Uso das Informações</h2>
+            <p>As informações coletadas são utilizadas para responder a suas mensagens e melhorar nossos serviços. Não compartilhamos seus dados com terceiros.</p>
+        </section>
 
-        <h2>3. Cookies</h2>
-        <p>Nosso site pode utilizar cookies para melhorar sua experiência. Você pode configurar seu navegador para recusar cookies, se desejar.</p>
+        <section>
+            <h2>3. Cookies</h2>
+            <p>Nosso site pode utilizar cookies para melhorar sua experiência. Você pode configurar seu navegador para recusar cookies, se desejar.</p>
+        </section>
 
-        <h2>4. Segurança</h2>
-        <p>Tomamos medidas para proteger suas informações, mas não podemos garantir segurança absoluta contra ataques cibernéticos.</p>
+        <section>
+            <h2>4. Segurança</h2>
+            <p>Tomamos medidas para proteger suas informações, mas não podemos garantir segurança absoluta contra ataques cibernéticos.</p>
+        </section>
 
-        <h2>5. Direitos dos Usuários</h2>
-        <p>Se desejar acessar, corrigir ou excluir suas informações, entre em contato pelo e-mail <a href="mailto:contato@pedrotxdev.com">contato@pedrotxdev.com</a>.</p>
+        <section>
+            <h2>5. Direitos dos Usuários</h2>
+            <p>Se desejar acessar, corrigir ou excluir suas informações, entre em contato pelo e-mail <a href="mailto:contato@pedrotxdev.com">contato@pedrotxdev.com</a>.</p>
+        </section>
 
-        <h2>6. Alterações na Política</h2>
-        <p>Podemos atualizar esta Política de Privacidade a qualquer momento. As mudanças serão publicadas nesta página.</p>
+        <section>
+            <h2>6. Alterações na Política</h2>
+            <p>Podemos atualizar esta Política de Privacidade a qualquer momento. As mudanças serão publicadas nesta página.</p>
+        </section>
 
-        <h2>7. Contato</h2>
-        <p>Se tiver dúvidas sobre esta Política de Privacidade, entre em contato pelo e-mail <a href="mailto:contato@pedrotxdev.com">contato@pedrotxdev.com</a>.</p>
+        <section>
+            <h2>7. Contato</h2>
+            <p>Se tiver dúvidas sobre esta Política de Privacidade, entre em contato pelo e-mail <a href="mailto:contato@pedrotxdev.com">contato@pedrotxdev.com</a>.</p>
+        </section>
     </main>
 
     <footer>
-        <p><a href="pedrotxdev.com">Voltar ao site</a></p>
+        <p><a href="https://pedrotxdev.com/index.html" class="btn-voltar">Voltar ao site</a></p>
     </footer>
 
+    <button id="scrollTopBtn" title="Voltar ao Topo">↑</button>
+
     <script>
-        document.getElementById("lastUpdate").textContent = new Date().toLocaleDateString();
+        document.getElementById("lastUpdate").textContent = new Date().toLocaleDateString("pt-BR");
+        
+        // Botão de Voltar ao Topo
+        const scrollTopBtn = document.getElementById("scrollTopBtn");
+
+        window.addEventListener("scroll", () => {
+            scrollTopBtn.style.display = window.scrollY > 200 ? "block" : "none";
+        });
+
+        scrollTopBtn.addEventListener("click", () => {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        });
     </script>
 </body>
 </html>

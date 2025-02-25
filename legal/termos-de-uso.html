@@ -3,46 +3,78 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Leia os Termos de Uso do PEDROTXDEV. Saiba mais sobre as diretrizes e condições de uso deste site.">
     <title>Termos de Uso - PEDROTXDEV</title>
     <link rel="stylesheet" href="politica-termos.css">
+    <link rel="icon" href="../images/icone_aba.png" type="image/x-icon">
 </head>
 <body>
     <header>
         <div class="interface">
-            <h1>Termos de Uso</h1>
+            <img src="../images/logo_pedrotxdev.png" alt="Logo PEDROTXDEV" class="logo">
+            <h1>Termos de uso</h1>
             <p>Última atualização: <span id="lastUpdate"></span></p>
         </div>
     </header>
-
+    
     <main class="interface">
-        <h2>1. Aceitação dos Termos</h2>
-        <p>Ao acessar e utilizar o site <strong>PEDROTXDEV</strong>, você concorda em cumprir estes Termos de Uso e todas as leis e regulamentos aplicáveis.</p>
+        <section>
+            <h2>1. Aceitação dos Termos</h2>
+            <p>Ao acessar e utilizar o site <strong>PEDROTXDEV</strong>, você concorda em cumprir estes Termos de Uso e todas as leis e regulamentos aplicáveis.</p>
+        </section>
 
-        <h2>2. Uso Permitido</h2>
-        <p>Este site destina-se a fornecer informações sobre projetos e serviços desenvolvidos por PEDROTXDEV. Você concorda em utilizar este site apenas para fins legais.</p>
+        <section>
+            <h2>2. Uso Permitido</h2>
+            <p>Este site destina-se a fornecer informações sobre projetos e serviços desenvolvidos por PEDROTXDEV. Você concorda em utilizar este site apenas para fins legais.</p>
+        </section>
 
-        <h2>3. Direitos Autorais</h2>
-        <p>Todo o conteúdo deste site, incluindo textos, imagens, código-fonte e logotipos, é protegido por direitos autorais e não pode ser reproduzido sem permissão.</p>
+        <section>
+            <h2>3. Direitos Autorais</h2>
+            <p>Todo o conteúdo deste site, incluindo textos, imagens, código-fonte e logotipos, é protegido por direitos autorais e não pode ser reproduzido sem permissão.</p>
+        </section>
 
-        <h2>4. Links para Terceiros</h2>
-        <p>Nosso site pode conter links para sites de terceiros. Não somos responsáveis pelo conteúdo ou práticas de privacidade desses sites.</p>
+        <section>
+            <h2>4. Links para Terceiros</h2>
+            <p>Nosso site pode conter links para sites de terceiros. Não somos responsáveis pelo conteúdo ou práticas de privacidade desses sites.</p>
+        </section>
 
-        <h2>5. Limitação de Responsabilidade</h2>
-        <p>Não garantimos que o site estará sempre disponível ou livre de erros. O uso das informações fornecidas é de sua responsabilidade.</p>
+        <section>
+            <h2>5. Limitação de Responsabilidade</h2>
+            <p>Não garantimos que o site estará sempre disponível ou livre de erros. O uso das informações fornecidas é de sua responsabilidade.</p>
+        </section>
 
-        <h2>6. Alterações nos Termos</h2>
-        <p>Podemos modificar estes Termos de Uso a qualquer momento. As alterações entrarão em vigor assim que publicadas nesta página.</p>
+        <section>
+            <h2>6. Alterações nos Termos</h2>
+            <p>Podemos modificar estes Termos de Uso a qualquer momento. As alterações entrarão em vigor assim que publicadas nesta página.</p>
+        </section>
 
-        <h2>7. Contato</h2>
-        <p>Se tiver dúvidas sobre estes Termos de Uso, entre em contato pelo e-mail: <a href="mailto:contato@pedrotxdev.com">contato@pedrotxdev.com</a></p>
+        <section>
+            <h2>7. Contato</h2>
+            <p>Se tiver dúvidas sobre estes Termos de Uso, entre em contato pelo e-mail: <a href="mailto:contato@pedrotxdev.com">contato@pedrotxdev.com</a></p>
+        </section>
     </main>
 
     <footer>
-        <p><a href="pedrotxdev.com">Voltar ao site</a></p>
+        <p><a href="https://pedrotxdev.com/index.html" class="btn-voltar">Voltar ao site</a></p>
     </footer>
 
+    <!-- Botão de Voltar ao Topo -->
+    <button id="scrollTopBtn" title="Voltar ao Topo">↑</button>
+
     <script>
-        document.getElementById("lastUpdate").textContent = new Date().toLocaleDateString();
+        // Atualiza a data de última atualização
+        document.getElementById("lastUpdate").textContent = new Date().toLocaleDateString("pt-BR");
+
+        // Botão de Voltar ao Topo
+        const scrollTopBtn = document.getElementById("scrollTopBtn");
+
+        window.addEventListener("scroll", () => {
+            scrollTopBtn.style.display = window.scrollY > 200 ? "block" : "none";
+        });
+
+        scrollTopBtn.addEventListener("click", () => {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        });
     </script>
 </body>
 </html>
