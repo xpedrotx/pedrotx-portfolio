@@ -549,7 +549,7 @@ footer {
   padding: 20px 8%;
   background-color: black;
   color: white;
-  box-shadow: 0px 5px 20px rgba(255, 255, 255, 0.247) !important; /* Cinza escuro */
+  box-shadow: 0px 5px 20px rgba(255, 255, 255, 0.5) !important; 
 }
 
 body.light-mode footer {
