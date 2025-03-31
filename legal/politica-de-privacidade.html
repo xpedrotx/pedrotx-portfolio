@@ -56,23 +56,12 @@
 
     <footer>
         <p><a href="https://pedrotxdev.com/index.html" class="btn-voltar">Voltar ao site</a></p>
+        <p>&copy; <span id="currentYear"></span> PEDROTXDEV. Todos os direitos reservados.</p>
     </footer>
-
-    <button id="scrollTopBtn" title="Voltar ao Topo">↑</button>
 
     <script>
         document.getElementById("lastUpdate").textContent = new Date().toLocaleDateString("pt-BR");
-        
-        // Botão de Voltar ao Topo
-        const scrollTopBtn = document.getElementById("scrollTopBtn");
-
-        window.addEventListener("scroll", () => {
-            scrollTopBtn.style.display = window.scrollY > 200 ? "block" : "none";
-        });
-
-        scrollTopBtn.addEventListener("click", () => {
-            window.scrollTo({ top: 0, behavior: "smooth" });
-        });
+        document.getElementById("currentYear").textContent = new Date().getFullYear();
     </script>
 </body>
 </html>
