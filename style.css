@@ -787,9 +787,12 @@ body.light-mode form textarea {
 }
 
 body.light-mode section.portfolio {
-  padding: 80px 0;
-  box-shadow: 0 0 40px 10px #1ab7d2;
+  padding: 80px 0; 
+  box-shadow: 0 0 80px 10px #1ab7d2;
+  z-index: 1; /* Adiciona z-index para garantir visibilidade */
+  position: relative; /* Necessário para que o z-index funcione */
 }
+
 
 body.light-mode .borda {
   border-top: 2px solid #1ab7d2;
