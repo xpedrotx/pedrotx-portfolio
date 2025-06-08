@@ -1,0 +1,180 @@
+/* === VARIÁVEIS CSS === */
+html {
+  scroll-behavior: smooth !important;
+}
+:root {
+  --cor-fundo: #000000;
+  --cor-texto: #ffffff;
+  --cor-destaque: red;
+  --cor-primaria: #1ab7d2;
+  --cor-secundaria: #d9d9d9;
+  --cor-hover: rgba(255, 0, 0, 0.3);
+
+  --font-padrao: 'Poppins', Arial, sans-serif;
+  --transition-padrao: 0.2s ease-in-out;
+}
+
+/* === RESET & BASE === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--font-padrao);
+}
+
+body {
+  background-color: var(--cor-fundo);
+  color: var(--cor-texto);
+  padding-top: 90px;
+}
+
+.interface {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.flex {
+  display: flex;
+}
+
+h2.titulo {
+  font-size: 37px;
+  text-align: center;
+  color: var(--cor-texto);
+}
+
+h2.titulo span {
+  color: var(--cor-destaque);
+}
+
+/* === BOTÕES === */
+button,
+.btn-contato button,
+form .btn-enviar button {
+  padding: 10px 40px;
+  font-size: 18px;
+  font-weight: 600;
+  background-color: var(--cor-destaque);
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: var(--transition-padrao);
+  color: black;
+}
+
+.btn-contato button:hover,
+form .btn-enviar button:hover {
+  box-shadow: 0px 0px 8px var(--cor-destaque);
+  transform: scale(1.05);
+}
+
+/* === LINKS === */
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: var(--transition-padrao);
+}
+
+a:hover {
+  color: var(--cor-destaque);
+}
+
+/* === ANIMAÇÕES === */
+@keyframes flutuar {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(15px);
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* === CLASSES DE UTILIDADE === */
+.text-center {
+  text-align: center;
+}
+
+.mt-20 {
+  margin-top: 20px;
+}
+
+.mb-20 {
+  margin-bottom: 20px;
+}
+
+.p-4 {
+  padding: 1rem;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* === TRANSIÇÃO FADE === */
+.fade-in,
+.fade-text,
+.fade-img {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.fade-in.active,
+.fade-text.active,
+.fade-img.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.btn-social button {
+  width: 48px;
+  height: 48px;
+  border-radius: 50% !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  font-size: 1.6rem;
+  background: var(--cor-destaque);
+  color: black !important;
+  transition: box-shadow 0.2s, background 0.2s, color 0.2s;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.10);
+  border: none;
+  margin: 0;
+}
+
+.btn-social button:hover {
+  background: var(--cor-destaque);
+  box-shadow: 0 4px 16px var(--cor-destaque);
+  transform: scale(1.07);
+}
+
+
+.btn-social {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 5px;
+  margin: 8px 0;
+}
+
+.fade-header-effect {
+  opacity: 0;
+  transform: translateY(-50px);
+  transition: opacity 0.5s, transform 0.5s cubic-bezier(.51,1.18,.77,1.15);
+}
+.fade-header-effect.visible {
+  opacity: 1;
+  transform: translateY(0);
+}

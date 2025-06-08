@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="author" content="Pedro Teixeira" />
+  <meta name="robots" content="index, follow" />
+  <meta name="description" content="Pedrotx, desenvolvedor especializado em HTML, Python e JavaScript, criando soluções digitais com design e inovação." />
+  <meta property="og:title" content="PEDROTXDEV - Portfólio" />
+  <meta property="og:description" content="Portfólio de Pedro Teixeira, desenvolvedor de soluções criativas e eficientes com HTML, JavaScript e Python." />
+  <meta property="og:image" content="images/logo_pedrotxdev.png" />
+
+  <title>PEDROTXDEV</title>
+  <link rel="icon" href="images/icone_aba.png" type="image/x-icon" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" />
+
+  <!-- Estilo -->
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/themes.css" />
+  <link rel="stylesheet" href="css/mobile.css" />
+
+  <!-- EmailJS -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+</head>
+<body>
+  <div id="progress-bar-container">
+    <div id="progress-bar"></div>
+  </div>
+
+<header>
+  <div class="interface">
+    <div class="logo">
+      <a href="index.html">
+        <img src="images/logo_pedrotxdev.png" alt="Logo do desenvolvedor Pedro Teixeira" />
+      </a>
+    </div>
+
+    <!-- Menu Desktop -->
+    <nav class="menu-desktop">
+      <ul>
+        <li><a href="#inicio">Início</a></li>
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#especialidades">Especialidades</a></li>
+        <li><a href="#projetos">Projetos</a></li>
+      </ul>
+    </nav>
+
+    <!-- Botões no topo -->
+    <div class="menu-top-right">
+      <button id="toggle-mode" aria-label="Alternar modo claro/escuro">🌞</button>
+      <button id="hamburger-btn" class="hamburger-btn" aria-label="Abrir menu">
+        <i class="bi bi-list"></i>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Menu Mobile fora do header -->
+<nav class="menu-mobile" id="menu-mobile">
+  <div class="btn-fechar">
+    <i class="bi bi-x-lg"></i>
+  </div>
+  <ul>
+    <li><a href="#inicio">Início</a></li>
+    <li><a href="#sobre">Sobre</a></li>
+    <li><a href="#especialidades">Especialidades</a></li>
+    <li><a href="#projetos">Projetos</a></li>
+    <li><a href="#formulario" class="btn-contato">Contato</a></li>
+  </ul>
+</nav>
+
+<!-- Overlay agora reconhecido corretamente -->
+<div id="overlay-menu" class="overlay-menu"></div>
+
+  <main>
+    <section class="topo-do-site" id="inicio">
+      <div class="interface">
+        <div class="flex">
+          <div class="txt-topo-site fade-text">
+            <h1 class="fade-header-effect">OLÁ, SEJA <span class="fade-header-effect">BEM-VINDO</span>!</h1>
+            <p class="fade-header-effect">Sou estudante de Engenharia de Software e moro no Paraná, Brasil. Trabalho especialmente com aplicações web, e meu objetivo é sempre surpreender criando projetos com forte apelo visual e funcionalidades inteligentes. Acredito que uma boa experiência é aquela que combina estética marcante e usabilidade intuitiva. Fique à vontade para conhecer um pouco mais do meu trabalho!</p>
+            <div class="btn-contato fade-header-effect">
+              <a href="#formulario"><button>Entre em contato</button></a>
+            </div>
+          </div>
+          <div class="img-topo-site fade-img">
+            <img src="images/pedrotxdev.png" alt="foto pedrotxdev" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sobre" id="sobre">
+      <div class="interface">
+        <div class="flex">
+          <div class="img-sobre fade-img">
+            <img src="images/foto_sobre_mim.png" alt="foto Pedro Teixeira" />
+          </div>
+          <div class="txt-sobre fade-text">
+            <h2>PRAZER! ME CHAMO <br><span>PEDRO TEIXEIRA</span>.</h2>
+            <p>Sou estudante de Engenharia de Software e entusiasta por aplicações web. Especializado em HTML, JavaScript e Python, adoro criar experiências visuais marcantes e funcionalidades práticas, combinando criatividade e eficiência para resolver desafios reais.</p>
+            <p>Minha paixão pela tecnologia vai muito além dos códigos e das telas; procuro sempre transformar ideias em projetos que surpreendem pela qualidade visual e pela inovação nas funcionalidades. Estou constantemente aprendendo, testando novas ferramentas e evoluindo minhas habilidades para criar soluções que realmente fazem diferença na vida das pessoas.</p>
+            <div class="btn-social">
+              <a href="https://www.instagram.com/xpedrotx/" target="_blank" aria-label="Instagram">
+                <button><i class="bi bi-instagram" aria-hidden="true"></i></button>
+              </a>
+              <a href="https://github.com/xpedrotx" target="_blank" aria-label="GitHub">
+                <button><i class="bi bi-github" aria-hidden="true"></i></button>
+              </a>
+              <a href="mailto:contato@pedrotxdev.com" target="_blank" aria-label="Email">
+                <button><i class="bi bi-envelope-at-fill" aria-hidden="true"></i></button>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="especialidades fade-in" id="especialidades">
+      <div class="interface">
+        <h2 class="titulo">MINHAS <span>ESPECIALIDADES</span>.</h2>
+        <div class="flex">
+          <div class="especialidades-box fade-in">
+            <i class="bi bi-filetype-html" aria-hidden="true"></i>
+            <h3>HTML</h3>
+            <p>Trabalho com HTML na criação de páginas responsivas e bem estruturadas, aplicando práticas modernas de semântica e acessibilidade. Meu foco é construir bases sólidas e funcionais para diversos tipos de sites, garantindo qualidade, facilidade de manutenção e potencial de crescimento. Busco sempre entregar páginas claras e intuitivas, proporcionando uma experiência agradável e inclusiva para todos os usuários.</p>
+          </div>
+          <div class="especialidades-box fade-in">
+            <i class="bi bi-filetype-py" aria-hidden="true"></i>
+            <h3>PYTHON</h3>
+            <p>Trabalho com Python desde scripts simples até sistemas mais complexos, usando a linguagem para automação, análise de dados, inteligência artificial e desenvolvimento web. Valorizo a sintaxe clara e as bibliotecas robustas do Python, que facilitam o desenvolvimento de soluções eficientes e que crescem com facilidade. Meu objetivo é sempre criar projetos úteis, inovadores e escaláveis.</p>
+          </div>
+          <div class="especialidades-box fade-in">
+            <i class="bi bi-filetype-js" aria-hidden="true"></i>
+            <h3>JAVASCRIPT</h3>
+            <p>Trabalho com JavaScript, linguagem essencial para o desenvolvimento web, criando aplicações dinâmicas e interativas. Tenho prática na manipulação do DOM, requisições assíncronas e no desenvolvimento de aplicações complexas, utilizando frameworks como React e Node.js. Meu foco é sempre produzir código limpo, organizado e eficiente, seguindo as melhores práticas para garantir que os projetos sejam robustos e escaláveis.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="portfolio fade-in" id="projetos">
+      <div class="interface">
+        <h2 class="titulo">MEU <span>PORTFÓLIO</span>.</h2>
+        <div class="flex">
+          <div class="img-port" style="background-image:url(images/portfolio-1.png);">
+            <div class="overlay">portfolio pedrotx</div>
+          </div>
+          <div class="img-port" style="background-image:url(images/portfolio-2.png);">
+            <div class="overlay">portfolio pedrotx</div>
+          </div>
+          <div class="img-port" style="background-image:url(images/portfolio-3.png);">
+            <div class="overlay">portfolio pedrotx</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="formulario fade-in" id="formulario">
+      <div class="interface">
+        <h2 class="titulo">FALE <span>COMIGO</span>.</h2>
+        <form id="meuFormulario">
+          <label for="nome" class="sr-only">Nome</label>
+          <input type="text" name="nome" id="nome" placeholder="Seu nome" required />
+
+          <label for="email" class="sr-only">E-mail</label>
+          <input type="email" name="email" id="email" placeholder="Seu e-mail" required />
+
+          <label for="mensagem" class="sr-only">Mensagem</label>
+          <textarea name="mensagem" id="mensagem" placeholder="Sua mensagem" required></textarea>
+
+          <div class="captcha-container">
+            <div class="g-recaptcha" data-sitekey="6Le0G90qAAAAAHmzpV5hIX6ob8Ub3rfXsLk3nQZf"></div>
+          </div>
+
+          <div class="btn-enviar">
+            <button type="submit" id="btnEnviar">
+              ENVIAR <i class="bi bi-arrow-clockwise spin" style="display: none;"></i>
+            </button>
+            <p id="statusMensagem"></p>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="interface">
+      <div class="line-footer">
+        <div class="flex">
+          <div class="logo-footer">
+            <a href="https://pedrotxdev.com/index.html">
+              <img src="images/logo_pedrotxdev.png" alt="logo pedrotxdev" />
+            </a>
+          </div>
+          <div class="btn-social">
+            <a href="https://www.instagram.com/xpedrotx/" target="_blank" aria-label="Instagram">
+              <button><i class="bi bi-instagram" aria-hidden="true"></i></button>
+            </a>
+            <a href="https://github.com/xpedrotx" target="_blank" aria-label="GitHub">
+              <button><i class="bi bi-github" aria-hidden="true"></i></button>
+            </a>
+            <a href="mailto:contato@pedrotxdev.com" target="_blank" aria-label="Email">
+              <button><i class="bi bi-envelope-at-fill" aria-hidden="true"></i></button>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="line-footer borda">
+        <div class="footer-bottom">
+          <p>&copy; 2023-<span id="currentYear"></span> PEDROTXDEV. Todos os direitos reservados.</p>
+          <p><a href="legal/termos-de-uso.html">Termos de Uso</a> | <a href="legal/politica-de-privacidade.html">Política de Privacidade</a></p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js" defer></script>
+ <script src="https://www.google.com/recaptcha/api.js?render=6LcQm9wqAAAAAJXjLVUI7d-56r_-ZN2A1wepqzUo"></script>
+  <button id="scrollTopBtn" type="button" aria-label="Voltar ao topo">
+    <i class="bi bi-arrow-90deg-up" aria-hidden="true"></i>
+    <span class="desktop-text">Voltar ao início</span>
+  </button>
+</body>
+</html>

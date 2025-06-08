@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Termos de Uso | PEDROTXDEV</title>
+  <link rel="icon" href="/images/icone_aba.png" type="image/x-icon">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/themes.css">
+  <style>
+    .pagina-legal {
+      max-width: 800px;
+      margin: 80px auto;
+      padding: 0 20px;
+      font-size: 1rem;
+      line-height: 1.7;
+    }
+    .pagina-legal h1,
+    .pagina-legal h2 {
+      color: var(--cor-destaque);
+      margin-top: 30px;
+    }
+    .last-update {
+      text-align: right;
+      font-size: 0.9rem;
+      color: #888;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+    <header class="header-simples">
+  <div class="interface">
+    <a href="/" class="logo-link">
+      <img src="/images/logo_pedrotxdev.png" alt="Logo PedroTXDEV">
+    </a>
+  </div>
+</header>
+
+  <main class="pagina-legal">
+    <h1>Termos de Uso</h1>
+    <p>Estes Termos de Uso descrevem as regras para navegação e uso do site <strong>pedrotxdev.com</strong>. Ao acessar este site, você concorda com os termos abaixo.</p>
+
+    <h2>1. Acesso ao Site</h2>
+    <p>Você pode acessar livremente o conteúdo, mas não está autorizado a copiar, modificar ou distribuir qualquer parte dele sem permissão prévia.</p>
+
+    <h2>2. Propriedade Intelectual</h2>
+    <p>Todo o conteúdo deste site, incluindo textos, códigos e imagens, é de propriedade de Pedro Teixeira, salvo indicação contrária. É proibido o uso comercial sem autorização.</p>
+
+    <h2>3. Uso Responsável</h2>
+    <p>Ao utilizar este site, você se compromete a não realizar atividades que prejudiquem seu funcionamento, como tentativas de invasão ou modificação de conteúdo.</p>
+
+    <h2>4. Modificações</h2>
+    <p>Estes termos podem ser atualizados periodicamente. Recomendamos revisá-los com frequência.</p>
+
+    <h2>5. Contato</h2>
+    <p>Em caso de dúvidas sobre os termos, entre em contato pelo e-mail <a href="mailto:contato@pedrotxdev.com">contato@pedrotxdev.com</a>.</p>
+
+    <div class="voltar-container">
+        <a href="/" class="btn-voltar-site">← Voltar ao site</a>
+    </div>
+
+    <p class="last-update">
+      Última atualização: <span id="dataAtualizacao">04 de junho de 2025</span>.
+    </p>
+  </main>
+
+  <script>
+     const data = new Date(document.lastModified);
+     document.getElementById("dataAtualizacao").textContent = data.toLocaleDateString("pt-BR", {
+       day: "2-digit",
+       month: "long",
+       year: "numeric"
+     });
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,14 @@
+# Ignora pasta de cache do Python
+__pycache__/
+
+# Ignora variáveis sensíveis
+.env
+
+# Ignora backend (o deploy está em repositório separado)
+backend/
+
+# Ignora arquivos temporários do VS Code (opcional)
+.vscode/
+
+# Ignora logs
+*.log

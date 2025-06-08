@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Política de Privacidade | PEDROTXDEV</title>
+  <link rel="icon" href="/images/icone_aba.png" type="image/x-icon">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/themes.css">
+  <style>
+    .pagina-legal {
+      max-width: 800px;
+      margin: 80px auto;
+      padding: 0 20px;
+      font-size: 1rem;
+      line-height: 1.7;
+    }
+    .pagina-legal h1,
+    .pagina-legal h2 {
+      color: var(--cor-destaque);
+      margin-top: 30px;
+    }
+    .last-update {
+      text-align: right;
+      font-size: 0.9rem;
+      color: #888;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+  <main class="pagina-legal">
+    <h1>Política de Privacidade</h1>
+
+    <p>Esta Política de Privacidade descreve como as informações pessoais são coletadas, usadas e compartilhadas quando você visita ou entra em contato com o site <strong>pedrotxdev.com</strong>.</p>
+
+    <h2>1. Coleta de Dados</h2>
+    <p>Coletamos informações que você fornece diretamente, como nome, e-mail e mensagem através do formulário de contato.</p>
+
+    <h2>2. Uso das Informações</h2>
+    <p>As informações são utilizadas apenas para responder ao seu contato ou para melhorar a experiência do usuário no site.</p>
+
+    <h2>3. Compartilhamento</h2>
+    <p>Não compartilhamos suas informações pessoais com terceiros, exceto quando exigido por lei.</p>
+
+    <h2>4. Cookies</h2>
+    <p>Podemos usar cookies para melhorar a navegação e personalização do site. Você pode configurar seu navegador para recusar cookies, se desejar.</p>
+
+    <h2>5. Seus Direitos</h2>
+    <p>Você pode solicitar acesso, correção ou exclusão de seus dados pessoais a qualquer momento pelo e-mail: <a href="mailto:contato@pedrotxdev.com">contato@pedrotxdev.com</a>.</p>
+
+    <h2>6. Segurança</h2>
+    <p>Tomamos medidas técnicas para proteger suas informações contra acessos não autorizados.</p>
+
+    <h2>7. Alterações nesta Política</h2>
+    <p>Reservamo-nos o direito de modificar esta política a qualquer momento. Recomendamos que a revise periodicamente.</p>
+
+    <div class="voltar-container">
+        <a href="/" class="btn-voltar-site">← Voltar ao site</a>
+    </div>
+
+
+    <p class="last-update">
+      Última atualização: <span id="dataAtualizacao">04 de junho de 2025</span>.
+    </p>
+  </main>
+
+  <script>
+     const data = new Date(document.lastModified);
+     document.getElementById("dataAtualizacao").textContent = data.toLocaleDateString("pt-BR", {
+       day: "2-digit",
+       month: "long",
+       year: "numeric"
+     });
+  </script>
+</body>
+</html>

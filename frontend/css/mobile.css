@@ -1,0 +1,293 @@
+/* === MEDIA QUERIES E LAYOUT RESPONSIVO === */
+
+@media (max-width: 900px) {
+
+  section {
+  margin-bottom: 100px;
+}
+
+  section.especialidades .flex,
+  section.portfolio .flex,
+  section.sobre .flex {
+    flex-direction: column !important;
+    gap: 20px !important;
+    align-items: center !important;
+  }
+  section .interface {
+    padding-inline: 2vw;
+  }
+
+  .txt-topo-site,
+  .txt-sobre {
+    padding-inline: 2vw;
+    box-sizing: border-box;
+  }
+
+  section.topo-do-site .flex {
+    flex-direction: column-reverse !important;
+    gap: 20px !important;
+    align-items: center !important;
+  }
+
+  section.topo-do-site {
+  padding-top: 80px;
+  padding-bottom: 60px;
+}
+
+.topo-do-site .txt-topo-site {
+  max-width: 100%;
+  width: 100%;
+  padding: 0 6vw;
+  margin: 0 auto;
+  box-sizing: border-box;
+  text-align: left;
+}
+
+.topo-do-site .flex {
+  align-items: flex-start !important;
+}
+
+
+
+  header .interface {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  nav.menu-desktop {
+    display: none !important;
+  }
+
+  .hamburger-btn {
+    display: block !important;
+    background: none;
+    border: none;
+    font-size: 2.5rem;
+    color: var(--cor-texto);
+    cursor: pointer;
+    z-index: 2001;
+    position: relative;
+  }
+
+  .menu-top-right {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    z-index: 100002;
+  }
+}
+
+@media (max-width: 600px) {
+  h2.titulo {
+    font-size: 28px;
+  }
+
+  .txt-topo-site {
+  max-width: 90ch;
+  width: 100%;
+  padding: 0 5vw;
+  margin: 0 auto;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+
+  .topo-do-site .txt-topo-site h1 {
+      font-size: 24px;
+      line-height: 30px;
+  }
+
+  .img-port {
+    width: 98vw;
+    height: 58vw;
+    max-width: 300px;
+    max-height: 320px;
+  }
+
+  .especialidades .especialidades-box {
+    padding: 15px !important;
+    margin-top: 20px !important;
+  }
+
+  section {
+    padding: 24px 2% !important;
+  }
+
+  form {
+    padding: 0 5vw !important;
+  }
+}
+
+@media (max-width: 430px) {
+  .img-port {
+    min-height: 200px;
+    height: 48vw;
+  }
+
+  .topo-do-site .img-topo-site img {
+    max-width: 180px !important;
+  }
+
+  .btn-contato,
+  .btn-voltar-site {
+    padding: 10px 18px !important;
+    font-size: 15px !important;
+  }
+}
+
+/* === MENU MOBILE === */
+.menu-mobile {
+  background-color: var(--cor-fundo);
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 0;
+  height: 100vh;
+  opacity: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 100001;
+  transition: width 0.4s ease, opacity 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 2rem;
+}
+
+.menu-mobile.abrir-menu {
+  width: 70%;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.menu-mobile .btn-fechar {
+  align-self: flex-end;
+  padding: 1rem 2rem;
+}
+
+.menu-mobile .btn-fechar i {
+  color: var(--cor-destaque);
+  font-size: 30px;
+}
+
+.menu-mobile ul {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  list-style: none;
+  gap: 1.5rem;
+  width: 100%;
+  padding: 1rem;
+}
+
+.menu-mobile ul li {
+  width: 100%;
+  text-align: center;
+}
+
+.menu-mobile ul li a:hover {
+  color: var(--cor-destaque);
+  transform: scale(1.05);
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+
+.menu-mobile ul li a {
+  display: block;
+  width: 100%;
+  padding: 12px 0;
+  font-size: 20px;
+  text-decoration: none;
+  color: var(--cor-texto);
+}
+
+.menu-mobile .btn-contato {
+  margin-top: 1rem;
+  padding: 12px 24px;
+  border-radius: 30px;
+  font-weight: bold;
+  background-color: var(--cor-destaque);
+  color: black !important;
+  text-align: center;
+}
+
+/* === OVERLAY === */
+.overlay-menu {
+  background-color: rgba(0, 0, 0, 0.7);
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100000;
+  display: none;
+  transition: opacity 0.3s ease;
+}
+
+.menu-mobile.abrir-menu ~ .overlay-menu {
+  display: block;
+}
+
+/* === HAMBURGUER === */
+.hamburger-btn i {
+  color: red;
+}
+
+body.light-mode .hamburger-btn i {
+  color: #1ab7d2;
+}
+
+/* === VISIBILIDADE === */
+@media (min-width: 901px) {
+  .menu-mobile,
+  .overlay-menu,
+  .hamburger-btn {
+    display: none !important;
+  }
+}
+
+/* === LIGHT MODE === */
+body.light-mode .menu-mobile {
+  background-color: #d9d9d9;
+}
+
+body.light-mode .menu-mobile ul li a {
+  color: black;
+}
+
+body.light-mode .menu-mobile .btn-contato {
+  background-color: #1ab7d2;
+  color: #d9d9d9 !important;
+}
+
+body.light-mode .menu-mobile .btn-fechar i {
+  color: #1ab7d2;
+}
+
+/* === MENU TOP RIGHT === */
+.menu-top-right button {
+  margin: 0 !important;
+  padding: 0 !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.menu-top-right i {
+  margin: 0 !important;
+  padding: 0 !important;
+  font-size: 1.8rem;
+}
+
+.menu-top-right .hamburger-btn i {
+  font-size: 2.6rem;
+}
+
+.menu-top-right #toggle-mode {
+  font-size: 2rem;
+}
