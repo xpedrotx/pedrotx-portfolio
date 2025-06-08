@@ -118,7 +118,7 @@ body.light-mode #scrollTopBtn span {
 }
 
 body.light-mode footer {
-  box-shadow: 0px 5px 20px rgba(26, 183, 210, 0.21); /* azul/ciano */
+  box-shadow: 0px 5px 20px rgba(26, 183, 210, 0.21);
 }
 
 body.light-mode footer a:hover {
