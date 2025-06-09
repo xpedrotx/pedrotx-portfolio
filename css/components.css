@@ -149,6 +149,7 @@ section.portfolio .flex {
   height: 460px;
   background-size: cover;
   background-position: 100% 0%;
+  transition: 10s;
   cursor: pointer;
   border-radius: 40px;
   position: relative;
@@ -219,12 +220,6 @@ form .btn-enviar button {
   text-align: center;
   margin-top: 10px;
   font-size: 16px;
-}
-
-.captcha-container {
-  text-align: center;
-  display: block;
-  margin: 0 auto;
 }
 
 .spin {
@@ -311,20 +306,8 @@ body.light-mode .btn-contato:hover {
 }
 
 #scrollTopBtn:hover {
-  box-shadow: 0 8px 24px var(--cor-destaque);
-  transform: translateY(-8px) scale(1.1);
-  transition: transform 0.22s cubic-bezier(.5,1.4,.4,.9), box-shadow 0.22s;
-}
-
-.img-port {
-  width: 360px;
-  height: 460px;
-  background-size: cover;
-  background-position: 100% 0%;
-  transition: 10s;
-  cursor: pointer;
-  border-radius: 40px;
-  position: relative;
+  transform: translateY(-6px) scale(1.08);
+  box-shadow: 0 6px 18px var(--cor-destaque);
 }
 
 .img-port:hover {

@@ -160,7 +160,7 @@ window.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Envio do formulário com EmailJS
+  // Envio do formulário com EmailJS (sem reCAPTCHA)
   emailjs.init("EyFjlaZ9pgbY9vl3f");
   const form = document.getElementById("meuFormulario");
   const statusMensagem = document.getElementById("statusMensagem");
@@ -168,53 +168,33 @@ window.addEventListener("DOMContentLoaded", () => {
   const spinner = btnEnviar?.querySelector(".spin") || null;
 
   if (form) {
-form.addEventListener("submit", function (e) {
-  e.preventDefault();
-  grecaptcha.ready(function () {
-    grecaptcha.execute('6LcQm9wqAAAAAJXjLVUI7d-56r_-ZN2A1wepqzUo', { action: 'submit' }).then(function (token) {
-      fetch('https://pedrotx-backend-production.up.railway.app/verify-captcha', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ token })
-      })
-        .then(res => res.json())
-        .then(data => {
-          if (data.success) {
-            console.log("Captcha válido. Pode enviar.");
-            spinner && (spinner.style.display = "inline-block");
-            btnEnviar.disabled = true;
-            statusMensagem.textContent = "";
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
 
-            const data = {
-              nome: form.nome.value,
-              email: form.email.value,
-              mensagem: form.mensagem.value
-            };
+      spinner && (spinner.style.display = "inline-block");
+      btnEnviar.disabled = true;
+      statusMensagem.textContent = "";
 
-            emailjs.send("service_149im5g", "template_wmyjv0i", data)
-              .then(() => {
-                statusMensagem.textContent = "✅ Mensagem enviada com sucesso!";
-                statusMensagem.style.color = "green";
-                form.reset();
-                grecaptcha.reset();
-              })
-              .catch(() => {
-                statusMensagem.textContent = "❌ Erro ao enviar. Tente novamente.";
-                statusMensagem.style.color = "red";
-              })
-              .finally(() => {
-                spinner && (spinner.style.display = "none");
-                btnEnviar.disabled = false;
-              });
+      const data = {
+        nome: form.nome.value,
+        email: form.email.value,
+        mensagem: form.mensagem.value
+      };
 
-          } else {
-            alert("Erro no CAPTCHA.");
-          }
+      emailjs.send("service_149im5g", "template_wmyjv0i", data)
+        .then(() => {
+          statusMensagem.textContent = "✅ Mensagem enviada com sucesso!";
+          statusMensagem.style.color = "green";
+          form.reset();
+        })
+        .catch(() => {
+          statusMensagem.textContent = "❌ Erro ao enviar. Tente novamente.";
+          statusMensagem.style.color = "red";
+        })
+        .finally(() => {
+          spinner && (spinner.style.display = "none");
+          btnEnviar.disabled = false;
         });
     });
-  });
-});
   }
 });

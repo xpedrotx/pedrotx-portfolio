@@ -55,17 +55,6 @@ header a:hover {
   transform: scale(1.05);
 }
 
-/* Botões flutuando */
-header > .topo-actions {
-  position: absolute;
-  top: 20px;
-  right: 40px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  z-index: 1001;
-}
-
 #toggle-mode {
   background: transparent;
   border: none;
