@@ -1,3 +1,11 @@
+(function() {
+  const redirect = sessionStorage.getItem('redirect');
+  sessionStorage.removeItem('redirect');
+  if (redirect && redirect !== location.pathname) {
+    history.replaceState(null, '', redirect);
+  }
+})();
+
 window.addEventListener("DOMContentLoaded", () => {
   // Atualiza ano no rodapé
   const yearEl = document.getElementById("currentYear");
@@ -12,6 +20,35 @@ window.addEventListener("DOMContentLoaded", () => {
       header.style.transform = "translateY(0)";
     }
   }, 300);
+  
+  const smoothScrollTo = (targetId) => {
+    const targetElement = document.querySelector(targetId);
+    if (targetElement) {
+      const offsetTop = targetElement.offsetTop - 90;
+      window.scrollTo({
+        top: offsetTop,
+        behavior: "smooth"
+      });
+    }
+  };
+
+  const handleNavClick = (e) => {
+    e.preventDefault();
+    const targetId = e.currentTarget.getAttribute('href');
+    smoothScrollTo(targetId);
+    const newPath = targetId === '#inicio' ? '/' : `/${targetId.substring(1)}`;
+    history.pushState(null, '', newPath);
+  };
+
+  document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', handleNavClick);
+  });
+
+  window.addEventListener('popstate', () => {
+    const path = window.location.pathname;
+    const targetId = (path === '/' || path === '/index.html' || path === '') ? '#inicio' : `#${path.substring(1)}`;
+    smoothScrollTo(targetId);
+  });
 
   // Animação de scroll (fade-in)
   const elementos = document.querySelectorAll(".fade-img, .fade-text, .fade-in");
