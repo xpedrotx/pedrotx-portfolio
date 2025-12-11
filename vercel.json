@@ -1,0 +1,12 @@
+{
+  "rewrites": [
+    {
+      "source": "/wedding",
+      "destination": "https://pedrotx-wedding.vercel.app/"
+    },
+    {
+      "source": "/wedding/:match*",
+      "destination": "https://pedrotx-wedding.vercel.app/:match*"
+    }
+  ]
+}
