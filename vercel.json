@@ -5,8 +5,8 @@
       "destination": "https://pedrotx-wedding.vercel.app/"
     },
     {
-      "source": "/wedding/:match*",
-      "destination": "https://pedrotx-wedding.vercel.app/:match*"
+      "source": "/wedding/:path*",
+      "destination": "https://pedrotx-wedding.vercel.app/:path*"
     }
   ]
 }
