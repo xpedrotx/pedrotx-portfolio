@@ -1,7 +1,14 @@
 {
-  "rewrites": [
+  "redirects": [
     {
       "source": "/wedding",
+      "destination": "/wedding/",
+      "permanent": true
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/wedding/",
       "destination": "https://pedrotx-wedding.vercel.app/"
     },
     {
