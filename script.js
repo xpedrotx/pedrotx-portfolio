@@ -1,17 +1,76 @@
-(function() {
-  const redirect = sessionStorage.getItem('redirect');
-  sessionStorage.removeItem('redirect');
-  if (redirect && redirect !== location.pathname) {
-    history.replaceState(null, '', redirect);
-  }
-})();
-
-window.addEventListener("DOMContentLoaded", () => {
-  // Atualiza ano no rodapé
+document.addEventListener("DOMContentLoaded", () => {
+  // === 1. ATUALIZAÇÃO DE ANO (RODAPÉ) ===
   const yearEl = document.getElementById("currentYear");
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-  // Fade-in inicial
+  // === 2. GESTÃO DE TEMA (DARK/LIGHT MODE) ===
+  const toggleButton = document.getElementById("toggle-mode");
+  // Seleciona todas as imagens normais e backgrounds que devem mudar
+  const themeImages = document.querySelectorAll(".theme-img");
+  const themeBackgrounds = document.querySelectorAll(".theme-bg");
+
+  const aplicarTema = (tema) => {
+    const isLight = tema === "claro";
+    
+    // 1. Alterna classe no Body (CSS Variáveis fazem o resto das cores)
+    document.body.classList.toggle("light-mode", isLight);
+    localStorage.setItem("modoTema", tema);
+
+    // 2. Troca atributos SRC de imagens normais (Logo, Hero, Sobre)
+    themeImages.forEach(img => {
+      const newSrc = isLight ? img.dataset.imgLight : img.dataset.imgDark;
+      if (newSrc) img.src = newSrc;
+    });
+
+    // 3. Troca Background-Image dos cards de portfólio
+    themeBackgrounds.forEach(bg => {
+      const newBg = isLight ? bg.dataset.imgLight : bg.dataset.imgDark;
+      if (newBg) bg.style.backgroundImage = `url('${newBg}')`;
+    });
+
+    // 4. Troca Ícone do Botão
+    if (toggleButton) {
+      // Se for claro mostra lua (para voltar ao escuro), se for escuro mostra sol
+      toggleButton.innerHTML = isLight 
+        ? '<i class="bi bi-moon-stars-fill"></i>' 
+        : '<i class="bi bi-sun-fill"></i>';
+    }
+  };
+
+  // Carrega tema salvo ou usa o padrão 'escuro'
+  const temaSalvo = localStorage.getItem("modoTema") || "escuro";
+  aplicarTema(temaSalvo);
+
+  // Evento de clique no botão
+  if (toggleButton) {
+    toggleButton.addEventListener("click", () => {
+      const temaAtual = document.body.classList.contains("light-mode") ? "claro" : "escuro";
+      const novoTema = temaAtual === "claro" ? "escuro" : "claro";
+      aplicarTema(novoTema);
+    });
+  }
+
+  // === 3. ANIMAÇÕES DE SCROLL (INTERSECTION OBSERVER) ===
+  const observerOptions = {
+    threshold: 0.15,
+    rootMargin: "0px 0px -50px 0px"
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("active");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  // Observa todos os elementos com classes de fade
+  document.querySelectorAll(".fade-in, .fade-text, .fade-img").forEach(el => {
+    observer.observe(el);
+  });
+
+  // Animação de entrada do Header (Hero)
   setTimeout(() => {
     document.querySelectorAll(".fade-header-effect").forEach(el => el.classList.add("visible"));
     const header = document.querySelector("header");
@@ -20,7 +79,16 @@ window.addEventListener("DOMContentLoaded", () => {
       header.style.transform = "translateY(0)";
     }
   }, 300);
-  
+
+  // Efeito Header Scrolled (Fundo fica sólido ao rolar)
+  const header = document.querySelector("header");
+  if(header){
+      window.addEventListener("scroll", () => {
+          header.classList.toggle("scrolled", window.scrollY > 50);
+      });
+  }
+
+  // === 4. NAVEGAÇÃO SUAVE E MENU MOBILE ===
   const smoothScrollTo = (targetId) => {
     const targetElement = document.querySelector(targetId);
     if (targetElement) {
@@ -32,46 +100,54 @@ window.addEventListener("DOMContentLoaded", () => {
     }
   };
 
-  const handleNavClick = (e) => {
-    e.preventDefault();
-    const targetId = e.currentTarget.getAttribute('href');
-    smoothScrollTo(targetId);
-    const newPath = targetId === '#inicio' ? '/' : `/${targetId.substring(1)}`;
-    history.pushState(null, '', newPath);
-  };
-
-  document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', handleNavClick);
-  });
-
-  window.addEventListener('popstate', () => {
-    const path = window.location.pathname;
-    const targetId = (path === '/' || path === '/index.html' || path === '') ? '#inicio' : `#${path.substring(1)}`;
-    smoothScrollTo(targetId);
-  });
-
-  // Animação de scroll (fade-in)
-  const elementos = document.querySelectorAll(".fade-img, .fade-text, .fade-in");
-  const mostrarElemento = () => {
-    const alturaJanela = window.innerHeight;
-    elementos.forEach(el => {
-      const rect = el.getBoundingClientRect();
-      el.classList.toggle("active", rect.top < alturaJanela * 0.85 && rect.bottom > 50);
+  // Captura cliques em links internos
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', (e) => {
+      e.preventDefault();
+      const targetId = anchor.getAttribute('href');
+      smoothScrollTo(targetId);
+      
+      // Fecha menu mobile se estiver aberto
+      if (menu) {
+        menu.classList.remove("abrir-menu");
+        if (overlay) overlay.style.display = "none";
+      }
     });
-  };
-  mostrarElemento();
-  window.addEventListener("scroll", () => requestAnimationFrame(mostrarElemento));
+  });
 
-  // Barra de progresso
+  // Lógica do Menu Hambúrguer
+  const btnMenu = document.getElementById("hamburger-btn");
+  const menu = document.getElementById("menu-mobile");
+  const overlay = document.getElementById("overlay-menu");
+  const btnFechar = document.querySelector(".btn-fechar");
+
+  if (btnMenu && menu) {
+    btnMenu.addEventListener("click", () => {
+      menu.classList.add("abrir-menu");
+      if (overlay) {
+          overlay.style.display = "block";
+          setTimeout(() => overlay.style.opacity = "1", 10);
+      }
+    });
+
+    const fecharMenu = () => {
+      menu.classList.remove("abrir-menu");
+      if (overlay) {
+          overlay.style.opacity = "0";
+          setTimeout(() => overlay.style.display = "none", 300);
+      }
+    };
+
+    if (overlay) overlay.addEventListener("click", fecharMenu);
+    if (btnFechar) btnFechar.addEventListener("click", fecharMenu);
+  }
+
+  // === 5. BARRA DE PROGRESSO E BOTÃO TOP ===
   const progressBar = document.getElementById("progress-bar");
-  const atualizarBarraProgresso = () => {
-    const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
-    const scrollTop = window.scrollY;
-    if (progressBar) progressBar.style.width = `${(scrollTop / totalHeight) * 100}%`;
-  };
-  window.addEventListener("scroll", atualizarBarraProgresso);
+  const progressBarContainer = document.getElementById("progress-bar-container");
+  const scrollTopBtn = document.getElementById("scrollTopBtn");
 
-  // Animação inicial da barra
+  // Animação inicial de carregamento (fake loader)
   let progresso = 0;
   const intervalo = setInterval(() => {
     progresso += 5;
@@ -79,159 +155,84 @@ window.addEventListener("DOMContentLoaded", () => {
     if (progresso >= 100) {
       clearInterval(intervalo);
       setTimeout(() => {
-        const container = document.getElementById("progress-bar-container");
-        if (container) container.style.display = "none";
+        if (progressBarContainer) progressBarContainer.style.display = "none";
       }, 500);
     }
   }, 50);
 
-  // Botão "voltar ao topo"
-  const scrollTopBtn = document.getElementById("scrollTopBtn");
+  // Evento de Scroll Único para UI
+  window.addEventListener("scroll", () => {
+    const scrollTop = window.scrollY;
+    
+    // Atualiza barra de progresso (se não estiver oculta)
+    if (progressBarContainer && progressBarContainer.style.display !== 'none') {
+        const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+        progressBar.style.width = `${(scrollTop / totalHeight) * 100}%`;
+    }
+
+    // Mostra/Esconde botão voltar ao topo
+    if (scrollTopBtn) {
+      scrollTopBtn.classList.toggle("show", scrollTop > 300);
+    }
+  });
+
   if (scrollTopBtn) {
-    window.addEventListener("scroll", () => {
-      scrollTopBtn.classList.toggle("show", window.scrollY > 200);
-    });
-    scrollTopBtn.addEventListener("click", e => {
+    scrollTopBtn.addEventListener("click", (e) => {
       e.preventDefault();
       window.scrollTo({ top: 0, behavior: "smooth" });
     });
   }
 
-  // === MENU HAMBÚRGUER ===
-  const btnMenu = document.getElementById("hamburger-btn");
-  const menu = document.getElementById("menu-mobile");
-  const overlay = document.getElementById("overlay-menu");
-  const btnFechar = document.querySelector(".btn-fechar");
-  const linksMenu = document.querySelectorAll("#menu-mobile nav ul li a");
-
-  if (btnMenu && menu) {
-    btnMenu.addEventListener("click", () => {
-      menu.classList.add("abrir-menu");
-      if (overlay) overlay.style.display = "block";
-    });
-
-    if (overlay) {
-      overlay.addEventListener("click", () => {
-        menu.classList.remove("abrir-menu");
-        overlay.style.display = "none";
-      });
-    }
-
-    if (btnFechar) {
-      btnFechar.addEventListener("click", () => {
-        menu.classList.remove("abrir-menu");
-        if (overlay) overlay.style.display = "none";
-      });
-    }
-
-    linksMenu.forEach(link => {
-      link.addEventListener("click", () => {
-        menu.classList.remove("abrir-menu");
-        if (overlay) overlay.style.display = "none";
-      });
-    });
-  }
-
-  // Tema claro/escuro com persistência + imagens dinâmicas
-  const toggleButton = document.getElementById("toggle-mode");
-  const favicon = document.querySelector("link[rel='icon']");
-  const imgTopoSite = document.querySelector(".topo-do-site .img-topo-site img");
-  const imgSobre = document.querySelector(".img-sobre img");
-  const logoHeader = document.querySelector("header .logo img");
-  const logoFooter = document.querySelector("footer .logo-footer img");
-  const portfolioImages = document.querySelectorAll(".img-port");
-
-  const imagensTema = {
-    claro: {
-      favicon: "images/icone_aba_white.png",
-      imgTopo: "images/pedrotxdev_white.png",
-      imgSobre: "images/foto_sobre_mim_white.png",
-      logoHeader: "images/logo_pedrotxdev_white.png",
-      logoFooter: "images/logo_pedrotxdev_white.png",
-      portfolio: [
-        "images/portfolio-1-white.png",
-        "images/portfolio-2-white.png",
-        "images/portfolio-3-white.png"
-      ]
-    },
-    escuro: {
-      favicon: "images/icone_aba.png",
-      imgTopo: "images/pedrotxdev.png",
-      imgSobre: "images/foto_sobre_mim.png",
-      logoHeader: "images/logo_pedrotxdev.png",
-      logoFooter: "images/logo_pedrotxdev.png",
-      portfolio: [
-        "images/portfolio-1.png",
-        "images/portfolio-2.png",
-        "images/portfolio-3.png"
-      ]
-    }
-  };
-
-  const aplicarTema = tema => {
-    document.body.classList.toggle("light-mode", tema === "claro");
-    localStorage.setItem("modoTema", tema);
-    const config = imagensTema[tema];
-    if (favicon) favicon.href = config.favicon;
-    if (imgTopoSite) imgTopoSite.src = config.imgTopo;
-    if (imgSobre) imgSobre.src = config.imgSobre;
-    if (logoHeader) logoHeader.src = config.logoHeader;
-    if (logoFooter) logoFooter.src = config.logoFooter;
-    portfolioImages.forEach((img, i) => {
-      img.style.backgroundImage = `url('${config.portfolio[i]}')`;
-    });
-    if (toggleButton) {
-      toggleButton.innerHTML = tema === "claro"
-        ? '<i class="bi bi-moon-fill"></i>'
-        : '<i class="bi bi-brightness-high" style="color: white !important;"></i>';
-    }
-  };
-
-  const temaSalvo = localStorage.getItem("modoTema") || "escuro";
-  aplicarTema(temaSalvo);
-
-  if (toggleButton) {
-    toggleButton.addEventListener("click", () => {
-      const novoTema = document.body.classList.contains("light-mode") ? "escuro" : "claro";
-      aplicarTema(novoTema);
-    });
-  }
-
-  // Envio do formulário com EmailJS (sem reCAPTCHA)
-  emailjs.init("EyFjlaZ9pgbY9vl3f");
+// === 6. FORMULÁRIO COM API PRÓPRIA ===
   const form = document.getElementById("meuFormulario");
-  const statusMensagem = document.getElementById("statusMensagem");
-  const btnEnviar = document.getElementById("btnEnviar");
-  const spinner = btnEnviar?.querySelector(".spin") || null;
-
   if (form) {
-    form.addEventListener("submit", function (e) {
+    const statusMensagem = document.getElementById("statusMensagem");
+    const btnEnviar = document.getElementById("btnEnviar");
+    const spinner = btnEnviar?.querySelector(".spin");
+
+    form.addEventListener("submit", async function (e) {
       e.preventDefault();
 
-      spinner && (spinner.style.display = "inline-block");
+      // UI Loading
+      if(spinner) spinner.style.display = "inline-block";
       btnEnviar.disabled = true;
-      statusMensagem.textContent = "";
+      statusMensagem.textContent = "Enviando...";
+      statusMensagem.style.color = "var(--cor-texto)"; 
 
+      // Dados para enviar
       const data = {
         nome: form.nome.value,
         email: form.email.value,
         mensagem: form.mensagem.value
       };
 
-      emailjs.send("service_149im5g", "template_wmyjv0i", data)
-        .then(() => {
-          statusMensagem.textContent = "✅ Mensagem enviada com sucesso!";
-          statusMensagem.style.color = "green";
-          form.reset();
-        })
-        .catch(() => {
-          statusMensagem.textContent = "❌ Erro ao enviar. Tente novamente.";
-          statusMensagem.style.color = "red";
-        })
-        .finally(() => {
-          spinner && (spinner.style.display = "none");
-          btnEnviar.disabled = false;
+      try {
+        const response = await fetch('/api/send-email', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data),
         });
+
+        if (response.ok) {
+          statusMensagem.textContent = "✅ Mensagem enviada com sucesso!";
+          statusMensagem.style.color = "green"; 
+          form.reset();
+        } else {
+          throw new Error('Falha no envio');
+        }
+      } catch (error) {
+        console.error("Erro API:", error);
+        statusMensagem.textContent = "❌ Erro ao enviar. Tente novamente.";
+        statusMensagem.style.color = "red";
+      } finally {
+        if(spinner) spinner.style.display = "none";
+        btnEnviar.disabled = false;
+        setTimeout(() => {
+            statusMensagem.textContent = "";
+        }, 5000);
+      }
     });
   }
 });

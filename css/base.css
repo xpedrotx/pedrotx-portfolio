@@ -1,17 +1,49 @@
-/* === VARIÁVEIS CSS === */
-html {
-  scroll-behavior: smooth !important;
-}
+/* === VARIÁVEIS & MOTOR DE TEMA === */
 :root {
-  --cor-fundo: #000000;
-  --cor-texto: #ffffff;
-  --cor-destaque: red;
-  --cor-primaria: #1ab7d2;
-  --cor-secundaria: #d9d9d9;
-  --cor-hover: rgba(255, 0, 0, 0.3);
+  --c-black: #000000;
+  --c-white: #ffffff;
+  --c-red: red;
+  --c-cyan: #1ab7d2;
+  --c-gray-light: #d9d9d9;
+  --c-gray-dark: #2d2d2d;
+  --c-gray-mid: #464646;
 
+  /* === TEMA PADRÃO (DARK) === */
+  --cor-fundo: var(--c-black);
+  --cor-texto: var(--c-white);
+  --cor-destaque: var(--c-red);
+  
+  /* Header e Navegação */
+  --bg-header-scrolled: rgba(0, 0, 0, 0.95);
+  --nav-link-color: rgb(119, 119, 119);
+  --nav-link-hover: var(--cor-texto);
+
+  /* Formulários e Cards */
+  --bg-input: var(--c-gray-dark);
+  --color-input-text: var(--c-white);
+  --border-input: 1px solid transparent;
+  --border-box: 2px solid gray;
+  --shadow-suave: rgba(255, 0, 0, 0.212);
   --font-padrao: 'Poppins', Arial, sans-serif;
   --transition-padrao: 0.2s ease-in-out;
+}
+
+/* === TEMA CLARO (LIGHT MODE) === */
+body.light-mode {
+  --cor-fundo: var(--c-gray-light);
+  --cor-texto: var(--c-black);
+  --cor-destaque: var(--c-cyan);
+
+  --bg-header-scrolled: var(--c-gray-light);
+  --nav-link-color: var(--c-gray-mid);
+  --nav-link-hover: var(--c-black);
+
+  --bg-input: #e1e1e1;
+  --color-input-text: var(--c-black);
+  --border-input: 1px solid #ccc;
+  --border-box: 2px solid var(--c-black);
+
+  --shadow-suave: rgba(26, 183, 210, 0.21);
 }
 
 /* === RESET & BASE === */
@@ -22,10 +54,15 @@ html {
   font-family: var(--font-padrao);
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background-color: var(--cor-fundo);
   color: var(--cor-texto);
   padding-top: 90px;
+  transition: background-color 0.3s ease, color 0.3s ease; 
 }
 
 .interface {
@@ -38,6 +75,46 @@ body {
   display: flex;
 }
 
+/* === UTILITÁRIOS === */
+a.btn-contato,
+a.btn-voltar-site,
+.btn-contato button,
+form .btn-enviar button,
+button {
+  padding: 10px 40px;
+  font-size: 18px;
+  font-weight: 600;
+  background-color: var(--cor-destaque); 
+  color: #000000; 
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: var(--transition-padrao);
+  
+  /* Propriedades essenciais para tags <a> se comportarem como botões */
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+  line-height: normal;
+}
+
+/* Hover Effects para todos os botões acima */
+a.btn-contato:hover,
+a.btn-voltar-site:hover,
+.btn-contato button:hover,
+form .btn-enviar button:hover,
+button:hover {
+  box-shadow: 0px 0px 15px var(--cor-destaque);
+  transform: scale(1.05);
+  color: #000000; 
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: var(--transition-padrao);
+}
+
 h2.titulo {
   font-size: 37px;
   text-align: center;
@@ -48,125 +125,27 @@ h2.titulo span {
   color: var(--cor-destaque);
 }
 
-/* === BOTÕES === */
-button,
-.btn-contato button,
-form .btn-enviar button {
-  padding: 10px 40px;
-  font-size: 18px;
-  font-weight: 600;
-  background-color: var(--cor-destaque);
-  border: none;
-  border-radius: 30px;
-  cursor: pointer;
-  transition: var(--transition-padrao);
-  color: black;
-}
-
-.btn-contato button:hover,
-form .btn-enviar button:hover {
-  box-shadow: 0px 0px 8px var(--cor-destaque);
-  transform: scale(1.05);
-}
-
-/* === LINKS === */
-a {
-  text-decoration: none;
-  color: inherit;
-  transition: var(--transition-padrao);
-}
-
-a:hover {
-  color: var(--cor-destaque);
-}
-
 /* === ANIMAÇÕES === */
 @keyframes flutuar {
-  0% {
-    transform: translateY(0);
-  }
-  100% {
-    transform: translateY(15px);
-  }
+  0% { transform: translateY(0); }
+  100% { transform: translateY(15px); }
 }
 
 @keyframes spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
 
-/* === CLASSES DE UTILIDADE === */
-.text-center {
-  text-align: center;
-}
-
-.mt-20 {
-  margin-top: 20px;
-}
-
-.mb-20 {
-  margin-bottom: 20px;
-}
-
-.p-4 {
-  padding: 1rem;
-}
-
-.hidden {
-  display: none !important;
-}
-
-/* === TRANSIÇÃO FADE === */
-.fade-in,
-.fade-text,
-.fade-img {
+/* Fade Classes */
+.fade-in, .fade-text, .fade-img {
   opacity: 0;
   transform: translateY(40px);
   transition: opacity 1s ease-out, transform 1s ease-out;
 }
 
-.fade-in.active,
-.fade-text.active,
-.fade-img.active {
+.fade-in.active, .fade-text.active, .fade-img.active {
   opacity: 1;
   transform: translateY(0);
-}
-
-.btn-social button {
-  width: 48px;
-  height: 48px;
-  border-radius: 50% !important;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0;
-  font-size: 1.6rem;
-  background: var(--cor-destaque);
-  color: black !important;
-  transition: box-shadow 0.2s, background 0.2s, color 0.2s;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.10);
-  border: none;
-  margin: 0;
-}
-
-.btn-social button:hover {
-  background: var(--cor-destaque);
-  box-shadow: 0 4px 16px var(--cor-destaque);
-  transform: scale(1.07);
-}
-
-
-.btn-social {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 5px;
-  margin: 8px 0;
 }
 
 .fade-header-effect {

@@ -1,23 +1,21 @@
-
 /* === LAYOUT: HEADER === */
 header {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  background-color: var(--cor-fundo);
+  background-color: transparent; 
   z-index: 1000;
   opacity: 0;
   transform: translateY(-50px);
-  transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out, opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+  transition: background-color 0.3s ease-in-out, opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
   display: flex;
   justify-content: center;
 }
 
-
 header.scrolled {
-  background-color: rgba(0, 0, 0, 0.95);
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+  background-color: var(--bg-header-scrolled); 
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
   opacity: 1;
   transform: translateY(0);
 }
@@ -29,6 +27,7 @@ header .interface {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 4%;
+  width: 100%;
 }
 
 header .logo img {
@@ -46,33 +45,30 @@ header nav ul li {
 }
 
 header a {
-  color: rgb(119, 119, 119);
+  color: var(--nav-link-color); 
   text-decoration: none;
   display: inline-block;
-  transition: var(--transition-padrao);
+  transition: color 0.2s, transform 0.2s;
 }
 
 header a:hover {
-  color: var(--cor-texto);
+  color: var(--nav-link-hover); 
   transform: scale(1.05);
 }
 
 #toggle-mode {
   background: transparent;
   border: none;
-  font-size: 2rem;
+  font-size: 1.8rem;
   cursor: pointer;
-  outline: none;
-  box-shadow: none;
+  color: var(--cor-texto); 
+  padding: 0 15px;
 }
 
-#toggle-mode:focus,
-#toggle-mode:active,
 #toggle-mode:hover {
-  outline: none !important;
-  box-shadow: none !important;
-  border: none !important;
-  transform: none !important;
+  transform: scale(1.1);
+  box-shadow: none;
+  background: transparent;
 }
 
 /* === LAYOUT: MAIN === */
@@ -88,18 +84,10 @@ section {
 
 section.formulario {
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 60px 4%;
 }
 
-#formulario,
-#inicio,
-#sobre,
-#especialidades,
-#projetos {
+/* Scroll margin para âncoras não ficarem escondidas pelo header */
+#formulario, #inicio, #sobre, #especialidades, #projetos {
   scroll-margin-top: 100px;
 }
 
@@ -108,11 +96,16 @@ footer {
   padding: 20px 8%;
   background-color: var(--cor-fundo);
   color: var(--cor-texto);
-  box-shadow: 0px 5px 20px rgba(255, 0, 0, 0.212);
+  box-shadow: 0px -10px 100px var(--shadow-suave); 
+  
+  transition: box-shadow 0.3s ease;
+  z-index: 10; 
+  position: relative;
 }
 
 footer .flex {
   justify-content: space-between;
+  align-items: center;
 }
 
 footer .line-footer {
@@ -122,7 +115,7 @@ footer .line-footer {
 .logo-footer img {
   max-width: 90px;
   height: auto;
-  transition: transform var(--transition-padrao);
+  transition: transform 0.2s;
 }
 
 .logo-footer img:hover {
@@ -143,4 +136,3 @@ footer a:hover {
   border-top: 2px solid var(--cor-destaque);
   color: var(--cor-texto);
 }
-

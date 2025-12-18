@@ -6,31 +6,25 @@
   <meta name="author" content="Pedro Teixeira" />
   <meta name="robots" content="index, follow" />
   <meta name="description" content="Pedrotx, desenvolvedor especializado em HTML, Python e JavaScript, criando soluções digitais com design e inovação." />
-  <meta property="og:title" content="PEDROTXDEV - Portfólio" />
+  <meta property="og:title" content="PEDROTX - Portfólio" />
   <meta property="og:description" content="Portfólio de Pedro Teixeira, desenvolvedor de soluções criativas e eficientes com HTML, JavaScript e Python." />
   <meta property="og:image" content="https://pedrotxdev.com/images/pedrotxdev.png" />
   <link rel="canonical" href="https://pedrotxdev.com/" />
 
   <title>Pedrotx</title>
-  <link rel="icon" href="images/icone_aba.png" type="image/x-icon" />
+  <link id="favicon" rel="icon" href="images/icone_aba.png" type="image/x-icon" />
 
-  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
 
-  <!-- Bootstrap Icons -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" />
 
-  <!-- Estilo -->
   <link rel="stylesheet" href="css/base.css" />
   <link rel="stylesheet" href="css/layout.css" />
   <link rel="stylesheet" href="css/components.css" />
-  <link rel="stylesheet" href="css/themes.css" />
   <link rel="stylesheet" href="css/mobile.css" />
 
-  <!-- EmailJS -->
-  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 </head>
 <body>
   <div id="progress-bar-container">
@@ -41,11 +35,14 @@
   <div class="interface">
     <div class="logo">
       <a href="index.html">
-        <img src="images/logo_pedrotxdev.png" alt="Logo do desenvolvedor Pedro Teixeira" />
+        <img src="images/logo_pedrotxdev.png" 
+             alt="Logo do desenvolvedor Pedro Teixeira" 
+             class="theme-img"
+             data-img-dark="images/logo_pedrotxdev.png"
+             data-img-light="images/logo_pedrotxdev_white.png" />
       </a>
     </div>
 
-    <!-- Menu Desktop -->
     <nav class="menu-desktop">
       <ul>
         <li><a href="#inicio">Início</a></li>
@@ -55,9 +52,10 @@
       </ul>
     </nav>
 
-    <!-- Botões no topo -->
     <div class="menu-top-right">
-      <button id="toggle-mode" aria-label="Alternar modo claro/escuro">🌞</button>
+      <button id="toggle-mode" aria-label="Alternar modo claro/escuro">
+        <i class="bi bi-moon-fill"></i>
+      </button>
       <button id="hamburger-btn" class="hamburger-btn" aria-label="Abrir menu">
         <i class="bi bi-list"></i>
       </button>
@@ -65,7 +63,6 @@
   </div>
 </header>
 
-<!-- Menu Mobile -->
 <nav class="menu-mobile" id="menu-mobile">
   <div class="btn-fechar">
     <i class="bi bi-x-lg"></i>
@@ -88,12 +85,14 @@
           <div class="txt-topo-site fade-text">
             <h1 class="fade-header-effect">OLÁ, SEJA <span class="fade-header-effect">BEM-VINDO</span>!</h1>
             <p class="fade-header-effect">Sou estudante de Engenharia de Software e moro no Paraná, Brasil. Trabalho especialmente com aplicações web, e meu objetivo é sempre surpreender criando projetos com forte apelo visual e funcionalidades inteligentes. Acredito que uma boa experiência é aquela que combina estética marcante e usabilidade intuitiva. Fique à vontade para conhecer um pouco mais do meu trabalho!</p>
-            <div class="btn-contato fade-header-effect">
-              <a href="#formulario" class="btn-contato">Entre em contato</a>
-            </div>
+            <a href="#formulario" class="btn-contato fade-header-effect">Entre em contato</a>
           </div>
           <div class="img-topo-site fade-img">
-            <img src="images/pedrotxdev.png" alt="foto pedrotxdev" />
+            <img src="images/pedrotxdev.png" 
+                 alt="foto pedrotx" 
+                 class="theme-img"
+                 data-img-dark="images/pedrotxdev.png"
+                 data-img-light="images/pedrotxdev_white.png" />
           </div>
         </div>
       </div>
@@ -103,7 +102,11 @@
       <div class="interface">
         <div class="flex">
           <div class="img-sobre fade-img">
-            <img src="images/foto_sobre_mim.png" alt="foto Pedro Teixeira" />
+            <img src="images/foto_sobre_mim.png" 
+                 alt="foto Pedro Teixeira" 
+                 class="theme-img"
+                 data-img-dark="images/foto_sobre_mim.png"
+                 data-img-light="images/foto_sobre_mim_white.png" />
           </div>
           <div class="txt-sobre fade-text">
             <h2>PRAZER! ME CHAMO <br><span>PEDRO TEIXEIRA</span>.</h2>
@@ -116,7 +119,7 @@
               <a href="https://github.com/xpedrotx" target="_blank" aria-label="GitHub">
                 <button><i class="bi bi-github" aria-hidden="true"></i></button>
               </a>
-              <a href="mailto:contato@pedrotxdev.com" target="_blank" aria-label="Email">
+              <a href="mailto:contato@pedrotx.com.br" target="_blank" aria-label="Email">
                 <button><i class="bi bi-envelope-at-fill" aria-hidden="true"></i></button>
               </a>
             </div>
@@ -152,13 +155,24 @@
       <div class="interface">
         <h2 class="titulo">MEU <span>PORTFÓLIO</span>.</h2>
         <div class="flex">
-          <div class="img-port" style="background-image:url(images/portfolio-1.png);">
+          <div class="img-port theme-bg" 
+               style="background-image:url(images/portfolio-1.png);"
+               data-img-dark="images/portfolio-1.png"
+               data-img-light="images/portfolio-1-white.png">
             <div class="overlay">portfolio pedrotx</div>
           </div>
-          <a href="https://www.pedrotx.com.br/wedding/" target="_blank" rel="noopener noreferrer" class="img-port" style="background-image:url(images/portfolio-2.png);">
-            <div class="overlay">site para casamento</div>
+
+          <a href="https://www.pedrotx.com.br/wedding/" target="_blank" rel="noopener noreferrer" 
+             class="img-port theme-bg" 
+             style="background-image:url(images/portfolio-2.png);"
+             data-img-dark="images/portfolio-2.png"
+             data-img-light="images/portfolio-2-white.png"> <div class="overlay">site para casamento</div>
           </a>
-          <div class="img-port" style="background-image:url(images/portfolio-3.png);">
+
+          <div class="img-port theme-bg" 
+               style="background-image:url(images/portfolio-3.png);"
+               data-img-dark="images/portfolio-3.png"
+               data-img-light="images/portfolio-3-white.png">
             <div class="overlay">portfolio pedrotx</div>
           </div>
         </div>
@@ -194,8 +208,12 @@
       <div class="line-footer">
         <div class="flex">
           <div class="logo-footer">
-            <a href="https://pedrotxdev.com/index.html">
-              <img src="images/logo_pedrotxdev.png" alt="logo pedrotxdev" />
+            <a href="index.html">
+              <img src="images/logo_pedrotxdev.png" 
+                   alt="logo pedrotx" 
+                   class="theme-img"
+                   data-img-dark="images/logo_pedrotxdev.png"
+                   data-img-light="images/logo_pedrotxdev_white.png" />
             </a>
           </div>
           <div class="btn-social">
@@ -205,7 +223,7 @@
             <a href="https://github.com/xpedrotx" target="_blank" aria-label="GitHub">
               <button><i class="bi bi-github" aria-hidden="true"></i></button>
             </a>
-            <a href="mailto:contato@pedrotxdev.com" target="_blank" aria-label="Email">
+            <a href="mailto:contato@pedrotx.com.br" target="_blank" aria-label="Email">
               <button><i class="bi bi-envelope-at-fill" aria-hidden="true"></i></button>
             </a>
           </div>
@@ -213,7 +231,7 @@
       </div>
       <div class="line-footer borda">
         <div class="footer-bottom">
-          <p>&copy; 2023-<span id="currentYear"></span> PEDROTXDEV. Todos os direitos reservados.</p>
+          <p>&copy; 2023-<span id="currentYear"></span> PEDROTX. Todos os direitos reservados.</p>
           <p><a href="legal/termos-de-uso.html">Termos de Uso</a> | <a href="legal/politica-de-privacidade.html">Política de Privacidade</a></p>
         </div>
       </div>

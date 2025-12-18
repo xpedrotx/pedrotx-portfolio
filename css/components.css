@@ -4,6 +4,7 @@ section.topo-do-site {
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative; 
 }
 
 section.topo-do-site .flex {
@@ -64,7 +65,7 @@ section.especialidades .flex {
   color: var(--cor-texto);
   padding: 30px;
   border-radius: 40px;
-  border: 2px solid gray;
+  border: var(--border-box); 
   margin-top: 45px;
   transition: var(--transition-padrao);
 }
@@ -128,6 +129,24 @@ section.sobre .flex {
   height: auto;
 }
 
+/* BOTOES SOCIAIS */
+.btn-social {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.btn-social button {
+  width: 50px;
+  height: 50px;
+  border-radius: 50% !important;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+}
+
 /* === COMPONENTES: PORTFÓLIO === */
 section.portfolio {
   min-height: 100vh;
@@ -136,12 +155,18 @@ section.portfolio {
   justify-content: center;
   align-items: center;
   padding: 60px 4%;
-  box-shadow: 0 0 40px 10px var(--cor-destaque);
+  box-shadow: 0 0 40px 10px var(--cor-destaque); 
+  transition: box-shadow 0.3s ease;
+  z-index: 1;
+  position: relative;
 }
 
 section.portfolio .flex {
   justify-content: space-around;
   margin-top: 60px;
+  width: 100%;
+  flex-wrap: wrap;
+  gap: 20px;
 }
 
 .img-port {
@@ -149,11 +174,12 @@ section.portfolio .flex {
   height: 460px;
   background-size: cover;
   background-position: 100% 0%;
-  transition: 10s;
+  transition: background-position 5s ease-in-out; 
   cursor: pointer;
   border-radius: 40px;
   position: relative;
 }
+
 
 .img-port:hover {
   background-position: 100% 100%;
@@ -165,7 +191,7 @@ section.portfolio .flex {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.385);
+  background-color: rgba(0, 0, 0, 0.5);
   border-radius: 40px;
   display: flex;
   align-items: center;
@@ -193,13 +219,14 @@ form {
 form input,
 form textarea {
   width: 100%;
-  background-color: rgb(45, 45, 45);
-  border: 0;
+  background-color: var(--bg-input); 
+  border: var(--border-input);      
   outline: 0;
   padding: 20px 15px;
   border-radius: 15px;
-  color: white;
+  color: var(--color-input-text);   
   font-size: 18px;
+  transition: background-color 0.3s, color 0.3s, border 0.3s;
 }
 
 form textarea {
@@ -224,79 +251,26 @@ form .btn-enviar button {
 
 .spin {
   animation: spin 1s linear infinite;
-  -webkit-text-stroke: 1px black;
-}
-
-.btn-contato {
-  background-color: red;
-  color: black;
-  padding: 10px 40px;
-  font-size: 18px;
-  font-weight: 600;
-  border-radius: 30px;
-  text-decoration: none;
-  transition: 0.2s;
   display: inline-block;
 }
 
-.btn-contato:hover {
-  box-shadow: 0px 0px 8px red;
-  transform: scale(1.05);
-  color: black !important;
-}
-
-/* Estilo no modo claro */
-body.light-mode .btn-contato {
-  background-color: #1ab7d2;
-  color: white;
-}
-
-body.light-mode .btn-contato:hover {
-  box-shadow: 0 0 8px #1ab7d2;
-  color: white !important;
-}
-
-.voltar-container {
-  text-align: right;
-  margin-bottom: 20px;
-}
-
-.btn-voltar-site {
-  background-color: red;
-  color: black;
-  padding: 10px 40px;
-  font-size: 18px;
-  font-weight: 600;
-  border-radius: 30px;
-  text-decoration: none;
-  transition: 0.2s;
-  display: inline-block;
-}
-
-.btn-voltar-site:hover {
-  box-shadow: 0px 0px 8px red;
-  transform: scale(1.05);
-  color: black !important;
-}
-
+/* Scroll Top Button */
 #scrollTopBtn {
   position: fixed;
   bottom: 20px;
   right: 20px;
   background-color: var(--cor-destaque);
-  color: black;
+  color: #000;
   font-size: 18px;
   padding: 10px 20px;
   border: none;
   border-radius: 30px;
   cursor: pointer;
   z-index: 1000;
-  align-items: center;
-  justify-content: center;
   opacity: 0;
   pointer-events: none;
   transform: translateY(80px);
-  transition: opacity 0.4s cubic-bezier(.48,1.2,.44,.93), transform 0.4s cubic-bezier(.48,1.2,.44,.93);
+  transition: all 0.4s cubic-bezier(.48,1.2,.44,.93);
 }
 
 #scrollTopBtn.show {
@@ -310,6 +284,48 @@ body.light-mode .btn-contato:hover {
   box-shadow: 0 6px 18px var(--cor-destaque);
 }
 
-.img-port:hover {
-  background-position: 100% 100%;
+/* === CONTAINER DO BOTÃO VOLTAR (Páginas Legais) === */
+.voltar-container {
+  text-align: right;
+  margin: 20px 0; 
+}
+
+/* === EFEITO SMOKE (FUMAÇA/DEGRADÊ) === */
+.smoke-top,
+.smoke-bottom {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 150px; 
+  pointer-events: none; 
+  z-index: 2; 
+}
+
+.smoke-top {
+  top: 0;
+  background: linear-gradient(to bottom, var(--cor-fundo), transparent);
+}
+
+.smoke-bottom {
+  bottom: 0;
+  background: linear-gradient(to top, var(--cor-fundo), transparent);
+}
+.smoke-top,
+.smoke-bottom {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 150px; 
+  pointer-events: none; 
+  z-index: 2; 
+}
+
+.smoke-top {
+  top: 0;
+  background: linear-gradient(to bottom, var(--cor-fundo), transparent);
+}
+
+.smoke-bottom {
+  bottom: 0;
+  background: linear-gradient(to top, var(--cor-fundo), transparent);
 }
