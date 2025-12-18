@@ -197,17 +197,17 @@ document.addEventListener("DOMContentLoaded", () => {
       if(spinner) spinner.style.display = "inline-block";
       btnEnviar.disabled = true;
       statusMensagem.textContent = "Enviando...";
-      statusMensagem.style.color = "var(--cor-texto)"; 
+      statusMensagem.style.color = "var(--cor-texto)";
 
+      // Pega o token do Turnstile (se existir)
       const formData = new FormData(form);
       const token = formData.get('cf-turnstile-response');
 
-      // Dados para enviar
       const data = {
         nome: form.nome.value,
         email: form.email.value,
         mensagem: form.mensagem.value,
-        token: token
+        token: token // Envia o token se tiver, se não tiver vai undefined
       };
 
       try {
@@ -219,23 +219,33 @@ document.addEventListener("DOMContentLoaded", () => {
           body: JSON.stringify(data),
         });
 
+        // A MÁGICA: Ler a resposta do servidor (seja sucesso ou erro)
+        const result = await response.json();
+
         if (response.ok) {
-          statusMensagem.textContent = "✅ Mensagem enviada com sucesso!";
-          statusMensagem.style.color = "green"; 
+          // Sucesso 200
+          statusMensagem.textContent = "✅ " + result.message;
+          statusMensagem.style.color = "green"; // Ou var(--cor-destaque)
           form.reset();
+          // Reseta o Widget do Cloudflare se ele existir
+          if (window.turnstile) window.turnstile.reset();
         } else {
-          throw new Error('Falha no envio');
+          // Erro (400, 403, 500) - Mostra a mensagem exata do backend
+          // Ex: "Sua mensagem é muito curta..." ou "Erro de segurança"
+          throw new Error(result.message || 'Falha desconhecida no envio.');
         }
       } catch (error) {
         console.error("Erro API:", error);
-        statusMensagem.textContent = "❌ Erro ao enviar. Tente novamente.";
-        statusMensagem.style.color = "red";
+        // Exibe o erro bonitinho para o usuário
+        statusMensagem.textContent = "⚠️ " + error.message;
+        statusMensagem.style.color = "red"; // Vermelho para chamar atenção
       } finally {
         if(spinner) spinner.style.display = "none";
         btnEnviar.disabled = false;
+        // Remove a mensagem depois de 7 segundos
         setTimeout(() => {
             statusMensagem.textContent = "";
-        }, 5000);
+        }, 7000);
       }
     });
   }
