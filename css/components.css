@@ -319,13 +319,3 @@ form .btn-enviar button {
   pointer-events: none; 
   z-index: 2; 
 }
-
-.smoke-top {
-  top: 0;
-  background: linear-gradient(to bottom, var(--cor-fundo), transparent);
-}
-
-.smoke-bottom {
-  bottom: 0;
-  background: linear-gradient(to top, var(--cor-fundo), transparent);
-}
