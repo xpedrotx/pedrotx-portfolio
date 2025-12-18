@@ -199,11 +199,15 @@ document.addEventListener("DOMContentLoaded", () => {
       statusMensagem.textContent = "Enviando...";
       statusMensagem.style.color = "var(--cor-texto)"; 
 
+      const formData = new FormData(form);
+      const token = formData.get('cf-turnstile-response');
+
       // Dados para enviar
       const data = {
         nome: form.nome.value,
         email: form.email.value,
-        mensagem: form.mensagem.value
+        mensagem: form.mensagem.value,
+        token: token
       };
 
       try {
