@@ -346,3 +346,9 @@ form .btn-enviar button {
   pointer-events: none; 
   z-index: 2; 
 }
+
+/* Centraliza o widget do Turnstile */
+.cf-turnstile {
+  align-self: center;
+  margin-bottom: 0px; 
+}
