@@ -29,7 +29,7 @@ export default async function handler(req, res) {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        secret: process.env.TURNSTILE_SECRET,
+        secret: process.env.CLOUDFLARE_SECRET,
         response: token,
       }),
     });
