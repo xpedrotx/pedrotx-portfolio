@@ -29,7 +29,7 @@ export default async function handler(req, res) {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        secret: process.env.CLOUDFLARE_SECRET,
+        secret: process.env.TURNSTILE_SECRET,
         response: token,
       }),
     });
@@ -78,12 +78,12 @@ export default async function handler(req, res) {
           <p><strong>Mensagem:</strong></p>
           <div style="background: #f9f9f9; padding: 15px; border-radius: 8px; border-left: 4px solid #1ab7d2;">
             ${mensagem
-              .replace(/&/g, "&amp;")
-              .replace(/</g, "&lt;")
-              .replace(/>/g, "&gt;")
-              .replace(/"/g, "&quot;")
-              .replace(/'/g, "&#039;")
-              .replace(/\n/g, '<br>')}
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+            .replace(/"/g, "&quot;")
+            .replace(/'/g, "&#039;")
+            .replace(/\n/g, '<br>')}
           </div>
           <p style="font-size: 12px; color: #999; margin-top: 20px;">
             Enviado via formulário seguro do site.
