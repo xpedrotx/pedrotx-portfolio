@@ -37,11 +37,27 @@ header .logo img {
 
 header nav ul {
   list-style-type: none;
+  display: flex;       
+  gap: 3vw;            
+  justify-content: center;
+  margin: 0;
+  padding: 0;
 }
 
 header nav ul li {
-  display: inline-block;
-  padding: 0 40px;
+  display: block;     
+  padding: 0;          
+}
+
+
+header .interface {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2%;      
+  width: 100%;
 }
 
 header a {
@@ -74,19 +90,18 @@ header a:hover {
 /* === LAYOUT: MAIN === */
 section {
   scroll-snap-align: start;
-  min-height: 90vh;
+  min-height: 100vh; 
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 60px 4%;
+  padding: 120px 4% 80px 4%; 
 }
 
 section.formulario {
   min-height: 100vh;
 }
 
-/* Scroll margin para âncoras não ficarem escondidas pelo header */
 #formulario, #inicio, #sobre, #especialidades, #projetos {
   scroll-margin-top: 100px;
 }
@@ -135,4 +150,27 @@ footer a:hover {
 .borda {
   border-top: 2px solid var(--cor-destaque);
   color: var(--cor-texto);
+}
+
+/* CONTAINER SUPERIOR DIREITO (CONTATO + TEMA) */
+
+.menu-top-right {
+  display: flex;
+  align-items: center;
+  gap: 15px; 
+}
+
+/* Estilo do botão Contato quando está no Topo */
+.menu-top-right .btn-contato {
+  font-size: 14px;        
+  padding: 8px 20px;       
+  border-radius: 20px;
+  color: #000000 !important; 
+  white-space: nowrap;
+  display: inline-block;
+}
+
+.menu-top-right .btn-contato:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px var(--cor-destaque);
 }

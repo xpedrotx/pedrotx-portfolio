@@ -61,7 +61,6 @@ html {
 body {
   background-color: var(--cor-fundo);
   color: var(--cor-texto);
-  padding-top: 90px;
   transition: background-color 0.3s ease, color 0.3s ease; 
 }
 
@@ -90,15 +89,12 @@ button {
   border-radius: 30px;
   cursor: pointer;
   transition: var(--transition-padrao);
-  
-  /* Propriedades essenciais para tags <a> se comportarem como botões */
   text-decoration: none;
   display: inline-block;
   text-align: center;
   line-height: normal;
 }
 
-/* Hover Effects para todos os botões acima */
 a.btn-contato:hover,
 a.btn-voltar-site:hover,
 .btn-contato button:hover,
@@ -157,3 +153,4 @@ h2.titulo span {
   opacity: 1;
   transform: translateY(0);
 }
+

@@ -36,13 +36,11 @@ export default async function handler(req, res) {
 
     const cfData = await cfVerify.json();
 
-    // Se o Cloudflare respondeu e disse que é ROBÔ, a gente bloqueia.
     if (!cfData.success) {
       return res.status(403).json({ message: 'Falha na verificação de segurança (Captcha). Você é um robô?' });
     }
 
   } catch (error) {
-    // Se der erro de rede (Cloudflare caiu, timeout, etc), apenas avisamos no log
     console.error('ALERTA: Cloudflare indisponível ou erro de conexão. Permitindo envio por Fail-Open.', error);
   }
 

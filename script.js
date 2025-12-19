@@ -5,7 +5,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // === 2. GESTÃO DE TEMA (DARK/LIGHT MODE) ===
   const toggleButton = document.getElementById("toggle-mode");
-  // Seleciona todas as imagens normais e backgrounds que devem mudar
   const themeImages = document.querySelectorAll(".theme-img");
   const themeBackgrounds = document.querySelectorAll(".theme-bg");
 
@@ -30,18 +29,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // 4. Troca Ícone do Botão
     if (toggleButton) {
-      // Se for claro mostra lua (para voltar ao escuro), se for escuro mostra sol
       toggleButton.innerHTML = isLight 
         ? '<i class="bi bi-moon-stars-fill"></i>' 
         : '<i class="bi bi-sun-fill"></i>';
     }
   };
 
-  // Carrega tema salvo ou usa o padrão 'escuro'
   const temaSalvo = localStorage.getItem("modoTema") || "escuro";
   aplicarTema(temaSalvo);
 
-  // Evento de clique no botão
   if (toggleButton) {
     toggleButton.addEventListener("click", () => {
       const temaAtual = document.body.classList.contains("light-mode") ? "claro" : "escuro";
@@ -65,12 +61,10 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }, observerOptions);
 
-  // Observa todos os elementos com classes de fade
   document.querySelectorAll(".fade-in, .fade-text, .fade-img").forEach(el => {
     observer.observe(el);
   });
 
-  // Animação de entrada do Header (Hero)
   setTimeout(() => {
     document.querySelectorAll(".fade-header-effect").forEach(el => el.classList.add("visible"));
     const header = document.querySelector("header");
@@ -80,7 +74,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }, 300);
 
-  // Efeito Header Scrolled (Fundo fica sólido ao rolar)
   const header = document.querySelector("header");
   if(header){
       window.addEventListener("scroll", () => {
@@ -92,7 +85,12 @@ document.addEventListener("DOMContentLoaded", () => {
   const smoothScrollTo = (targetId) => {
     const targetElement = document.querySelector(targetId);
     if (targetElement) {
-      const offsetTop = targetElement.offsetTop - 90;
+      let headerOffset = 90;
+      if (targetId === '#projetos' || targetId === '#formulario') {
+        headerOffset = 40; 
+      }
+      
+      const offsetTop = targetElement.offsetTop - headerOffset;
       window.scrollTo({
         top: offsetTop,
         behavior: "smooth"
@@ -219,26 +217,22 @@ document.addEventListener("DOMContentLoaded", () => {
           body: JSON.stringify(data),
         });
 
-        // A MÁGICA: Ler a resposta do servidor (seja sucesso ou erro)
+        
         const result = await response.json();
 
         if (response.ok) {
-          // Sucesso 200
           statusMensagem.textContent = "✅ " + result.message;
-          statusMensagem.style.color = "green"; // Ou var(--cor-destaque)
+          statusMensagem.style.color = "green"; 
           form.reset();
           // Reseta o Widget do Cloudflare se ele existir
           if (window.turnstile) window.turnstile.reset();
         } else {
-          // Erro (400, 403, 500) - Mostra a mensagem exata do backend
-          // Ex: "Sua mensagem é muito curta..." ou "Erro de segurança"
           throw new Error(result.message || 'Falha desconhecida no envio.');
         }
       } catch (error) {
         console.error("Erro API:", error);
-        // Exibe o erro bonitinho para o usuário
         statusMensagem.textContent = "⚠️ " + error.message;
-        statusMensagem.style.color = "red"; // Vermelho para chamar atenção
+        statusMensagem.style.color = "red"; 
       } finally {
         if(spinner) spinner.style.display = "none";
         btnEnviar.disabled = false;

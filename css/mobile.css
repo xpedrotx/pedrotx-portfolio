@@ -261,3 +261,10 @@
     display: none !important;
   }
 }
+
+/* Esconde o botão de contato do topo em telas menores */
+@media (max-width: 900px) {
+  .desktop-only {
+    display: none !important;
+  }
+}

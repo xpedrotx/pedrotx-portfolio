@@ -52,9 +52,14 @@ section.especialidades {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+
+  justify-content: flex-start; 
+  padding-top: 50px;          
+  padding-bottom: 80px;      
+  
   align-items: center;
-  padding: 60px 4%;
+  padding-left: 4%;
+  padding-right: 4%;
 }
 
 section.especialidades .flex {
@@ -68,6 +73,8 @@ section.especialidades .flex {
   border: var(--border-box); 
   margin-top: 45px;
   transition: var(--transition-padrao);
+  flex: 1;             
+  min-width: 280px;    
 }
 
 .especialidades .especialidades-box:hover {
@@ -152,9 +159,12 @@ section.portfolio {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;  
+  padding-top: 130px;          
+  padding-bottom: 80px;        
   align-items: center;
-  padding: 60px 4%;
+  padding-left: 4%;
+  padding-right: 4%;
   box-shadow: 0 0 40px 10px var(--cor-destaque); 
   transition: box-shadow 0.3s ease;
   z-index: 1;
@@ -169,15 +179,32 @@ section.portfolio .flex {
   gap: 20px;
 }
 
+
+section.formulario {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; 
+  padding-top: 70px;         
+  padding-bottom: 80px;
+  align-items: center;
+  padding-left: 4%;
+  padding-right: 4%;
+}
+
 .img-port {
-  width: 360px;
-  height: 460px;
+  width: 100%; 
+  max-width: 360px;      
+  min-width: 250px;      
+  aspect-ratio: 3/4;    
+  
   background-size: cover;
   background-position: 100% 0%;
-  transition: background-position 5s ease-in-out; 
+  transition: background-position 5s ease-in-out, transform 0.3s ease; 
   cursor: pointer;
   border-radius: 40px;
   position: relative;
+  flex: 1 1 250px;        
 }
 
 
