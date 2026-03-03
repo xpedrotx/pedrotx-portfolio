@@ -15,6 +15,11 @@ document.addEventListener("DOMContentLoaded", () => {
     document.body.classList.toggle("light-mode", isLight);
     localStorage.setItem("modoTema", tema);
 
+    const favicon = document.getElementById("favicon");
+    if (favicon) {
+      favicon.href = isLight ? "images/icone_aba_white.png" : "images/icone_aba.png";
+    }
+
     // 2. Troca atributos SRC de imagens normais (Logo, Hero, Sobre)
     themeImages.forEach(img => {
       const newSrc = isLight ? img.dataset.imgLight : img.dataset.imgDark;
