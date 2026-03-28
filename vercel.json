@@ -1,20 +1,20 @@
 {
   "rewrites": [
     {
-      "source": "/wedding/:path*",
-      "destination": "https://pedrotx-wedding.vercel.app/:path*"
-    },
-    {
       "source": "/wedding",
       "destination": "https://pedrotx-wedding.vercel.app/"
     },
     {
-      "source": "/aurafarmer/:path*",
-      "destination": "https://aura-farm-xpedrotx.vercel.app/:path*"
+      "source": "/wedding/:path*",
+      "destination": "https://pedrotx-wedding.vercel.app/:path*"
     },
     {
       "source": "/aurafarmer",
-      "destination": "https://aura-farm-xpedrotx.vercel.app/"
+      "destination": "https://aura-farm-xpedrotx.vercel.app/aurafarmer/"
+    },
+    {
+      "source": "/aurafarmer/:path*",
+      "destination": "https://aura-farm-xpedrotx.vercel.app/aurafarmer/:path*"
     }
   ]
 }
