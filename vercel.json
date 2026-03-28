@@ -13,12 +13,20 @@
   ],
   "rewrites": [
     {
+      "source": "/wedding",
+      "destination": "https://pedrotx-wedding.vercel.app"
+    },
+    {
       "source": "/wedding/:path*",
       "destination": "https://pedrotx-wedding.vercel.app/:path*"
     },
     {
+      "source": "/aurafarmer",
+      "destination": "https://aura-farm-xpedrotx.vercel.app"
+    },
+    {
       "source": "/aurafarmer/:path*",
-      "destination": "https://aura-farm-mauve.vercel.app/:path*"
+      "destination": "https://aura-farm-xpedrotx.vercel.app/:path*"
     }
   ]
 }
