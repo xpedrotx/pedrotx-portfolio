@@ -18,7 +18,7 @@
     },
     {
       "source": "/aurafarmer/:path*",
-      "destination": "https://aura-farm-mauve.vercel.app.vercel.app/:path*"
+      "destination": "https://aura-farm-mauve.vercel.app/:path*"
     }
   ]
 }
