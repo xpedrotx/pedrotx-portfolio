@@ -22,11 +22,11 @@
     },
     {
       "source": "/aurafarmer/",
-      "destination": "https://aura-farm-delta.vercel.app/aurafarmer/"
+      "destination": "https://aura-farm-mauve.vercel.app/aurafarmer/"
     },
     {
       "source": "/aurafarmer/:path*",
-      "destination": "https://aura-farm-delta.vercel.app/aurafarmer/:path*"
+      "destination": "https://aura-farm-mauve.vercel.app/aurafarmer/:path*"
     }
   ]
 }
