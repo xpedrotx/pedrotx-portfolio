@@ -1,7 +1,7 @@
 import { Resend } from "resend";
 import { NextRequest, NextResponse } from "next/server";
 import { isValidEmail } from "@/lib/validators";
-import { EmailTemplate } from "@/template/email";
+import { ClientConfirmationEmail, LeadNotificationEmail } from "@/template/email";
 import { rateLimit } from "@/lib/rate-limit";
 import { verifyTurnstile } from "@/lib/turnstile";
 import { profile } from "@/constant/profile";
@@ -165,6 +165,13 @@ export async function POST(request: NextRequest) {
       to: OWNER_EMAIL,
       replyTo: `${cleanName} <${cleanEmail}>`,
       subject: `Novo contato: ${cleanName}, ${cleanReason}`.slice(0, 180),
+      react: LeadNotificationEmail({
+        senderName: cleanName,
+        senderEmail: cleanEmail,
+        contactReason: cleanReason,
+        senderMessage: cleanMsg,
+        attribution,
+      }),
       text: leadText,
       headers: { "X-Entity-Ref-ID": "portfolio-lead" },
     });
@@ -185,8 +192,9 @@ export async function POST(request: NextRequest) {
     const { error } = await resend.emails.send({
       from: AUTOREPLY_FROM,
       to: `${cleanName} <${cleanEmail}>`,
+      replyTo: OWNER_EMAIL,
       subject: "Recebi sua mensagem. Respondo em breve 🚀",
-      react: EmailTemplate({
+      react: ClientConfirmationEmail({
         userName: cleanName,
         contactReason: cleanReason,
         userMessage: cleanMsg,
