@@ -107,11 +107,11 @@
     }
   },
   "about": {
-    "brief": "I'm Pedro, a full-stack developer, Software Engineering student, and a gamer for as long as I can remember. Games are what made me realize I liked understanding how things worked under the hood more than just pressing buttons.",
+    "brief": "I'm Pedro, a Software Engineering student and developer. My curiosity for technology goes back to playing video games as a kid, and it never stopped.",
     "paragraphs": [
-      "I started out tweaking game configs and running home servers, and before long I was writing real code. Today I build web apps end to end: interface, API, database, and whatever else the project needs.",
+      "I currently work in IT at an accounting firm, handling support and building internal systems, while diving deeper into programming: HTML, CSS, Python, and the logic behind all of it.",
       "I like projects that solve a real problem, clean code, and picking up new tools without fear. I treat every bug like a hard level: annoying in the moment, satisfying once it's cleared.",
-      "I'm in my 6th semester of university, always with a side project open and the next idea in the queue."
+      "I'm in my 6th semester of Software Engineering at Unopar, with IT work in my day to day and the next step in mind: moving fully into development."
     ],
     "quote": "Keep coding.",
     "quoteKicker": "Philosophy",

@@ -11,6 +11,9 @@ import {
   FaSquareJs,
   FaLinux,
   FaFigma,
+  FaWindows,
+  FaServer,
+  FaMicrochip,
 } from "react-icons/fa6";
 
 import {
@@ -22,9 +25,12 @@ import {
   SiTypescript,
   SiVercel,
   SiVite,
+  SiClaude,
+  SiGooglegemini,
 } from "react-icons/si";
 
 import { VscVscode } from "react-icons/vsc";
+import { OpenAiIcon } from "../components/icons/OpenAiIcon";
 
 interface LogoProps {
   title: string;
@@ -71,6 +77,12 @@ export const skillsData: SkillsCategory[] = [
       { title: "Figma", logoComponent: FaFigma, color: "#F24E1E" },
       { title: "Vercel", logoComponent: SiVercel, color: "#000000" },
       { title: "Linux", logoComponent: FaLinux, color: "#FCC624" },
+      { title: "Windows", logoComponent: FaWindows, color: "#0078D6" },
+      { title: "Windows Server", logoComponent: FaServer, color: "#00188F" },
+      { title: "Hardware", logoComponent: FaMicrochip, color: "#6B7280" },
+      { title: "Claude", logoComponent: SiClaude, color: "#D97757" },
+      { title: "ChatGPT", logoComponent: OpenAiIcon, color: "#10A37F" },
+      { title: "Gemini", logoComponent: SiGooglegemini, color: "#4285F4" },
     ],
   },
 ];
