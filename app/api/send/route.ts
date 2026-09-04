@@ -170,7 +170,6 @@ export async function POST(request: NextRequest) {
         senderEmail: cleanEmail,
         contactReason: cleanReason,
         senderMessage: cleanMsg,
-        attribution,
       }),
       text: leadText,
       headers: { "X-Entity-Ref-ID": "portfolio-lead" },

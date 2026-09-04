@@ -29,7 +29,7 @@ export function EmailHeader() {
 export function EmailSocials() {
   return (
     <Section style={socialSection}>
-      <Text style={socialHeader}>ME ACHA EM</Text>
+      <Text style={socialHeader}>Minhas redes sociais:</Text>
 
       <table style={socialTable}>
         <tbody>
