@@ -14,7 +14,9 @@ export const selected_works: Project[] = [
     id: "glicai",
     name: "GlicAI",
     technologies: ["Python", "TypeScript", "PostgreSQL", "Docker", "WhatsApp API"],
-    links: {},
+    links: {
+      github: "https://github.com/xpedrotx/GlicAI",
+    },
   },
   {
     id: "drageovana",
