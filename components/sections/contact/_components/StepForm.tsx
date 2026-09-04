@@ -7,6 +7,7 @@ import { toast } from "sonner";
 import { useTranslations } from "next-intl";
 import { useTheme } from "next-themes";
 import { Turnstile } from "@marsidev/react-turnstile";
+import { Link } from "@/i18n/navigation";
 import { isValidEmail } from "@/lib/validators";
 import { captureAttribution, getAttribution } from "@/lib/utm";
 import { trackLead } from "@/lib/analytics";
@@ -302,6 +303,14 @@ export const StepForm = () => {
           className="mt-2"
         />
       )}
+
+      <p className="mt-2 font-mono text-[11px] text-muted-foreground">
+        {t("privacyNotice")}{" "}
+        <Link href="/privacy" className="underline underline-offset-2 hover:text-primary transition-colors">
+          {t("privacyNoticeLink")}
+        </Link>
+        .
+      </p>
     </div>
   );
 };

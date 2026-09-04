@@ -34,6 +34,7 @@
   "consent": {
     "title": "Cookies",
     "body": "This site uses traffic-analytics cookies.",
+    "policyLink": "Privacy Policy",
     "accept": "Accept",
     "decline": "Decline"
   },
@@ -202,6 +203,8 @@
       "successTitle": "Message received!",
       "successBody": "Your message landed. I'll get back to you as soon as I can.",
       "sendAnother": "Send another message",
+      "privacyNotice": "By submitting, you agree to the data handling described in the",
+      "privacyNoticeLink": "Privacy Policy",
       "errors": {
         "required": "Please fill out this field",
         "email": "Please enter a valid email address",
@@ -280,42 +283,50 @@
       "sections": [
         {
           "heading": "1. Who processes the data",
-          "body": "Pedro Teixeira is responsible for the data processed on this site. Contact: contato@pedrotx.com.br."
+          "body": "Pedro Teixeira, an individual, is the controller responsible for the data processed on this site. Contact: contato@pedrotx.com.br. As a small-scale data processing agent under Brazil's ANPD Resolutions No. 2/2022 and No. 18/2024, formal appointment of a Data Protection Officer is not required; this same contact channel fulfills that role."
         },
         {
-          "heading": "2. Data collected by the contact form",
+          "heading": "2. Legal basis for processing",
+          "body": "The contact form is processed based on legitimate interest in responding to messages received (LGPD art. 7, IX) and on your consent when you voluntarily fill out and submit the form. Analytics and advertising cookies are processed only with your explicit consent (art. 7, I), given through the cookie banner. Cookieless Vercel Analytics metrics are processed based on legitimate interest in maintaining and improving the site."
+        },
+        {
+          "heading": "3. Data collected by the contact form",
           "body": "Name, email, reason for contact, and message, submitted by you through the form. This data is forwarded by email and is not stored in a database on this site."
         },
         {
-          "heading": "3. Browsing data and cookies",
+          "heading": "4. Browsing data and cookies",
           "body": "Vercel Analytics and Speed Insights collect aggregated usage metrics without cookies. Google Analytics and Google Ads only load after you accept the cookie banner, and can be turned off at any time from the link in the footer."
         },
         {
-          "heading": "4. Preferences saved in your browser",
+          "heading": "5. Preferences saved in your browser",
           "body": "Theme (light/dark), language, and your cookie choice are saved in your browser's local storage. This data is not sent to Pedro Teixeira."
         },
         {
-          "heading": "5. Sharing with third parties",
-          "body": "Data may pass through infrastructure providers needed to run the site: Vercel (hosting), Google (analytics, when consented), and Cloudflare Turnstile (spam protection on the contact form, when enabled)."
+          "heading": "6. Sharing and international data transfer",
+          "body": "Data may pass through infrastructure providers needed to run the site: Vercel (hosting and transactional email delivery), Google (analytics, when consented), and Cloudflare Turnstile (spam protection on the contact form, when enabled). These providers may process data on servers outside Brazil; in those cases, processing follows the safeguards required by LGPD art. 33, such as contractual clauses and data protection certifications adopted by these providers."
         },
         {
-          "heading": "6. Your rights",
-          "body": "You can request confirmation, access, correction, anonymization, portability, or deletion of your data, and revoke consent at any time, via contato@pedrotx.com.br."
+          "heading": "7. Your rights as a data subject",
+          "body": "Under LGPD art. 18, you can request confirmation that processing exists, access, correction of incomplete or outdated data, anonymization, blocking or deletion of unnecessary data, portability, information about sharing with third parties, and you can revoke consent at any time, via contato@pedrotx.com.br. If you're not satisfied with the response, you can also file a complaint with Brazil's National Data Protection Authority (ANPD) at gov.br/anpd."
         },
         {
-          "heading": "7. Retention",
+          "heading": "8. Retention",
           "body": "Messages submitted through the contact form stay in Pedro Teixeira's inbox until manually deleted. There is no visitor database on this site."
         },
         {
-          "heading": "8. Security",
-          "body": "The site uses HTTPS and security headers to protect data in transit."
+          "heading": "9. Security",
+          "body": "The site uses HTTPS and security headers to protect data in transit. In the event of a security incident that could pose relevant risk to data subjects, notification will follow LGPD art. 48."
         },
         {
-          "heading": "9. Changes",
+          "heading": "10. Minors",
+          "body": "This site is not directed at anyone under 18 and does not knowingly collect data from children or teenagers without a legal guardian's specific consent."
+        },
+        {
+          "heading": "11. Changes",
           "body": "This policy may be updated at any time. The date at the top of this page reflects the latest version."
         },
         {
-          "heading": "10. Contact",
+          "heading": "12. Contact",
           "body": "To exercise your rights or ask about this policy, write to contato@pedrotx.com.br."
         }
       ]

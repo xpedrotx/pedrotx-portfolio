@@ -34,6 +34,7 @@
   "consent": {
     "title": "Cookies",
     "body": "Este site utiliza cookies de análise de tráfego.",
+    "policyLink": "Política de Privacidade",
     "accept": "Aceitar",
     "decline": "Recusar"
   },
@@ -202,6 +203,8 @@
       "successTitle": "Mensagem recebida!",
       "successBody": "Sua mensagem chegou. Respondo assim que possível.",
       "sendAnother": "Enviar outra mensagem",
+      "privacyNotice": "Ao enviar, você concorda com o tratamento dos seus dados descrito na",
+      "privacyNoticeLink": "Política de Privacidade",
       "errors": {
         "required": "Preencha este campo",
         "email": "Digite um email válido",
@@ -280,42 +283,50 @@
       "sections": [
         {
           "heading": "1. Quem trata os dados",
-          "body": "Pedro Teixeira é o responsável pelo tratamento dos dados coletados neste site. Contato: contato@pedrotx.com.br."
+          "body": "Pedro Teixeira, pessoa física, é o responsável (controlador) pelo tratamento dos dados coletados neste site. Contato: contato@pedrotx.com.br. Por se tratar de agente de tratamento de pequeno porte, nos termos da Resolução CD/ANPD nº 2/2022 e da Resolução CD/ANPD nº 18/2024, não há obrigatoriedade de indicação formal de um Encarregado (DPO); esse mesmo canal de contato cumpre essa função."
         },
         {
-          "heading": "2. Dados coletados pelo formulário de contato",
+          "heading": "2. Base legal do tratamento",
+          "body": "O formulário de contato é tratado com base no legítimo interesse em responder a mensagens recebidas (art. 7º, IX, da LGPD) e no seu consentimento ao preencher e enviar o formulário voluntariamente. Cookies de analytics e anúncios são tratados apenas com base no seu consentimento explícito (art. 7º, I), dado pelo banner de cookies. As métricas cookieless do Vercel Analytics são tratadas com base no legítimo interesse em manter e melhorar o site."
+        },
+        {
+          "heading": "3. Dados coletados pelo formulário de contato",
           "body": "Nome, email, motivo do contato e mensagem, enviados por você ao preencher o formulário. Esses dados são encaminhados por email e não ficam armazenados em banco de dados neste site."
         },
         {
-          "heading": "3. Dados de navegação e cookies",
+          "heading": "4. Dados de navegação e cookies",
           "body": "O Vercel Analytics e o Speed Insights coletam métricas de uso agregadas e sem cookies. O Google Analytics e o Google Ads só são carregados depois que você aceita o banner de cookies, e podem ser desativados a qualquer momento pelo link no rodapé."
         },
         {
-          "heading": "4. Preferências salvas no navegador",
+          "heading": "5. Preferências salvas no navegador",
           "body": "Tema (claro/escuro), idioma e a sua escolha de cookies ficam salvos no armazenamento local do seu navegador. Esses dados não são enviados para Pedro Teixeira."
         },
         {
-          "heading": "5. Compartilhamento com terceiros",
-          "body": "Os dados podem passar por provedores de infraestrutura necessários para o site funcionar: Vercel (hospedagem), Google (analytics, quando consentido) e Cloudflare Turnstile (proteção contra spam no formulário, quando ativo)."
+          "heading": "6. Compartilhamento e transferência internacional de dados",
+          "body": "Os dados podem passar por provedores de infraestrutura necessários para o site funcionar: Vercel (hospedagem e envio de email transacional), Google (analytics, quando consentido) e Cloudflare Turnstile (proteção contra spam no formulário, quando ativo). Esses provedores podem processar dados em servidores fora do Brasil; nesses casos, o tratamento segue as garantias exigidas pelo art. 33 da LGPD, como cláusulas contratuais e certificações de proteção de dados adotadas por esses fornecedores."
         },
         {
-          "heading": "6. Seus direitos",
-          "body": "Você pode solicitar confirmação, acesso, correção, anonimização, portabilidade ou eliminação dos seus dados, e revogar consentimento a qualquer momento, pelo contato@pedrotx.com.br."
+          "heading": "7. Seus direitos como titular",
+          "body": "Nos termos do art. 18 da LGPD, você pode solicitar confirmação da existência de tratamento, acesso, correção de dados incompletos ou desatualizados, anonimização, bloqueio ou eliminação de dados desnecessários, portabilidade, informação sobre compartilhamento com terceiros, e revogar o consentimento a qualquer momento, pelo contato@pedrotx.com.br. Se não ficar satisfeito com a resposta, você também pode registrar uma reclamação junto à Autoridade Nacional de Proteção de Dados (ANPD), em gov.br/anpd."
         },
         {
-          "heading": "7. Retenção",
+          "heading": "8. Retenção",
           "body": "Mensagens enviadas pelo formulário de contato ficam na caixa de email de Pedro Teixeira até serem apagadas manualmente. Não há banco de dados de visitantes neste site."
         },
         {
-          "heading": "8. Segurança",
-          "body": "O site usa conexão HTTPS e cabeçalhos de segurança para proteger os dados em trânsito."
+          "heading": "9. Segurança",
+          "body": "O site usa conexão HTTPS e cabeçalhos de segurança para proteger os dados em trânsito. Em caso de incidente de segurança que possa gerar risco relevante aos titulares, a comunicação seguirá o disposto no art. 48 da LGPD."
         },
         {
-          "heading": "9. Alterações",
+          "heading": "10. Menores de idade",
+          "body": "Este site não é direcionado a menores de 18 anos e não coleta intencionalmente dados de crianças ou adolescentes sem o consentimento específico de um responsável legal."
+        },
+        {
+          "heading": "11. Alterações",
           "body": "Esta política pode ser atualizada a qualquer momento. A data no topo desta página indica a versão mais recente."
         },
         {
-          "heading": "10. Contato",
+          "heading": "12. Contato",
           "body": "Para exercer seus direitos ou tirar dúvidas sobre esta política, escreva para contato@pedrotx.com.br."
         }
       ]
