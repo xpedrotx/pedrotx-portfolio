@@ -16,7 +16,7 @@ const OWNER_EMAIL = process.env.CONTACT_TO_EMAIL || profile.email;
 /** Verified sending domain on Resend; not a real inbox. */
 const NOREPLY_ADDRESS = "noreply@pedrotx.com.br";
 const LEAD_FROM = `PEDROTX <${NOREPLY_ADDRESS}>`;
-const AUTOREPLY_FROM = `${profile.name.full} <${NOREPLY_ADDRESS}>`;
+const AUTOREPLY_FROM = `Pedrotx | Desenvolvedor <${NOREPLY_ADDRESS}>`;
 
 function allowedOrigins(): string[] {
   return [
