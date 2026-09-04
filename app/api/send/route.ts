@@ -1,6 +1,5 @@
-import nodemailer from "nodemailer";
+import { Resend } from "resend";
 import { NextRequest, NextResponse } from "next/server";
-import { render, pretty } from "@react-email/render";
 import { isValidEmail } from "@/lib/validators";
 import { EmailTemplate } from "@/template/email";
 import { rateLimit } from "@/lib/rate-limit";
@@ -13,6 +12,11 @@ function sanitize(input: string): string {
 
 /** Where leads are delivered. Falls back to the public contact address. */
 const OWNER_EMAIL = process.env.CONTACT_TO_EMAIL || profile.email;
+
+/** Verified sending domain on Resend; not a real inbox. */
+const NOREPLY_ADDRESS = "noreply@pedrotx.com.br";
+const LEAD_FROM = `PEDROTX <${NOREPLY_ADDRESS}>`;
+const AUTOREPLY_FROM = `${profile.name.full} <${NOREPLY_ADDRESS}>`;
 
 function allowedOrigins(): string[] {
   return [
@@ -134,19 +138,15 @@ export async function POST(request: NextRequest) {
     );
   }
 
-  const from = process.env.email_from;
-  if (!from || !process.env.email_password) {
-    console.error("Contact form: email_from / email_password are not configured");
+  if (!process.env.RESEND_API_KEY) {
+    console.error("Contact form: RESEND_API_KEY is not configured");
     return NextResponse.json(
       { error: "Contact form is not configured yet." },
       { status: 503 },
     );
   }
 
-  const transporter = nodemailer.createTransport({
-    service: "gmail",
-    auth: { user: from, pass: process.env.email_password },
-  });
+  const resend = new Resend(process.env.RESEND_API_KEY);
 
   const attribution = (body.attribution ?? {}) as Attribution;
 
@@ -160,14 +160,15 @@ export async function POST(request: NextRequest) {
     `${attributionBlock(attribution)}`;
 
   try {
-    await transporter.sendMail({
-      from: `"Portfolio" <${from}>`,
+    const { error } = await resend.emails.send({
+      from: LEAD_FROM,
       to: OWNER_EMAIL,
       replyTo: `${cleanName} <${cleanEmail}>`,
       subject: `Novo contato: ${cleanName}, ${cleanReason}`.slice(0, 180),
       text: leadText,
       headers: { "X-Entity-Ref-ID": "portfolio-lead" },
     });
+    if (error) throw new Error(error.message);
   } catch (err) {
     console.error(
       "Contact form: failed to deliver lead:",
@@ -181,22 +182,18 @@ export async function POST(request: NextRequest) {
 
   // 2. Best-effort auto-reply to the sender (never fails the request).
   try {
-    const html = await pretty(
-      await render(
-        EmailTemplate({
-          userName: cleanName,
-          contactReason: cleanReason,
-          userMessage: cleanMsg,
-        }),
-      ),
-    );
-    await transporter.sendMail({
-      from: `"${profile.name.full}" <${from}>`,
+    const { error } = await resend.emails.send({
+      from: AUTOREPLY_FROM,
       to: `${cleanName} <${cleanEmail}>`,
       subject: "Recebi sua mensagem. Respondo em breve 🚀",
-      html,
+      react: EmailTemplate({
+        userName: cleanName,
+        contactReason: cleanReason,
+        userMessage: cleanMsg,
+      }),
       headers: { "X-Entity-Ref-ID": "portfolio-autoreply" },
     });
+    if (error) throw new Error(error.message);
   } catch (err) {
     console.warn(
       "Contact form: auto-reply not sent:",
