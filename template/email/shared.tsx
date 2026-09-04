@@ -2,26 +2,24 @@ import React from "react";
 import { Section, Text, Img, Row, Column, Link } from "react-email";
 
 import { profile, socials } from "@/constant";
+import { SITE_SEO } from "@/constant/seo";
 
 /** Shared black/red brand chrome (header + footer) for every transactional email. */
+
+// PNG, not the site's SVG mark: SVG isn't rendered by most email clients (Gmail included).
+const LOGO_SRC = `${SITE_SEO.siteUrl}/apple-icon`;
 
 export function EmailHeader() {
   return (
     <Section style={headerSection}>
       <Row>
         <Column style={{ width: "48px" }}>
-          <Img
-            src={`${process.env.NEXT_PUBLIC_SITE_URL || "https://pedrotx.com.br"}/images/logodark.svg`}
-            alt="PT"
-            width="40"
-            height="40"
-            style={logoStyle}
-          />
+          <Img src={LOGO_SRC} alt="PT" width="40" height="40" style={logoStyle} />
         </Column>
 
         <Column>
           <Text style={brandName}>{profile.name.brand.toUpperCase()}</Text>
-          <Text style={brandSub}>{profile.work.title}</Text>
+          <Text style={brandSub}>Desenvolvedor Full Stack</Text>
         </Column>
       </Row>
     </Section>

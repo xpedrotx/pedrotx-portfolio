@@ -52,7 +52,7 @@ function attributionBlock(attr: Attribution): string {
   const rows = Object.entries(attr)
     .filter(([, v]) => typeof v === "string" && v.length > 0)
     .map(([k, v]) => `${k}: ${sanitize(String(v)).slice(0, 300)}`);
-  return rows.length ? `\n\n--- Attribution ---\n${rows.join("\n")}` : "";
+  return rows.length ? `\n\nOrigem:\n${rows.join("\n")}` : "";
 }
 
 export async function POST(request: NextRequest) {
@@ -152,11 +152,11 @@ export async function POST(request: NextRequest) {
 
   // 1. The actual lead, delivered to the site owner, replyable to the sender.
   const leadText =
-    `New message from the portfolio contact form\n\n` +
-    `Name: ${cleanName}\n` +
+    `Novo contato pelo formulário do portfólio\n\n` +
+    `Nome: ${cleanName}\n` +
     `Email: ${cleanEmail}\n` +
-    `Reason: ${cleanReason}\n\n` +
-    `Message:\n${cleanMsg}\n` +
+    `Motivo: ${cleanReason}\n\n` +
+    `Mensagem:\n${cleanMsg}\n` +
     `${attributionBlock(attribution)}`;
 
   try {
