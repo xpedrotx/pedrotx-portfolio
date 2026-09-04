@@ -177,7 +177,7 @@
     "infoTitle": "Contato direto",
     "location": "Localização",
     "email": "Email",
-    "localTime": "horário de Brasília",
+    "localTime": "horário local",
     "whatsapp": "WhatsApp",
     "whatsappCta": "Chamar no WhatsApp",
     "whatsappMessage": "Oi Pedro! Vi seu portfólio e queria falar sobre",
@@ -229,5 +229,96 @@
     "download": "Baixar PDF",
     "openInNewTab": "Abrir em nova aba",
     "unavailable": "O PDF do currículo ainda não está disponível. Volte em breve."
+  },
+  "legal": {
+    "back": "Voltar ao portfólio",
+    "updatedLabel": "Última atualização",
+    "rights": "Todos os direitos reservados.",
+    "terms": {
+      "title": "Termos de Uso",
+      "updated": "Setembro de 2026",
+      "intro": "Estes termos regem o uso deste site, o portfólio pessoal de Pedro Teixeira. Ao acessar o site, você concorda com eles.",
+      "sections": [
+        {
+          "heading": "1. Sobre o site",
+          "body": "Este é um portfólio pessoal usado para apresentar projetos, habilidades e informações de contato de Pedro Teixeira. Não é uma loja nem presta serviços pagos diretamente por aqui."
+        },
+        {
+          "heading": "2. Conteúdo",
+          "body": "Textos, imagens, marca e projetos exibidos pertencem a Pedro Teixeira, exceto quando indicado o contrário. Reprodução do conteúdo pessoal sem autorização não é permitida."
+        },
+        {
+          "heading": "3. Uso aceitável",
+          "body": "Não é permitido usar o site para fins ilegais, tentar comprometer sua segurança ou disponibilidade, nem coletar dados de outros visitantes."
+        },
+        {
+          "heading": "4. Links externos",
+          "body": "O site tem links para WhatsApp, GitHub, LinkedIn, Instagram, LeetCode e outros serviços de terceiros. Esses serviços têm seus próprios termos e políticas, que não são controlados por Pedro Teixeira."
+        },
+        {
+          "heading": "5. Sem garantias",
+          "body": "O site é fornecido como está, sem garantia de disponibilidade contínua ou ausência de erros. Ele pode sair do ar ou mudar sem aviso prévio."
+        },
+        {
+          "heading": "6. Alterações",
+          "body": "Estes termos podem ser atualizados a qualquer momento. A data no topo desta página indica a versão mais recente."
+        },
+        {
+          "heading": "7. Lei aplicável",
+          "body": "Estes termos são regidos pela legislação brasileira."
+        },
+        {
+          "heading": "8. Contato",
+          "body": "Dúvidas sobre estes termos podem ser enviadas para contato@pedrotx.com.br."
+        }
+      ]
+    },
+    "privacy": {
+      "title": "Política de Privacidade",
+      "updated": "Setembro de 2026",
+      "intro": "Esta política explica quais dados este site coleta, para que servem e quais são os seus direitos, em conformidade com a LGPD (Lei 13.709/2018).",
+      "sections": [
+        {
+          "heading": "1. Quem trata os dados",
+          "body": "Pedro Teixeira é o responsável pelo tratamento dos dados coletados neste site. Contato: contato@pedrotx.com.br."
+        },
+        {
+          "heading": "2. Dados coletados pelo formulário de contato",
+          "body": "Nome, email, motivo do contato e mensagem, enviados por você ao preencher o formulário. Esses dados são encaminhados por email e não ficam armazenados em banco de dados neste site."
+        },
+        {
+          "heading": "3. Dados de navegação e cookies",
+          "body": "O Vercel Analytics e o Speed Insights coletam métricas de uso agregadas e sem cookies. O Google Analytics e o Google Ads só são carregados depois que você aceita o banner de cookies, e podem ser desativados a qualquer momento pelo link no rodapé."
+        },
+        {
+          "heading": "4. Preferências salvas no navegador",
+          "body": "Tema (claro/escuro), idioma e a sua escolha de cookies ficam salvos no armazenamento local do seu navegador. Esses dados não são enviados para Pedro Teixeira."
+        },
+        {
+          "heading": "5. Compartilhamento com terceiros",
+          "body": "Os dados podem passar por provedores de infraestrutura necessários para o site funcionar: Vercel (hospedagem), Google (analytics, quando consentido) e Cloudflare Turnstile (proteção contra spam no formulário, quando ativo)."
+        },
+        {
+          "heading": "6. Seus direitos",
+          "body": "Você pode solicitar confirmação, acesso, correção, anonimização, portabilidade ou eliminação dos seus dados, e revogar consentimento a qualquer momento, pelo contato@pedrotx.com.br."
+        },
+        {
+          "heading": "7. Retenção",
+          "body": "Mensagens enviadas pelo formulário de contato ficam na caixa de email de Pedro Teixeira até serem apagadas manualmente. Não há banco de dados de visitantes neste site."
+        },
+        {
+          "heading": "8. Segurança",
+          "body": "O site usa conexão HTTPS e cabeçalhos de segurança para proteger os dados em trânsito."
+        },
+        {
+          "heading": "9. Alterações",
+          "body": "Esta política pode ser atualizada a qualquer momento. A data no topo desta página indica a versão mais recente."
+        },
+        {
+          "heading": "10. Contato",
+          "body": "Para exercer seus direitos ou tirar dúvidas sobre esta política, escreva para contato@pedrotx.com.br."
+        }
+      ]
+    }
   }
 }

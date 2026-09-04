@@ -177,7 +177,7 @@
     "infoTitle": "Direct contact",
     "location": "Location",
     "email": "Email",
-    "localTime": "Brasília time",
+    "localTime": "local time",
     "whatsapp": "WhatsApp",
     "whatsappCta": "Message on WhatsApp",
     "whatsappMessage": "Hi Pedro! I saw your portfolio and wanted to talk about",
@@ -229,5 +229,96 @@
     "download": "Download PDF",
     "openInNewTab": "Open in new tab",
     "unavailable": "The resume PDF isn't available yet. Check back soon."
+  },
+  "legal": {
+    "back": "Back to portfolio",
+    "updatedLabel": "Last updated",
+    "rights": "All rights reserved.",
+    "terms": {
+      "title": "Terms of Use",
+      "updated": "September 2026",
+      "intro": "These terms govern the use of this site, the personal portfolio of Pedro Teixeira. By accessing the site, you agree to them.",
+      "sections": [
+        {
+          "heading": "1. About the site",
+          "body": "This is a personal portfolio used to showcase Pedro Teixeira's projects, skills, and contact information. It is not a store and does not sell services directly through it."
+        },
+        {
+          "heading": "2. Content",
+          "body": "Text, images, branding, and projects shown belong to Pedro Teixeira unless stated otherwise. Reproducing the personal content without permission is not allowed."
+        },
+        {
+          "heading": "3. Acceptable use",
+          "body": "You may not use the site for illegal purposes, attempt to compromise its security or availability, or collect data from other visitors."
+        },
+        {
+          "heading": "4. External links",
+          "body": "The site links to WhatsApp, GitHub, LinkedIn, Instagram, LeetCode, and other third-party services. Those services have their own terms and policies, not controlled by Pedro Teixeira."
+        },
+        {
+          "heading": "5. No warranty",
+          "body": "The site is provided as is, with no guarantee of continuous availability or error-free operation. It may go offline or change without notice."
+        },
+        {
+          "heading": "6. Changes",
+          "body": "These terms may be updated at any time. The date at the top of this page reflects the latest version."
+        },
+        {
+          "heading": "7. Governing law",
+          "body": "These terms are governed by Brazilian law."
+        },
+        {
+          "heading": "8. Contact",
+          "body": "Questions about these terms can be sent to contato@pedrotx.com.br."
+        }
+      ]
+    },
+    "privacy": {
+      "title": "Privacy Policy",
+      "updated": "September 2026",
+      "intro": "This policy explains what data this site collects, what it's used for, and your rights, in line with Brazil's LGPD (Law 13.709/2018).",
+      "sections": [
+        {
+          "heading": "1. Who processes the data",
+          "body": "Pedro Teixeira is responsible for the data processed on this site. Contact: contato@pedrotx.com.br."
+        },
+        {
+          "heading": "2. Data collected by the contact form",
+          "body": "Name, email, reason for contact, and message, submitted by you through the form. This data is forwarded by email and is not stored in a database on this site."
+        },
+        {
+          "heading": "3. Browsing data and cookies",
+          "body": "Vercel Analytics and Speed Insights collect aggregated usage metrics without cookies. Google Analytics and Google Ads only load after you accept the cookie banner, and can be turned off at any time from the link in the footer."
+        },
+        {
+          "heading": "4. Preferences saved in your browser",
+          "body": "Theme (light/dark), language, and your cookie choice are saved in your browser's local storage. This data is not sent to Pedro Teixeira."
+        },
+        {
+          "heading": "5. Sharing with third parties",
+          "body": "Data may pass through infrastructure providers needed to run the site: Vercel (hosting), Google (analytics, when consented), and Cloudflare Turnstile (spam protection on the contact form, when enabled)."
+        },
+        {
+          "heading": "6. Your rights",
+          "body": "You can request confirmation, access, correction, anonymization, portability, or deletion of your data, and revoke consent at any time, via contato@pedrotx.com.br."
+        },
+        {
+          "heading": "7. Retention",
+          "body": "Messages submitted through the contact form stay in Pedro Teixeira's inbox until manually deleted. There is no visitor database on this site."
+        },
+        {
+          "heading": "8. Security",
+          "body": "The site uses HTTPS and security headers to protect data in transit."
+        },
+        {
+          "heading": "9. Changes",
+          "body": "This policy may be updated at any time. The date at the top of this page reflects the latest version."
+        },
+        {
+          "heading": "10. Contact",
+          "body": "To exercise your rights or ask about this policy, write to contato@pedrotx.com.br."
+        }
+      ]
+    }
   }
 }

@@ -36,6 +36,8 @@ function resolveSiteUrl() {
   return "https://pedrotx.com.br";
 }
 
+export const SITE_LAUNCH_YEAR = 2023;
+
 export const SITE_SEO = {
   siteName: "PEDROTX",
   siteTitle: "PEDROTX | Desenvolvedor Full Stack",
@@ -83,7 +85,7 @@ export const SITE_SEO = {
 } as const;
 
 export const PAGE_SEO: Record<
-  "home" | "projects" | "resume",
+  "home" | "projects" | "resume" | "terms" | "privacy",
   PageSeoConfig
 > = {
   home: {
@@ -129,5 +131,19 @@ export const PAGE_SEO: Record<
     ],
     path: "/resume",
     type: "profile",
+  },
+  terms: {
+    title: "Termos de Uso",
+    description: "Termos de uso do portfólio de Pedro Teixeira.",
+    keywords: ["termos de uso", "Pedro Teixeira"],
+    path: "/terms",
+    type: "website",
+  },
+  privacy: {
+    title: "Política de Privacidade",
+    description: "Como o portfólio de Pedro Teixeira trata dados pessoais.",
+    keywords: ["política de privacidade", "LGPD", "Pedro Teixeira"],
+    path: "/privacy",
+    type: "website",
   },
 };

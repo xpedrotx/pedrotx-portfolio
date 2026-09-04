@@ -50,6 +50,7 @@ export const works: Project[] = [
     technologies: ["HTML", "CSS", "JavaScript"],
     links: {
       github: "https://github.com/xpedrotx/wedding",
+      live: "https://wedding.pedrotx.com.br",
     },
   },
 ];
