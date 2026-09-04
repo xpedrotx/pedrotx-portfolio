@@ -43,7 +43,7 @@ export function captureAttribution(): void {
     // Store even when empty so we don't re-read on internal navigation.
     window.sessionStorage.setItem(STORAGE_KEY, JSON.stringify(data));
   } catch {
-    /* sessionStorage unavailable — attribution is best-effort */
+    /* sessionStorage unavailable, attribution is best-effort */
   }
 }
 

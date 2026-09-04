@@ -4,7 +4,7 @@ import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
 import { useReducedMotion } from "motion/react";
 
-// WebGL shader — heavy, so it's client-only and only mounted once the page
+// WebGL shader, heavy, so it's client-only and only mounted once the page
 // is idle. A CSS gradient stands in until then (and forever, for reduced-motion).
 const GradientBackground = dynamic(
   () => import("./GradientBg").then((m) => m.GradientBackground),

@@ -11,7 +11,7 @@ export const main = Geist({
   subsets: ["latin"],
 });
 
-// Display serif — used for the big name (hero, footer), preloader and 404.
+// Display serif, used for the big name (hero, footer), preloader and 404.
 export const serif = Newsreader({
   variable: "--font-serif",
   subsets: ["latin"],

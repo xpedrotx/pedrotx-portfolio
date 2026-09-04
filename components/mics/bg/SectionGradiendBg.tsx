@@ -17,7 +17,7 @@ type Shape =
 export interface SectionGradiendBgProps {
   /** Picks a palette variation within the current theme's accent family. */
   seed?: number;
-  /** Explicit override — skips the theme palettes entirely. */
+  /** Explicit override, skips the theme palettes entirely. */
   colors?: string[];
   shape?: Shape;
   speed?: number;

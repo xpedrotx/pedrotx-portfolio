@@ -14,7 +14,7 @@ export async function GET() {
   const about = en.about;
   const projectItems = en.projects.items as Record<string, string>;
 
-  let content = `# ${profile.name.full} — ${profile.work.title}\n\n`;
+  let content = `# ${profile.name.full}, ${profile.work.title}\n\n`;
   content += `> ${SITE_SEO.defaultDescription}\n\n`;
 
   content += `## Summary\n`;

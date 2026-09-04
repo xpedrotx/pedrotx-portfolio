@@ -65,7 +65,7 @@ export const AboutSection = ({
           align="left"
         />
 
-        {/* Bento Grid — Statement & Origin */}
+        {/* Bento Grid, Statement & Origin */}
         <div className="grid grid-cols-1 gap-6 sm:gap-8 md:grid-cols-3 items-stretch">
           <StatementCard
             slides={resolvedSlides}

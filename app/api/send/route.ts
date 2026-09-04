@@ -26,7 +26,7 @@ function allowedOrigins(): string[] {
   ].filter((v): v is string => Boolean(v));
 }
 
-/** Exact-origin check (no startsWith — that let `pedrotx.com.br.evil.com` through). */
+/** Exact-origin check (no startsWith, that let `pedrotx.com.br.evil.com` through). */
 function isAllowedOrigin(request: NextRequest): boolean {
   const raw = request.headers.get("origin");
   const origins = allowedOrigins();
@@ -150,7 +150,7 @@ export async function POST(request: NextRequest) {
 
   const attribution = (body.attribution ?? {}) as Attribution;
 
-  // 1. The actual lead — delivered to the site owner, replyable to the sender.
+  // 1. The actual lead, delivered to the site owner, replyable to the sender.
   const leadText =
     `New message from the portfolio contact form\n\n` +
     `Name: ${cleanName}\n` +
@@ -164,13 +164,13 @@ export async function POST(request: NextRequest) {
       from: `"Portfolio" <${from}>`,
       to: OWNER_EMAIL,
       replyTo: `${cleanName} <${cleanEmail}>`,
-      subject: `Novo contato: ${cleanName} — ${cleanReason}`.slice(0, 180),
+      subject: `Novo contato: ${cleanName}, ${cleanReason}`.slice(0, 180),
       text: leadText,
       headers: { "X-Entity-Ref-ID": "portfolio-lead" },
     });
   } catch (err) {
     console.error(
-      "Contact form: failed to deliver lead —",
+      "Contact form: failed to deliver lead:",
       err instanceof Error ? err.message : "unknown error",
     );
     return NextResponse.json(
@@ -193,13 +193,13 @@ export async function POST(request: NextRequest) {
     await transporter.sendMail({
       from: `"${profile.name.full}" <${from}>`,
       to: `${cleanName} <${cleanEmail}>`,
-      subject: "Recebi sua mensagem 🚀 — respondo em breve",
+      subject: "Recebi sua mensagem. Respondo em breve 🚀",
       html,
       headers: { "X-Entity-Ref-ID": "portfolio-autoreply" },
     });
   } catch (err) {
     console.warn(
-      "Contact form: auto-reply not sent —",
+      "Contact form: auto-reply not sent:",
       err instanceof Error ? err.message : "unknown error",
     );
   }

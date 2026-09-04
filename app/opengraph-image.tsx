@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 import { SITE_SEO } from "@/constant/seo";
 
-export const alt = "PEDROTX — Desenvolvedor Full Stack";
+export const alt = "PEDROTX, Desenvolvedor Full Stack";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 

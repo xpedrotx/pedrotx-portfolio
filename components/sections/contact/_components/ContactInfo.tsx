@@ -14,7 +14,7 @@ export const ContactInfo = () => {
   const locale = useLocale();
 
   const { city, state, country } = profile.curr_location;
-  const locationString = `${city}, ${state} — ${country}`;
+  const locationString = `${city}, ${state}, ${country}`;
   const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
     locationString,
   )}`;

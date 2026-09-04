@@ -194,7 +194,7 @@ export const StepForm = () => {
 
   return (
     <div className="w-full max-w-md flex flex-col gap-2">
-      {/* Honeypot — hidden from users, catches naive bots */}
+      {/* Honeypot, hidden from users, catches naive bots */}
       <input
         ref={honeypotRef}
         type="text"

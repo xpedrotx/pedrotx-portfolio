@@ -54,18 +54,18 @@
   },
   "journey": {
     "kicker": "// save points",
-    "intro": "Ainda não tenho um histórico corporativo — mas tenho uma jornada. Cada fase destravou o kit pra próxima.",
+    "intro": "Ainda não tenho um histórico corporativo, mas tenho uma jornada. Cada fase destravou o kit pra próxima.",
     "levelLabel": "FASE",
     "youAreHere": "você está aqui",
     "unlockedLabel": "Destravado",
     "xpLabel": "XP",
     "nextQuestLabel": "Próxima fase",
     "stages": {
-      "configWars": {
-        "title": "As Config Wars",
-        "year": "~2012",
-        "description": "Antes de escrever código, eu editava. Arquivos .ini de jogo, parâmetros escondidos, mods que quebravam tudo. Aprendi que dava pra mudar as regras — bastava achar o arquivo certo.",
-        "unlocked": [".ini", "mods", "curiosidade"]
+      "noManual": {
+        "title": "Sem manual",
+        "year": "~2009",
+        "description": "Antes de escrever código, eu já desmontava computadores só para entender como funcionavam por dentro. Por volta de 2009, eu abria máquinas que estavam funcionando, tirava memórias, mexia nas placas sem nem saber o que era eletricidade estática e depois tentava montar tudo de novo. Quase sempre acabava de castigo, e dois computadores não sobreviveram à minha curiosidade.",
+        "unlocked": ["curiosidade.ini", "pc_queimado.log", "debug_fisico"]
       },
       "homeServer": {
         "title": "Servidor caseiro",
@@ -82,7 +82,7 @@
       "botsAndWeb": {
         "title": "Bots e web",
         "year": "2021 – 2024",
-        "description": "FinariBot pro Discord, site de casamento, portfólio em HTML puro. Projeto pequeno, entregue, no ar — a melhor forma de aprender que eu conheço.",
+        "description": "FinariBot pro Discord, site de casamento, portfólio em HTML puro. Projeto pequeno, entregue, no ar, a melhor forma de aprender que eu conheço.",
         "unlocked": ["Node.js", "Discord.js", "Git", "sites"]
       },
       "university": {
@@ -94,7 +94,7 @@
       "fullStack": {
         "title": "Full-stack",
         "year": "hoje",
-        "description": "Hoje construo aplicações web de ponta a ponta com React, Next.js e Node. Interface, API, banco — o projeto inteiro é a fase.",
+        "description": "Hoje construo aplicações web de ponta a ponta com React, Next.js e Node. Interface, API, banco, o projeto inteiro é a fase.",
         "unlocked": ["React", "Next.js", "TypeScript", "APIs"]
       },
       "nextQuest": {
@@ -106,7 +106,7 @@
     }
   },
   "about": {
-    "brief": "Sou o Pedro — desenvolvedor full-stack, estudante de Engenharia de Software e gamer desde que me entendo por gente. Foi jogando que percebi que gostava mais de entender como as coisas funcionavam por dentro do que só apertar botão.",
+    "brief": "Sou o Pedro, desenvolvedor full-stack, estudante de Engenharia de Software e gamer desde que me entendo por gente. Foi jogando que percebi que gostava mais de entender como as coisas funcionavam por dentro do que só apertar botão.",
     "paragraphs": [
       "Comecei mexendo em configs de jogo e servidores caseiros e, quando vi, já estava escrevendo código de verdade. Hoje construo aplicações web de ponta a ponta: interface, API, banco e o que mais o projeto pedir.",
       "Gosto de projeto que resolve um problema real, de código limpo e de aprender ferramenta nova sem medo. Trato cada bug como uma fase difícil: irritante na hora, satisfatório quando passa.",
@@ -144,7 +144,7 @@
     }
   },
   "experience": {
-    "empty": "Ainda sem experiência profissional formal — estou começando essa jornada agora. Enquanto isso, dá uma olhada nos meus projetos.",
+    "empty": "Ainda sem experiência profissional formal, estou começando essa jornada agora. Enquanto isso, dá uma olhada nos meus projetos.",
     "current": "Atual",
     "items": {}
   },
@@ -225,7 +225,7 @@
   "resume": {
     "back": "Voltar ao portfólio",
     "title": "Currículo",
-    "subtitle": "Trajetória, formação e stack — versão resumida.",
+    "subtitle": "Trajetória, formação e stack, versão resumida.",
     "download": "Baixar PDF",
     "openInNewTab": "Abrir em nova aba",
     "unavailable": "O PDF do currículo ainda não está disponível. Volte em breve."

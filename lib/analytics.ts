@@ -28,7 +28,7 @@ export function trackEvent(
 export function trackLead(params: Record<string, unknown> = {}): void {
   trackEvent("generate_lead", { currency: "BRL", value: 0, ...params });
 
-  // Google Ads conversion — only fires if the label env is present.
+  // Google Ads conversion, only fires if the label env is present.
   const sendTo = process.env.NEXT_PUBLIC_ADS_CONVERSION_LABEL;
   if (sendTo && typeof window !== "undefined") {
     try {

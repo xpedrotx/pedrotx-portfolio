@@ -3,7 +3,7 @@ import { ImageResponse } from "next/og";
 export const size = { width: 180, height: 180 };
 export const contentType = "image/png";
 
-// Pedro Teixeira ("pedrotx") mark — red on near-black, matching the site logo.
+// Pedro Teixeira ("pedrotx") mark, red on near-black, matching the site logo.
 const MARK = `
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="-20 -61.5 940 940">
   <defs>

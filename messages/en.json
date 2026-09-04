@@ -54,18 +54,18 @@
   },
   "journey": {
     "kicker": "// save points",
-    "intro": "I don't have a corporate track record yet — but I have a journey. Each stage unlocked the kit for the next one.",
+    "intro": "I don't have a corporate track record yet, but I have a journey. Each stage unlocked the kit for the next one.",
     "levelLabel": "STAGE",
     "youAreHere": "you are here",
     "unlockedLabel": "Unlocked",
     "xpLabel": "XP",
     "nextQuestLabel": "Next stage",
     "stages": {
-      "configWars": {
-        "title": "The Config Wars",
-        "year": "~2012",
-        "description": "Before I wrote code, I edited it. Game .ini files, hidden parameters, mods that broke everything. I learned you could change the rules — you just had to find the right file.",
-        "unlocked": [".ini", "mods", "curiosity"]
+      "noManual": {
+        "title": "No manual",
+        "year": "~2009",
+        "description": "Before I ever wrote code, I was already taking computers apart just to understand how they worked inside. Around 2009 I would open machines that were working fine, pull the RAM, poke at the boards with no idea what static electricity was, then try to put it all back together. It usually ended in getting grounded, and two computers didn't survive my curiosity.",
+        "unlocked": ["curiosity.ini", "fried_pc.log", "physical_debug"]
       },
       "homeServer": {
         "title": "Home server",
@@ -82,7 +82,7 @@
       "botsAndWeb": {
         "title": "Bots and web",
         "year": "2021 – 2024",
-        "description": "FinariBot for Discord, a wedding site, a portfolio in plain HTML. Small project, shipped, live — the best way to learn that I know.",
+        "description": "FinariBot for Discord, a wedding site, a portfolio in plain HTML. Small project, shipped, live, the best way to learn that I know.",
         "unlocked": ["Node.js", "Discord.js", "Git", "websites"]
       },
       "university": {
@@ -94,7 +94,7 @@
       "fullStack": {
         "title": "Full-stack",
         "year": "now",
-        "description": "Today I build web apps end to end with React, Next.js, and Node. Interface, API, database — the whole project is the level.",
+        "description": "Today I build web apps end to end with React, Next.js, and Node. Interface, API, database, the whole project is the level.",
         "unlocked": ["React", "Next.js", "TypeScript", "APIs"]
       },
       "nextQuest": {
@@ -106,7 +106,7 @@
     }
   },
   "about": {
-    "brief": "I'm Pedro — a full-stack developer, Software Engineering student, and a gamer for as long as I can remember. Games are what made me realize I liked understanding how things worked under the hood more than just pressing buttons.",
+    "brief": "I'm Pedro, a full-stack developer, Software Engineering student, and a gamer for as long as I can remember. Games are what made me realize I liked understanding how things worked under the hood more than just pressing buttons.",
     "paragraphs": [
       "I started out tweaking game configs and running home servers, and before long I was writing real code. Today I build web apps end to end: interface, API, database, and whatever else the project needs.",
       "I like projects that solve a real problem, clean code, and picking up new tools without fear. I treat every bug like a hard level: annoying in the moment, satisfying once it's cleared.",
@@ -144,7 +144,7 @@
     }
   },
   "experience": {
-    "empty": "No formal work experience yet — I'm just starting that journey. In the meantime, take a look at my projects.",
+    "empty": "No formal work experience yet, I'm just starting that journey. In the meantime, take a look at my projects.",
     "current": "Present",
     "items": {}
   },
@@ -225,7 +225,7 @@
   "resume": {
     "back": "Back to portfolio",
     "title": "Resume",
-    "subtitle": "Background, education, and stack — the short version.",
+    "subtitle": "Background, education, and stack, the short version.",
     "download": "Download PDF",
     "openInNewTab": "Open in new tab",
     "unavailable": "The resume PDF isn't available yet. Check back soon."

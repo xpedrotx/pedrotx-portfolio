@@ -68,7 +68,7 @@
 }
 
 /* ============================================================
-   LIGHT THEME — white surface, blue accent
+   LIGHT THEME, white surface, blue accent
    ============================================================ */
 :root {
   --background: hsl(210 40% 98%);
@@ -119,7 +119,7 @@
 }
 
 /* ============================================================
-   DARK THEME — black surface, red accent
+   DARK THEME, black surface, red accent
    ============================================================ */
 .dark {
   --background: hsl(0 0% 3%);

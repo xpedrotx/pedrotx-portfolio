@@ -60,7 +60,7 @@ export function EmailTemplate({
             <Text style={greeting}>Oi {userName},</Text>
 
             <Text style={paragraph}>
-              Recebi sua mensagem pelo portfólio — obrigado por escrever.
+              Recebi sua mensagem pelo portfólio, obrigado por escrever.
             </Text>
 
             <Text style={paragraph}>

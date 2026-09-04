@@ -35,7 +35,7 @@ export function ConsentProvider({ children }: { children: React.ReactNode }) {
       const stored = localStorage.getItem(STORAGE_KEY);
       if (stored === "granted" || stored === "denied") setConsent(stored);
     } catch {
-      /* storage blocked — stay "unknown" */
+      /* storage blocked, stay "unknown" */
     }
   }, []);
 

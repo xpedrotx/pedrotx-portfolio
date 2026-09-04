@@ -34,7 +34,7 @@ export const PreLoader = () => {
   useEffect(() => {
     if (!visible) return;
 
-    // Short, fixed cover — never blocks on `window.load` (fonts + WebGL can
+    // Short, fixed cover, never blocks on `window.load` (fonts + WebGL can
     // stall that for seconds and would tank LCP).
     const timer = setTimeout(() => {
       setDone(true);

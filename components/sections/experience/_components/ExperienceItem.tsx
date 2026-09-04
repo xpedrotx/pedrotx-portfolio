@@ -21,8 +21,8 @@ export const ExperienceItem = ({ item, index }: ExperienceItemProps) => {
   const isInView = useInView(ref, { once: true, margin: "-60px" });
 
   const dateRange = item.current
-    ? `${formatDate(item.startDate)} — Present`
-    : `${formatDate(item.startDate)} — ${formatDate(item.endDate)}`;
+    ? `${formatDate(item.startDate)} to Present`
+    : `${formatDate(item.startDate)} to ${formatDate(item.endDate)}`;
 
   return (
     <motion.div

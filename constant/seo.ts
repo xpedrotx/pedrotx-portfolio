@@ -42,7 +42,7 @@ export const SITE_SEO = {
   siteUrl: resolveSiteUrl(),
   titleTemplate: "%s | PEDROTX",
   defaultDescription:
-    "Portfólio de Pedro Teixeira — desenvolvedor full-stack e estudante de Engenharia de Software no Paraná, apaixonado por games e por construir para a web com React, Next.js e Node.js.",
+    "Portfólio de Pedro Teixeira, desenvolvedor full-stack e estudante de Engenharia de Software no Paraná, apaixonado por games e por construir para a web com React, Next.js e Node.js.",
   defaultKeywords: [
     "Pedro Teixeira",
     "Pedro Teixeira portfólio",
@@ -118,7 +118,7 @@ export const PAGE_SEO: Record<
   resume: {
     title: "Currículo",
     description:
-      "Currículo e trajetória de Pedro Teixeira — desenvolvedor full-stack e estudante de Engenharia de Software.",
+      "Currículo e trajetória de Pedro Teixeira, desenvolvedor full-stack e estudante de Engenharia de Software.",
     keywords: [
       "Pedro Teixeira currículo",
       "Pedro Teixeira CV",

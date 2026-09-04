@@ -1,6 +1,6 @@
 import type { LucideIcon } from "lucide-react";
 import {
-  Gamepad2,
+  Wrench,
   Server,
   Code2,
   Bot,
@@ -20,7 +20,7 @@ export interface JourneyStage {
 }
 
 export const journey: JourneyStage[] = [
-  { id: "configWars", icon: Gamepad2 },
+  { id: "noManual", icon: Wrench },
   { id: "homeServer", icon: Server },
   { id: "firstCode", icon: Code2 },
   { id: "botsAndWeb", icon: Bot },
