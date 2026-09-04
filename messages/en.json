@@ -80,28 +80,28 @@
         "description": "In 2015, looking for ways to boost my team's budget in FIFA, I found tools like Cheat Engine. I started searching for values in the game's memory, changing numbers at runtime, and understanding, even without knowing the terms yet, concepts like processes, memory addresses, and data manipulation. It was my first more technical contact with what was going on behind a program.",
         "unlocked": ["memory", "processes", "Cheat Engine"]
       },
-      "botsAndWeb": {
-        "title": "Bots and web",
-        "year": "2021 – 2024",
-        "description": "FinariBot for Discord, a wedding site, a portfolio in plain HTML. Small project, shipped, live, the best way to learn that I know.",
-        "unlocked": ["Node.js", "Discord.js", "Git", "websites"]
+      "linuxAndServers": {
+        "title": "Linux, networks, and servers",
+        "year": "2016 – 2018",
+        "description": "Between 2016 and 2018, running game servers to play with friends turned into a hobby. I configured ports, IPs, and permissions, and kept an old PC running for hours. It was my first hands-on contact with Linux, networking, services, and server administration.",
+        "unlocked": ["Linux", "networking", "server administration"]
       },
-      "university": {
-        "title": "Software Engineering",
+      "firstItJobs": {
+        "title": "First IT jobs",
+        "year": "2018 – 2023",
+        "description": "In 2018, after finishing a hardware course, I started taking my first IT jobs. I did system reinstalls, memory upgrades, HDD-to-SSD swaps, power supply replacements, and computer maintenance for a few clients. That's when what had been curiosity and a hobby started turning into professional experience.",
+        "unlocked": ["hardware", "maintenance", "technical support"]
+      },
+      "devAndIt": {
+        "title": "Development and IT",
         "year": "2023 – now",
-        "description": "University at Unopar. Where years of intuition from tinkering with broken things got proper names: algorithms, data structures, engineering, databases.",
-        "unlocked": ["algorithms", "software engineering", "databases"]
+        "description": "In 2023, I started diving deeper into programming, building sites with HTML and CSS and studying Python and programming logic. Today I work in IT at an accounting firm, where I develop systems for internal use and directly support the CEO, who also leads the IT area, with the maintenance, evolution, and support of the systems the firm uses. Development is where I found the area I feel most comfortable, motivated, and fulfilled in.",
+        "unlocked": ["HTML", "CSS", "Python", "IT"]
       },
-      "fullStack": {
-        "title": "Full-stack",
-        "year": "now",
-        "description": "Today I build web apps end to end with React, Next.js, and Node. Interface, API, database, the whole project is the level.",
-        "unlocked": ["React", "Next.js", "TypeScript", "APIs"]
-      },
-      "nextQuest": {
-        "title": "To be defined",
+      "nextStep": {
+        "title": "Next step",
         "year": "???",
-        "description": "A first role in the field, a project that really scales, a new stack to master. The next stage hasn't loaded yet.",
+        "description": "I want to take the next step by moving fully into development and/or support, putting into practice everything I've been building over the years. The next stage is still open, but the goal is clear: grow professionally in IT, learn from real projects, and keep evolving.",
         "unlocked": []
       }
     }

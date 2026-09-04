@@ -80,28 +80,28 @@
         "description": "Em 2015, procurando formas de aumentar o orçamento do meu time no FIFA, descobri ferramentas como o Cheat Engine. Comecei a buscar valores na memória do jogo, alterar números em tempo de execução e entender, mesmo sem saber os nomes ainda, conceitos como processos, endereços de memória e manipulação de dados. Foi meu primeiro contato mais técnico com o que existia por trás de um programa.",
         "unlocked": ["memória", "processos", "Cheat Engine"]
       },
-      "botsAndWeb": {
-        "title": "Bots e web",
-        "year": "2021 – 2024",
-        "description": "FinariBot pro Discord, site de casamento, portfólio em HTML puro. Projeto pequeno, entregue, no ar, a melhor forma de aprender que eu conheço.",
-        "unlocked": ["Node.js", "Discord.js", "Git", "sites"]
+      "linuxAndServers": {
+        "title": "Linux, redes e servidores",
+        "year": "2016 – 2018",
+        "description": "Entre 2016 e 2018, subir servidores de jogos para jogar com os amigos virou hobby. Configurava portas, IPs, permissões e mantinha um PC antigo ligado por horas. Foi meu primeiro contato prático com Linux, redes, serviços e administração de servidores.",
+        "unlocked": ["Linux", "redes", "administração de servidores"]
       },
-      "university": {
-        "title": "Engenharia de Software",
+      "firstItJobs": {
+        "title": "Primeiros trabalhos em T.I.",
+        "year": "2018 – 2023",
+        "description": "Em 2018, depois de concluir um curso de hardware, comecei a pegar meus primeiros trabalhos em T.I. Fazia formatações, upgrades de memória, troca de HD por SSD, substituição de fontes e manutenção de computadores para alguns clientes. Foi quando aquilo que até então era curiosidade e hobby começou a virar experiência profissional.",
+        "unlocked": ["hardware", "manutenção", "suporte técnico"]
+      },
+      "devAndIt": {
+        "title": "Desenvolvimento e T.I.",
         "year": "2023 – hoje",
-        "description": "Faculdade na Unopar. Onde a intuição de anos mexendo em coisa quebrada ganhou nome: algoritmos, estrutura de dados, engenharia, banco de dados.",
-        "unlocked": ["algoritmos", "engenharia de software", "bancos de dados"]
+        "description": "Em 2023, comecei a me aprofundar em programação, criando sites com HTML e CSS e estudando Python e lógica de programação. Hoje trabalho com T.I. em um escritório contábil, onde desenvolvo sistemas para meu uso interno e auxilio diretamente o CEO, que também lidera a área de T.I., na manutenção, evolução e suporte dos sistemas utilizados pelo escritório. Foi no desenvolvimento que encontrei a área em que mais me sinto confortável, motivado e realizado.",
+        "unlocked": ["HTML", "CSS", "Python", "T.I."]
       },
-      "fullStack": {
-        "title": "Full-stack",
-        "year": "hoje",
-        "description": "Hoje construo aplicações web de ponta a ponta com React, Next.js e Node. Interface, API, banco, o projeto inteiro é a fase.",
-        "unlocked": ["React", "Next.js", "TypeScript", "APIs"]
-      },
-      "nextQuest": {
-        "title": "A definir",
+      "nextStep": {
+        "title": "Próximo passo",
         "year": "???",
-        "description": "Primeira vaga na área, um projeto que escale de verdade, uma stack nova pra dominar. A próxima fase ainda não carregou.",
+        "description": "Quero dar o próximo passo entrando de vez na área de desenvolvimento e/ou suporte, aplicando na prática tudo o que venho construindo ao longo dos anos. A próxima fase ainda está em aberto, mas o objetivo é claro: crescer profissionalmente em T.I., aprender com projetos reais e continuar evoluindo.",
         "unlocked": []
       }
     }

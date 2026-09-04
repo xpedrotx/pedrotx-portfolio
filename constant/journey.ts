@@ -3,9 +3,9 @@ import {
   Wrench,
   Tags,
   MemoryStick,
-  Bot,
-  GraduationCap,
-  Rocket,
+  Server,
+  HardDrive,
+  Code2,
   Flag,
 } from "lucide-react";
 
@@ -23,8 +23,8 @@ export const journey: JourneyStage[] = [
   { id: "noManual", icon: Wrench },
   { id: "mp3Tags", icon: Tags },
   { id: "cheatEngine", icon: MemoryStick },
-  { id: "botsAndWeb", icon: Bot },
-  { id: "university", icon: GraduationCap },
-  { id: "fullStack", icon: Rocket, current: true },
-  { id: "nextQuest", icon: Flag, nextQuest: true },
+  { id: "linuxAndServers", icon: Server },
+  { id: "firstItJobs", icon: HardDrive },
+  { id: "devAndIt", icon: Code2, current: true },
+  { id: "nextStep", icon: Flag, nextQuest: true },
 ];
