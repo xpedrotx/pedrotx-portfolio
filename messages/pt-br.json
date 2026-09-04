@@ -1,0 +1,233 @@
+{
+  "nav": {
+    "sections": "Seções",
+    "pages": "Páginas",
+    "navigation": "Navegação",
+    "socials": "Redes",
+    "menu": "Menu",
+    "close": "Fechar",
+    "home": "Início",
+    "about": "Sobre",
+    "skills": "Habilidades",
+    "experience": "Jornada",
+    "work": "Projetos",
+    "contact": "Contato",
+    "resume": "Currículo",
+    "projects": "Projetos",
+    "downloadResume": "Baixar currículo"
+  },
+  "theme": {
+    "toggle": "Alternar tema",
+    "light": "Claro",
+    "dark": "Escuro",
+    "system": "Sistema"
+  },
+  "locale": {
+    "switch": "Idioma",
+    "pt-br": "Português",
+    "en": "English"
+  },
+  "notFound": {
+    "title": "Página não encontrada",
+    "back": "Voltar ao início"
+  },
+  "consent": {
+    "title": "Cookies e análise",
+    "body": "Uso ferramentas de análise pra entender o tráfego do site. As essenciais rodam sempre; o Google Analytics só com sua permissão.",
+    "accept": "Aceitar",
+    "decline": "Recusar"
+  },
+  "hero": {
+    "constant": "Continue",
+    "rotating": ["codando", "curioso", "no jogo", "aprendendo", "evoluindo"],
+    "quote": "Continue codando.",
+    "contact": "Fale comigo",
+    "resume": "Ver currículo"
+  },
+  "sections": {
+    "about": { "number": "02", "title": "Sobre" },
+    "skills": { "number": "03", "title": "Habilidades" },
+    "journey": { "number": "04", "title": "Jornada" },
+    "experience": { "number": "04", "title": "Experiência" },
+    "work": { "number": "05", "title": "Projetos" },
+    "contact": { "number": "06", "title": "Contato" }
+  },
+  "journey": {
+    "kicker": "// save points",
+    "intro": "Ainda não tenho um histórico corporativo — mas tenho uma jornada. Cada fase destravou o kit pra próxima.",
+    "levelLabel": "FASE",
+    "youAreHere": "você está aqui",
+    "unlockedLabel": "Destravado",
+    "xpLabel": "XP",
+    "nextQuestLabel": "Próxima fase",
+    "stages": {
+      "configWars": {
+        "title": "As Config Wars",
+        "year": "~2012",
+        "description": "Antes de escrever código, eu editava. Arquivos .ini de jogo, parâmetros escondidos, mods que quebravam tudo. Aprendi que dava pra mudar as regras — bastava achar o arquivo certo.",
+        "unlocked": [".ini", "mods", "curiosidade"]
+      },
+      "homeServer": {
+        "title": "Servidor caseiro",
+        "year": "~2015",
+        "description": "Subir servidor de jogo pra jogar com os amigos virou hobby. Porta, IP, permissão, o PC velho ligado a noite toda. Meu primeiro contato de verdade com Linux e redes.",
+        "unlocked": ["redes", "Linux", "hosting"]
+      },
+      "firstCode": {
+        "title": "Primeiro código de verdade",
+        "year": "~2019",
+        "description": "Do config pro código. HTML, CSS e os primeiros scripts em JavaScript. A primeira página que respondia ao clique foi um vício imediato.",
+        "unlocked": ["HTML", "CSS", "JavaScript"]
+      },
+      "botsAndWeb": {
+        "title": "Bots e web",
+        "year": "2021 – 2024",
+        "description": "FinariBot pro Discord, site de casamento, portfólio em HTML puro. Projeto pequeno, entregue, no ar — a melhor forma de aprender que eu conheço.",
+        "unlocked": ["Node.js", "Discord.js", "Git", "sites"]
+      },
+      "university": {
+        "title": "Engenharia de Software",
+        "year": "2023 – hoje",
+        "description": "Faculdade na Unopar. Onde a intuição de anos mexendo em coisa quebrada ganhou nome: algoritmos, estrutura de dados, engenharia, banco de dados.",
+        "unlocked": ["algoritmos", "engenharia de software", "bancos de dados"]
+      },
+      "fullStack": {
+        "title": "Full-stack",
+        "year": "hoje",
+        "description": "Hoje construo aplicações web de ponta a ponta com React, Next.js e Node. Interface, API, banco — o projeto inteiro é a fase.",
+        "unlocked": ["React", "Next.js", "TypeScript", "APIs"]
+      },
+      "nextQuest": {
+        "title": "A definir",
+        "year": "???",
+        "description": "Primeira vaga na área, um projeto que escale de verdade, uma stack nova pra dominar. A próxima fase ainda não carregou.",
+        "unlocked": []
+      }
+    }
+  },
+  "about": {
+    "brief": "Sou o Pedro — desenvolvedor full-stack, estudante de Engenharia de Software e gamer desde que me entendo por gente. Foi jogando que percebi que gostava mais de entender como as coisas funcionavam por dentro do que só apertar botão.",
+    "paragraphs": [
+      "Comecei mexendo em configs de jogo e servidores caseiros e, quando vi, já estava escrevendo código de verdade. Hoje construo aplicações web de ponta a ponta: interface, API, banco e o que mais o projeto pedir.",
+      "Gosto de projeto que resolve um problema real, de código limpo e de aprender ferramenta nova sem medo. Trato cada bug como uma fase difícil: irritante na hora, satisfatório quando passa.",
+      "Estou no 6º semestre da faculdade, sempre com um projeto paralelo aberto e a próxima ideia na fila."
+    ],
+    "quote": "Continue codando.",
+    "quoteKicker": "Filosofia",
+    "eduKicker": "Formação",
+    "slideLabels": {
+      "brief": "01 RESUMO",
+      "edu": "02 FORMAÇÃO",
+      "stats": "03 STATS",
+      "quote": "04 FRASE"
+    },
+    "education": {
+      "batchLabel": "Fase",
+      "degree": "Bacharelado em Engenharia de Software",
+      "batch": "6º semestre"
+    },
+    "codingStats": {
+      "title": "Atividade no GitHub",
+      "repos": "Repositórios",
+      "followers": "Seguidores",
+      "following": "Seguindo",
+      "gists": "Gists",
+      "stars": "Estrelas",
+      "loadError": "Não foi possível carregar as estatísticas agora."
+    }
+  },
+  "skills": {
+    "categories": {
+      "languages": "Linguagens & Bancos",
+      "frameworks": "Frameworks & Bibliotecas",
+      "tools": "Ferramentas & Plataformas"
+    }
+  },
+  "experience": {
+    "empty": "Ainda sem experiência profissional formal — estou começando essa jornada agora. Enquanto isso, dá uma olhada nos meus projetos.",
+    "current": "Atual",
+    "items": {}
+  },
+  "projects": {
+    "featuredTitle": "Destaques",
+    "items": {
+      "finaribot": "Bot de finanças pessoais para Discord: registra gastos, gera relatórios e lembra de contas a pagar.",
+      "portfolio": "Meu primeiro portfólio, feito em HTML e CSS puros com alguns scripts em JavaScript.",
+      "wedding": "Site de casamento com contagem regressiva, galeria de fotos e confirmação de presença.",
+      "taskflow": "Gerenciador de tarefas com quadros kanban, prazos, arrastar-e-soltar e login.",
+      "devlog": "Blog pessoal de estudos com editor em markdown, tags e busca."
+    },
+    "page": {
+      "subtitle": "Aplicações web, experimentos e repositórios open-source. Alguns em produção, outros ainda no forno.",
+      "viewLive": "Ver online",
+      "viewCode": "Código",
+      "allTitle": "Todos os projetos",
+      "github": {
+        "title": "No GitHub",
+        "subtitle": "Repositórios públicos de @xpedrotx",
+        "search": "Buscar repositórios...",
+        "empty": "Nenhum repositório encontrado.",
+        "error": "Não foi possível carregar os repositórios do GitHub agora."
+      }
+    }
+  },
+  "contact": {
+    "heading": "Vamos conversar",
+    "description": "Tem uma ideia, uma vaga ou só quer trocar figurinha sobre código e games? Manda mensagem.",
+    "infoTitle": "Contato direto",
+    "location": "Localização",
+    "email": "Email",
+    "localTime": "horário de Brasília",
+    "whatsapp": "WhatsApp",
+    "whatsappCta": "Chamar no WhatsApp",
+    "whatsappMessage": "Oi Pedro! Vi seu portfólio e queria falar sobre",
+    "socialsTitle": "Me acha em",
+    "form": {
+      "steps": {
+        "email": "PASSO 01 / 04",
+        "name": "PASSO 02 / 04",
+        "reason": "PASSO 03 / 04",
+        "message": "PASSO 04 / 04"
+      },
+      "placeholders": {
+        "email": "[ seu email ]",
+        "name": "[ seu nome ]",
+        "reason": "[ motivo do contato ]",
+        "message": "[ escreva sua mensagem... ]"
+      },
+      "back": "voltar",
+      "next": "avançar",
+      "send": "enviar",
+      "sending": "enviando...",
+      "successTitle": "Mensagem recebida!",
+      "successBody": "Sua mensagem chegou. Respondo assim que possível.",
+      "sendAnother": "Enviar outra mensagem",
+      "errors": {
+        "required": "Preencha este campo",
+        "email": "Digite um email válido",
+        "generic": "Algo deu errado. Tente de novo."
+      },
+      "toast": {
+        "successTitle": "Mensagem enviada! 🚀",
+        "successBody": "Sua mensagem chegou na minha caixa de entrada. Respondo em breve!",
+        "errorTitle": "Falha ao enviar a mensagem"
+      }
+    }
+  },
+  "footer": {
+    "navigation": "Navegação",
+    "connect": "Conecte-se",
+    "socials": "Redes",
+    "backToTop": "Voltar ao topo",
+    "emailLabel": "Email",
+    "connectText": "Aberto a oportunidades, colaborações e uma boa conversa sobre código."
+  },
+  "resume": {
+    "back": "Voltar ao portfólio",
+    "title": "Currículo",
+    "subtitle": "Trajetória, formação e stack — versão resumida.",
+    "download": "Baixar PDF",
+    "openInNewTab": "Abrir em nova aba",
+    "unavailable": "O PDF do currículo ainda não está disponível. Volte em breve."
+  }
+}
