@@ -49,7 +49,7 @@
     "skills": { "number": "03", "title": "Skills" },
     "journey": { "number": "04", "title": "Journey" },
     "experience": { "number": "04", "title": "Experience" },
-    "work": { "number": "05", "title": "Projects" },
+    "work": { "number": "05", "title": "Projects", "seeAll": "See all projects" },
     "contact": { "number": "06", "title": "Contact" }
   },
   "journey": {

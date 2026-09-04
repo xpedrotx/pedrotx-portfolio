@@ -32,9 +32,6 @@ export const selected_works: Project[] = [
       github: "https://github.com/xpedrotx/FinariBot",
     },
   },
-];
-
-export const works: Project[] = [
   {
     id: "portfolio",
     name: "Portfólio v1",
@@ -44,6 +41,9 @@ export const works: Project[] = [
       live: "https://xpedrotx.github.io",
     },
   },
+];
+
+export const works: Project[] = [
   {
     id: "wedding",
     name: "Wedding",

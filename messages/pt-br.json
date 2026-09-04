@@ -49,7 +49,7 @@
     "skills": { "number": "03", "title": "Habilidades" },
     "journey": { "number": "04", "title": "Jornada" },
     "experience": { "number": "04", "title": "Experiência" },
-    "work": { "number": "05", "title": "Projetos" },
+    "work": { "number": "05", "title": "Projetos", "seeAll": "Ver todos os projetos" },
     "contact": { "number": "06", "title": "Contato" }
   },
   "journey": {

@@ -1,5 +1,7 @@
+import { ArrowRight } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { SectionHeader } from "@/components/common";
+import { Link } from "@/i18n/navigation";
 import { selected_works } from "@/constant";
 import { WorkCard } from "./_components/WorkCard";
 
@@ -26,6 +28,16 @@ export const WorkSection = () => {
               links={project.links}
             />
           ))}
+        </div>
+
+        <div className="mt-10 flex justify-center">
+          <Link
+            href="/projects"
+            className="group inline-flex items-center gap-2 rounded-xl border border-card-border bg-card/60 px-5 py-3 font-mono text-xs font-semibold uppercase tracking-wider text-foreground transition-all duration-200 hover:border-accent/40 hover:bg-card"
+          >
+            {t("seeAll")}
+            <ArrowRight className="size-3.5 text-accent transition-transform group-hover:translate-x-0.5" />
+          </Link>
         </div>
       </div>
     </section>
