@@ -12,6 +12,11 @@ export type ConsentState = "unknown" | "granted" | "denied";
 
 const STORAGE_KEY = "pedrotx_consent";
 
+/** Consent is only relevant when a cookie-setting provider is configured. */
+export const CONSENT_REQUIRED = Boolean(
+  process.env.NEXT_PUBLIC_GA_ID || process.env.NEXT_PUBLIC_ADS_ID,
+);
+
 interface ConsentContextValue {
   consent: ConsentState;
   accept: () => void;

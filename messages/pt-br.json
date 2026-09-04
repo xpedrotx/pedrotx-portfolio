@@ -32,8 +32,8 @@
     "back": "Voltar ao início"
   },
   "consent": {
-    "title": "Cookies e análise",
-    "body": "Uso ferramentas de análise pra entender o tráfego do site. As essenciais rodam sempre; o Google Analytics só com sua permissão.",
+    "title": "Cookies",
+    "body": "Este site utiliza cookies de análise de tráfego.",
     "accept": "Aceitar",
     "decline": "Recusar"
   },

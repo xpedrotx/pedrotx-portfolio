@@ -5,7 +5,7 @@ import { useTranslations } from "next-intl";
 import { mono } from "@/app/fonts";
 import { profile } from "@/constant";
 import { cn } from "@/lib/utils";
-import { useConsent } from "@/components/analytics/consent-context";
+import { CONSENT_REQUIRED, useConsent } from "@/components/analytics/consent-context";
 
 export const CopyrightBar = () => {
   const currentYear = new Date().getFullYear();
@@ -17,14 +17,16 @@ export const CopyrightBar = () => {
       <span className={cn(mono.className, "text-[11px] sm:text-xs text-muted-foreground")}>
         © {currentYear} {profile.name.brand.toUpperCase()}
       </span>
-      <div className={cn(mono.className, "flex items-center gap-4 text-[11px] sm:text-xs text-muted-foreground")}>
-        <button
-          onClick={reset}
-          className="hover:text-foreground hover:underline transition-colors uppercase cursor-pointer"
-        >
-          {t("title")}
-        </button>
-      </div>
+      {CONSENT_REQUIRED && (
+        <div className={cn(mono.className, "flex items-center gap-4 text-[11px] sm:text-xs text-muted-foreground")}>
+          <button
+            onClick={reset}
+            className="hover:text-foreground hover:underline transition-colors uppercase cursor-pointer"
+          >
+            {t("title")}
+          </button>
+        </div>
+      )}
     </div>
   );
 };

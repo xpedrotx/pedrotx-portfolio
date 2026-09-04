@@ -3,7 +3,7 @@
 import { AnimatePresence, motion } from "motion/react";
 import { useTranslations } from "next-intl";
 
-import { useConsent } from "./consent-context";
+import { CONSENT_REQUIRED, useConsent } from "./consent-context";
 
 export const ConsentBanner = () => {
   const t = useTranslations("consent");
@@ -11,7 +11,7 @@ export const ConsentBanner = () => {
 
   return (
     <AnimatePresence>
-      {consent === "unknown" && (
+      {CONSENT_REQUIRED && consent === "unknown" && (
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}

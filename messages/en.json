@@ -32,8 +32,8 @@
     "back": "Back home"
   },
   "consent": {
-    "title": "Cookies & analytics",
-    "body": "I use analytics to understand site traffic. Essential ones always run; Google Analytics only with your permission.",
+    "title": "Cookies",
+    "body": "This site uses traffic-analytics cookies.",
     "accept": "Accept",
     "decline": "Decline"
   },
