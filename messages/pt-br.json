@@ -68,17 +68,17 @@
         "description": "Antes de escrever código, eu já desmontava computadores só para entender como funcionavam por dentro. Por volta de 2009, eu abria máquinas que estavam funcionando, tirava memórias, mexia nas placas sem nem saber o que era eletricidade estática e depois tentava montar tudo de novo. Quase sempre acabava de castigo, e dois computadores não sobreviveram à minha curiosidade.",
         "unlocked": ["curiosidade.ini", "pc_queimado.log", "debug_fisico"]
       },
-      "homeServer": {
-        "title": "Servidor caseiro",
-        "year": "~2015",
-        "description": "Subir servidor de jogo pra jogar com os amigos virou hobby. Porta, IP, permissão, o PC velho ligado a noite toda. Meu primeiro contato de verdade com Linux e redes.",
-        "unlocked": ["redes", "Linux", "hosting"]
+      "mp3Tags": {
+        "title": "MP3, tags e Windows",
+        "year": "~2012",
+        "description": "Baixava músicas no famoso 4shared e muitos MP3 vinham com nomes bagunçados ou sem os metadados corretos. No Windows Media Player era comum aparecer 'Artista desconhecido', 'Álbum desconhecido' e faixas fora de ordem. Comecei a pesquisar como renomear arquivos e editar as tags ID3 dos MP3 para organizar minha biblioteca. Sem perceber, foi ali que tive meu primeiro contato com edição de arquivos e comecei a entender melhor como o Windows lidava com eles.",
+        "unlocked": ["tags ID3", "organização de arquivos", "Windows"]
       },
-      "firstCode": {
-        "title": "Primeiro código de verdade",
-        "year": "~2019",
-        "description": "Do config pro código. HTML, CSS e os primeiros scripts em JavaScript. A primeira página que respondia ao clique foi um vício imediato.",
-        "unlocked": ["HTML", "CSS", "JavaScript"]
+      "cheatEngine": {
+        "title": "Memória e processos",
+        "year": "~2015",
+        "description": "Em 2015, procurando formas de aumentar o orçamento do meu time no FIFA, descobri ferramentas como o Cheat Engine. Comecei a buscar valores na memória do jogo, alterar números em tempo de execução e entender, mesmo sem saber os nomes ainda, conceitos como processos, endereços de memória e manipulação de dados. Foi meu primeiro contato mais técnico com o que existia por trás de um programa.",
+        "unlocked": ["memória", "processos", "Cheat Engine"]
       },
       "botsAndWeb": {
         "title": "Bots e web",

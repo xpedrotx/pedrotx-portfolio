@@ -1,8 +1,8 @@
 import type { LucideIcon } from "lucide-react";
 import {
   Wrench,
-  Server,
-  Code2,
+  Tags,
+  MemoryStick,
   Bot,
   GraduationCap,
   Rocket,
@@ -21,8 +21,8 @@ export interface JourneyStage {
 
 export const journey: JourneyStage[] = [
   { id: "noManual", icon: Wrench },
-  { id: "homeServer", icon: Server },
-  { id: "firstCode", icon: Code2 },
+  { id: "mp3Tags", icon: Tags },
+  { id: "cheatEngine", icon: MemoryStick },
   { id: "botsAndWeb", icon: Bot },
   { id: "university", icon: GraduationCap },
   { id: "fullStack", icon: Rocket, current: true },

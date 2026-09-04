@@ -68,17 +68,17 @@
         "description": "Before I ever wrote code, I was already taking computers apart just to understand how they worked inside. Around 2009 I would open machines that were working fine, pull the RAM, poke at the boards with no idea what static electricity was, then try to put it all back together. It usually ended in getting grounded, and two computers didn't survive my curiosity.",
         "unlocked": ["curiosity.ini", "fried_pc.log", "physical_debug"]
       },
-      "homeServer": {
-        "title": "Home server",
-        "year": "~2015",
-        "description": "Running a game server to play with friends turned into a hobby. Ports, IPs, permissions, the old PC left on all night. My first real contact with Linux and networking.",
-        "unlocked": ["networking", "Linux", "hosting"]
+      "mp3Tags": {
+        "title": "MP3s, tags, and Windows",
+        "year": "~2012",
+        "description": "I used to download music from the old 4shared, and a lot of MP3s came with messy names or missing metadata. Windows Media Player would often show 'Unknown Artist', 'Unknown Album', and tracks out of order. I started researching how to rename files and edit MP3 ID3 tags to organize my library. Without realizing it, that's where I had my first contact with file editing and started understanding how Windows handled them.",
+        "unlocked": ["ID3 tags", "file organization", "Windows"]
       },
-      "firstCode": {
-        "title": "First real code",
-        "year": "~2019",
-        "description": "From config to code. HTML, CSS, and the first JavaScript scripts. The first page that reacted to a click was an instant addiction.",
-        "unlocked": ["HTML", "CSS", "JavaScript"]
+      "cheatEngine": {
+        "title": "Memory and processes",
+        "year": "~2015",
+        "description": "In 2015, looking for ways to boost my team's budget in FIFA, I found tools like Cheat Engine. I started searching for values in the game's memory, changing numbers at runtime, and understanding, even without knowing the terms yet, concepts like processes, memory addresses, and data manipulation. It was my first more technical contact with what was going on behind a program.",
+        "unlocked": ["memory", "processes", "Cheat Engine"]
       },
       "botsAndWeb": {
         "title": "Bots and web",
