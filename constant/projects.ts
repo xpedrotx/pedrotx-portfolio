@@ -1,5 +1,5 @@
 export interface Project {
-  /** i18n key: projects.items.<id>.description */
+  /** i18n key: projects.items.<id> */
   id: string;
   name: string;
   technologies: string[];
@@ -11,6 +11,20 @@ export interface Project {
 
 export const selected_works: Project[] = [
   {
+    id: "glicai",
+    name: "GlicAI",
+    technologies: ["Python", "TypeScript", "PostgreSQL", "Docker", "WhatsApp API"],
+    links: {},
+  },
+  {
+    id: "drageovana",
+    name: "Dra. Geovana Roque",
+    technologies: ["Next.js", "TypeScript", "Tailwind CSS"],
+    links: {
+      live: "https://drageovana.com",
+    },
+  },
+  {
     id: "finaribot",
     name: "FinariBot",
     technologies: ["JavaScript", "Node.js", "Discord.js"],
@@ -18,9 +32,12 @@ export const selected_works: Project[] = [
       github: "https://github.com/xpedrotx/FinariBot",
     },
   },
+];
+
+export const works: Project[] = [
   {
     id: "portfolio",
-    name: "Portfolio",
+    name: "Portfólio v1",
     technologies: ["HTML", "CSS", "JavaScript"],
     links: {
       github: "https://github.com/xpedrotx/xpedrotx.github.io",
@@ -34,20 +51,5 @@ export const selected_works: Project[] = [
     links: {
       github: "https://github.com/xpedrotx/wedding",
     },
-  },
-];
-
-export const works: Project[] = [
-  {
-    id: "taskflow",
-    name: "TaskFlow",
-    technologies: ["Next.js", "TypeScript", "Prisma", "PostgreSQL"],
-    links: {},
-  },
-  {
-    id: "devlog",
-    name: "DevLog",
-    technologies: ["React", "Vite", "Tailwind CSS", "Supabase"],
-    links: {},
   },
 ];

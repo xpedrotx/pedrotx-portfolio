@@ -151,14 +151,14 @@
   "projects": {
     "featuredTitle": "Featured",
     "items": {
+      "glicai": "Production WhatsApp bot for diabetes follow-up: blood-sugar logging, reminders, and AI-assisted guidance.",
+      "drageovana": "Telemedicine site for Dr. Geovana Roque: bio, how the online consultation works, pricing, FAQ, and booking.",
       "finaribot": "A personal-finance Discord bot: logs expenses, builds reports, and reminds you of bills.",
       "portfolio": "My first portfolio, built with plain HTML and CSS plus a few JavaScript scripts.",
-      "wedding": "A wedding site with a countdown, photo gallery, and RSVP form.",
-      "taskflow": "A task manager with kanban boards, due dates, drag-and-drop, and auth.",
-      "devlog": "A personal study blog with a markdown editor, tags, and search."
+      "wedding": "A wedding site with a countdown, photo gallery, and RSVP form."
     },
     "page": {
-      "subtitle": "Web apps, experiments, and open-source repositories. Some shipped, some still cooking.",
+      "subtitle": "Web apps and bots, from my first HTML portfolio to projects running in production.",
       "viewLive": "View live",
       "viewCode": "Code",
       "allTitle": "All projects",
