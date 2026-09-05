@@ -63,13 +63,13 @@ export const StatementCard = ({
 
       {/* Bottom Monospace Interactive Slide Switcher Pills */}
       {totalSlides > 1 && (
-        <div className="pt-4 border-t border-card-border mt-4 flex items-center justify-between gap-2 overflow-x-auto">
-          <div className="flex items-center gap-2">
+        <div className="pt-4 border-t border-card-border mt-4">
+          <div className="flex flex-wrap items-center gap-2">
             {slides.map((_, i) => (
               <motion.button
                 key={i}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+                whileHover={{ scale: 1.04 }}
+                whileTap={{ scale: 0.96 }}
                 onClick={() => onSelectIndex?.(i)}
                 className={cn(
                   "font-mono text-[11px] font-semibold px-3 py-1 rounded-lg border transition-all duration-200 cursor-pointer",
