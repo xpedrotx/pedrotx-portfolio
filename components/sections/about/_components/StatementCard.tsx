@@ -31,7 +31,7 @@ export const StatementCard = ({
   return (
     <BentoCard
       gradientSeed={2}
-      className="sm:col-span-2 md:col-span-2 flex flex-col justify-between min-h-72 sm:min-h-80 relative overflow-hidden p-6 sm:p-8"
+      className="sm:col-span-2 md:col-span-2 flex flex-col justify-between h-[32rem] sm:h-[27rem] relative overflow-hidden p-6 sm:p-8"
       index={index}
     >
       {/* Header Tab Badge */}
@@ -43,20 +43,22 @@ export const StatementCard = ({
       </div>
 
       {/* Main Slide Content Area */}
-      <div className="relative py-2 flex-1 flex flex-col justify-center min-h-35">
-        <motion.div
-          key={activeIndex}
-          initial={{ opacity: 0, y: 10, filter: "blur(4px)" }}
-          animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-          transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-          className="w-full"
-        >
-          {typeof currentSlide === "string" ? (
-            <StatementSlide text={currentSlide} />
-          ) : (
-            currentSlide
-          )}
-        </motion.div>
+      <div className="relative py-2 flex-1 min-h-0 overflow-y-auto">
+        <div className="flex min-h-full flex-col justify-center">
+          <motion.div
+            key={activeIndex}
+            initial={{ opacity: 0, y: 10, filter: "blur(4px)" }}
+            animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+            transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+            className="w-full"
+          >
+            {typeof currentSlide === "string" ? (
+              <StatementSlide text={currentSlide} />
+            ) : (
+              currentSlide
+            )}
+          </motion.div>
+        </div>
       </div>
 
       {/* Bottom Monospace Interactive Slide Switcher Pills */}

@@ -23,7 +23,7 @@ export const SnakeAnimation = () => {
         alt={label}
         loading="lazy"
         onError={() => setFailed(true)}
-        className="mt-1.5 w-full max-w-full opacity-90"
+        className="mt-1.5 w-full max-w-md opacity-90"
       />
     </div>
   );
