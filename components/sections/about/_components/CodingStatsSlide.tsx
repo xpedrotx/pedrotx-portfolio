@@ -3,6 +3,7 @@
 import { motion } from "motion/react";
 import { useTranslations } from "next-intl";
 import { useCodingStats } from "@/hooks/useCodingStats";
+import { SnakeAnimation } from "./SnakeAnimation";
 
 export const CodingStatsSlide = () => {
   const t = useTranslations("about.codingStats");
@@ -74,6 +75,8 @@ export const CodingStatsSlide = () => {
           </div>
         </div>
       )}
+
+      <SnakeAnimation />
     </motion.div>
   );
 };

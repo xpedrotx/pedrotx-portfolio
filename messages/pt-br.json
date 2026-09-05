@@ -134,7 +134,8 @@
       "following": "Seguindo",
       "gists": "Gists",
       "stars": "Estrelas",
-      "loadError": "Não foi possível carregar as estatísticas agora."
+      "loadError": "Não foi possível carregar as estatísticas agora.",
+      "contributionsLabel": "Contribuições no último ano"
     }
   },
   "skills": {

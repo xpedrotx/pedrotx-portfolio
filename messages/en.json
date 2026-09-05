@@ -134,7 +134,8 @@
       "following": "Following",
       "gists": "Gists",
       "stars": "Stars",
-      "loadError": "Couldn't load stats right now."
+      "loadError": "Couldn't load stats right now.",
+      "contributionsLabel": "Contributions in the last year"
     }
   },
   "skills": {

@@ -43,6 +43,3 @@ next-env.d.ts
 
 # local reference clone (upstream template, kept out of history)
 /_reference
-
-# editor / tooling
-/.claude
