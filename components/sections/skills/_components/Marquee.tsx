@@ -87,6 +87,14 @@ export function Marquee({
           .animate-scroll {
             animation: scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite;
           }
+
+          @media (prefers-reduced-motion: reduce) {
+            .animate-marquee,
+            .animate-marquee-vertical,
+            .animate-scroll {
+              animation-play-state: paused !important;
+            }
+          }
         `}
       </style>
       <div

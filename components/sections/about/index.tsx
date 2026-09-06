@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { useReducedMotion } from "motion/react";
 import { useTranslations } from "next-intl";
 import { SectionHeader } from "@/components/common";
 
@@ -38,16 +39,17 @@ export const AboutSection = ({
 
   const [activeIndex, setActiveIndex] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
+  const reduceMotion = useReducedMotion();
   const totalItems = resolvedSlides.length;
 
   // Gentle auto-advance; pauses while the visitor is interacting with the card.
   useEffect(() => {
-    if (isHovered) return;
+    if (isHovered || reduceMotion) return;
     const timer = setInterval(() => {
       setActiveIndex((prev) => (prev + 1) % totalItems);
     }, 5000);
     return () => clearInterval(timer);
-  }, [isHovered, totalItems]);
+  }, [isHovered, reduceMotion, totalItems]);
 
   return (
     <section
