@@ -1,3 +1,4 @@
+import { getConsent } from "./consent";
 /**
  * Thin analytics layer. All calls are safe no-ops when the corresponding
  * provider isn't loaded (e.g. no GA id set, or consent not granted).
@@ -16,7 +17,7 @@ export function trackEvent(
   name: string,
   params: Record<string, unknown> = {},
 ): void {
-  if (typeof window === "undefined") return;
+  if (typeof window === "undefined" || getConsent() !== "granted") return;
   try {
     window.gtag?.("event", name, params);
   } catch {
@@ -30,7 +31,7 @@ export function trackLead(params: Record<string, unknown> = {}): void {
 
   // Google Ads conversion, only fires if the label env is present.
   const sendTo = process.env.NEXT_PUBLIC_ADS_CONVERSION_LABEL;
-  if (sendTo && typeof window !== "undefined") {
+  if (sendTo && typeof window !== "undefined" && getConsent() === "granted") {
     try {
       window.gtag?.("event", "conversion", { send_to: sendTo });
     } catch {

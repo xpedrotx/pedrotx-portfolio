@@ -6,21 +6,26 @@ import { ArrowRight, ArrowLeft, Loader2, AlertCircle } from "lucide-react";
 import { toast } from "sonner";
 import { useTranslations } from "next-intl";
 import { useTheme } from "next-themes";
-import { Turnstile } from "@marsidev/react-turnstile";
+import { Turnstile, type TurnstileInstance } from "@marsidev/react-turnstile";
 import { Link } from "@/i18n/navigation";
-import { isValidEmail } from "@/lib/validators";
-import { captureAttribution, getAttribution } from "@/lib/utm";
+import {
+  CONTACT_LIMITS,
+  validateContactField,
+  type ContactField,
+  type ContactData,
+} from "@/lib/contact-validation";
+import { useConsent } from "@/components/analytics/consent-context";
+import { captureAttribution } from "@/lib/utm";
 import { trackLead } from "@/lib/analytics";
 
 const TURNSTILE_KEY = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
 
-interface FormData {
-  senderEmail: string;
-  senderName: string;
-  reasonToContact: string;
-  senderMsg: string;
-}
-
+const FIELDS: ContactField[] = [
+  "senderEmail",
+  "senderName",
+  "reasonToContact",
+  "senderMsg",
+];
 const STEP_IDS = ["email", "name", "reason", "message"] as const;
 const STEP_TYPES: Record<(typeof STEP_IDS)[number], string> = {
   email: "email",
@@ -31,8 +36,12 @@ const STEP_TYPES: Record<(typeof STEP_IDS)[number], string> = {
 
 export const StepForm = () => {
   const t = useTranslations("contact.form");
+  const { consent } = useConsent();
+  const turnstileRef = useRef<TurnstileInstance>(undefined);
+  const fieldRef = useRef<HTMLInputElement | HTMLTextAreaElement | null>(null);
+  const submitLock = useRef(false);
   const [currentStep, setCurrentStep] = useState(0);
-  const [formData, setFormData] = useState<FormData>({
+  const [formData, setFormData] = useState<ContactData>({
     senderEmail: "",
     senderName: "",
     reasonToContact: "",
@@ -46,53 +55,26 @@ export const StepForm = () => {
   const { resolvedTheme } = useTheme();
 
   useEffect(() => {
-    captureAttribution();
-  }, []);
+    if (consent === "granted") captureAttribution();
+  }, [consent]);
 
   const stepId = STEP_IDS[currentStep];
   const stepType = STEP_TYPES[stepId];
 
-  const getCurrentValue = () => {
-    switch (currentStep) {
-      case 0:
-        return formData.senderEmail;
-      case 1:
-        return formData.senderName;
-      case 2:
-        return formData.reasonToContact;
-      case 3:
-        return formData.senderMsg;
-      default:
-        return "";
-    }
-  };
+  const getCurrentValue = () => formData[FIELDS[currentStep]];
 
-  const updateCurrentValue = (val: string) => {
+  const updateCurrentValue = (value: string) => {
     setError(null);
-    setFormData((prev) => {
-      switch (currentStep) {
-        case 0:
-          return { ...prev, senderEmail: val };
-        case 1:
-          return { ...prev, senderName: val };
-        case 2:
-          return { ...prev, reasonToContact: val };
-        case 3:
-          return { ...prev, senderMsg: val };
-        default:
-          return prev;
-      }
-    });
+    setFormData((previous) => ({ ...previous, [FIELDS[currentStep]]: value }));
   };
 
   const validateStep = (): boolean => {
-    const value = getCurrentValue().trim();
-    if (!value) {
-      setError(t("errors.required"));
-      return false;
-    }
-    if (currentStep === 0 && !isValidEmail(value)) {
-      setError(t("errors.email"));
+    const problem = validateContactField(
+      FIELDS[currentStep],
+      getCurrentValue(),
+    );
+    if (problem) {
+      setError(t("errors." + problem));
       return false;
     }
     setError(null);
@@ -123,11 +105,12 @@ export const StepForm = () => {
   };
 
   const handleSubmit = async () => {
-    if (!validateStep()) return;
+    if (submitLock.current || !validateStep()) return;
     if (TURNSTILE_KEY && !turnstileToken) {
-      setError(t("errors.generic"));
+      setError(t("errors.verification"));
       return;
     }
+    submitLock.current = true;
     setIsSubmitting(true);
     setError(null);
 
@@ -138,17 +121,29 @@ export const StepForm = () => {
         body: JSON.stringify({
           ...formData,
           company: honeypotRef.current?.value ?? "",
-          attribution: getAttribution(),
           turnstileToken,
         }),
       });
 
       const data = await res.json();
       if (!res.ok) {
-        throw new Error(data.error || t("errors.generic"));
+        const codes = [
+          "required",
+          "email",
+          "tooLong",
+          "invalid",
+          "forbidden",
+          "rateLimit",
+          "unavailable",
+          "verification",
+          "delivery",
+        ];
+        throw new Error(
+          t("errors." + (codes.includes(data.code) ? data.code : "generic")),
+        );
       }
 
-      trackLead({ reason: formData.reasonToContact });
+      trackLead();
       setIsSubmitted(true);
       toast.success(t("toast.successTitle"), {
         description: t("toast.successBody"),
@@ -159,11 +154,15 @@ export const StepForm = () => {
       setError(errorMessage);
       toast.error(t("toast.errorTitle"), { description: errorMessage });
     } finally {
+      submitLock.current = false;
+      setTurnstileToken(null);
+      turnstileRef.current?.reset();
       setIsSubmitting(false);
     }
   };
 
   const resetForm = () => {
+    setTurnstileToken(null);
     setFormData({
       senderEmail: "",
       senderName: "",
@@ -227,6 +226,9 @@ export const StepForm = () => {
         <AnimatePresence mode="wait">
           <motion.div
             key={currentStep}
+            onAnimationComplete={() =>
+              fieldRef.current?.focus({ preventScroll: true })
+            }
             initial={{ opacity: 0, x: 10 }}
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: -10 }}
@@ -235,6 +237,14 @@ export const StepForm = () => {
           >
             {stepType === "textarea" ? (
               <textarea
+                ref={(element) => {
+                  fieldRef.current = element;
+                }}
+                id="contact-field"
+                aria-label={t("labels." + stepId)}
+                aria-invalid={Boolean(error)}
+                aria-describedby={error ? "contact-error" : undefined}
+                maxLength={CONTACT_LIMITS[FIELDS[currentStep]]}
                 value={getCurrentValue()}
                 onChange={(e) => updateCurrentValue(e.target.value)}
                 onKeyDown={(e) => {
@@ -250,6 +260,21 @@ export const StepForm = () => {
               />
             ) : (
               <input
+                ref={(element) => {
+                  fieldRef.current = element;
+                }}
+                id="contact-field"
+                aria-label={t("labels." + stepId)}
+                aria-invalid={Boolean(error)}
+                aria-describedby={error ? "contact-error" : undefined}
+                maxLength={CONTACT_LIMITS[FIELDS[currentStep]]}
+                autoComplete={
+                  stepId === "email"
+                    ? "email"
+                    : stepId === "name"
+                      ? "name"
+                      : "off"
+                }
                 type={stepType}
                 value={getCurrentValue()}
                 onChange={(e) => updateCurrentValue(e.target.value)}
@@ -281,6 +306,8 @@ export const StepForm = () => {
 
       {error && (
         <motion.div
+          id="contact-error"
+          role="alert"
           initial={{ opacity: 0, y: -4 }}
           animate={{ opacity: 1, y: 0 }}
           className="flex items-center gap-1.5 text-xs font-mono text-destructive mt-1"
@@ -292,6 +319,7 @@ export const StepForm = () => {
 
       {TURNSTILE_KEY && (
         <Turnstile
+          ref={turnstileRef}
           siteKey={TURNSTILE_KEY}
           options={{
             size: "flexible",
@@ -306,7 +334,10 @@ export const StepForm = () => {
 
       <p className="mt-2 font-mono text-[11px] text-muted-foreground">
         {t("privacyNotice")}{" "}
-        <Link href="/privacy" className="underline underline-offset-2 hover:text-primary transition-colors">
+        <Link
+          href="/privacy"
+          className="underline underline-offset-2 hover:text-primary transition-colors"
+        >
           {t("privacyNoticeLink")}
         </Link>
         .

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useHydrated } from "@/hooks/use-hydrated";
 import { useTheme } from "next-themes";
 import { Moon, Sun } from "lucide-react";
 import { useTranslations } from "next-intl";
@@ -10,9 +10,7 @@ import { cn } from "@/lib/utils";
 export const ThemeToggle = ({ className }: { className?: string }) => {
   const t = useTranslations("theme");
   const { resolvedTheme, setTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => setMounted(true), []);
+  const mounted = useHydrated();
 
   const isDark = resolvedTheme === "dark";
 

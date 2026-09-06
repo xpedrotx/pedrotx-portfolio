@@ -27,64 +27,64 @@ export interface UseGithubReposReturn {
 
 export const useGithubRepos = (
   constantProjects: Project[],
-  searchQuery: string
+  searchQuery: string,
 ): UseGithubReposReturn => {
   const [repos, setRepos] = useState<GithubRepo[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [visibleCount, setVisibleCount] = useState(ITEMS_PER_PAGE);
 
-  const fetchRepos = async (ignoreCache = false) => {
-    setLoading(true);
-    setError(null);
-    const now = Date.now();
-
-    // Check localStorage cache unless explicitly ignored
-    if (!ignoreCache) {
-      try {
-        const stored = localStorage.getItem(REPOS_CACHE_KEY);
-        if (stored) {
-          const cached: CachedReposPayload = JSON.parse(stored);
-          if (cached && cached.timestamp && now - cached.timestamp < CACHE_TTL_MS) {
-            setRepos(cached.data);
-            setLoading(false);
-            return;
-          }
-        }
-      } catch {}
-    }
-
-    try {
-      const res = await fetch(
-        "https://api.github.com/users/xpedrotx/repos?sort=updated&per_page=100"
-      );
-      if (!res.ok) {
-        if (res.status === 403) {
-          throw new Error("GitHub API rate limit exceeded. Please try again later.");
-        }
-        throw new Error("Failed to fetch GitHub repositories");
-      }
-      const data: GithubRepo[] = await res.json();
-      setRepos(data);
-
-      // Save to localStorage
-      try {
-        const payload: CachedReposPayload = {
-          data,
-          timestamp: now,
-        };
-        localStorage.setItem(REPOS_CACHE_KEY, JSON.stringify(payload));
-      } catch {}
-    } catch (err: any) {
-      setError(err.message || "Failed to load GitHub repositories");
-    } finally {
-      setLoading(false);
-    }
-  };
-
+  const [requestVersion, setRequestVersion] = useState(0);
   useEffect(() => {
-    fetchRepos();
-  }, []);
+    const controller = new AbortController();
+    async function load() {
+      const now = Date.now();
+      if (requestVersion === 0) {
+        try {
+          const stored = localStorage.getItem(REPOS_CACHE_KEY);
+          const cached: CachedReposPayload | null = stored
+            ? JSON.parse(stored)
+            : null;
+          if (
+            cached &&
+            Array.isArray(cached.data) &&
+            now - cached.timestamp < CACHE_TTL_MS
+          )
+            return cached.data;
+        } catch {}
+      }
+      const response = await fetch(
+        "https://api.github.com/users/xpedrotx/repos?sort=updated&per_page=100",
+        { signal: controller.signal },
+      );
+      if (!response.ok) throw new Error("Failed to load GitHub repositories");
+      const data: GithubRepo[] = await response.json();
+      if (!Array.isArray(data)) throw new Error("Invalid GitHub response");
+      try {
+        localStorage.setItem(
+          REPOS_CACHE_KEY,
+          JSON.stringify({ data, timestamp: now }),
+        );
+      } catch {}
+      return data;
+    }
+    load()
+      .then((data) => {
+        if (!controller.signal.aborted) setRepos(data);
+      })
+      .catch((error: unknown) => {
+        if (!controller.signal.aborted)
+          setError(
+            error instanceof Error
+              ? error.message
+              : "Failed to load GitHub repositories",
+          );
+      })
+      .finally(() => {
+        if (!controller.signal.aborted) setLoading(false);
+      });
+    return () => controller.abort();
+  }, [requestVersion]);
 
   // Filter out repos whose name matches any project in constant/projects.ts
   const filteredRepos = useMemo(() => {
@@ -118,7 +118,7 @@ export const useGithubRepos = (
 
   const displayedRepos = useMemo(
     () => filteredRepos.slice(0, visibleCount),
-    [filteredRepos, visibleCount]
+    [filteredRepos, visibleCount],
   );
 
   const hasMore = visibleCount < filteredRepos.length;
@@ -129,7 +129,9 @@ export const useGithubRepos = (
   };
 
   const refetch = () => {
-    fetchRepos(true);
+    setLoading(true);
+    setError(null);
+    setRequestVersion((value) => value + 1);
   };
 
   return {

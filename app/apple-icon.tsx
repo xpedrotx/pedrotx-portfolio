@@ -18,14 +18,14 @@ const MARK = `
 
 export default function AppleIcon() {
   return new ImageResponse(
-    (
-      <img
-        width={size.width}
-        height={size.height}
-        src={`data:image/svg+xml;utf8,${encodeURIComponent(MARK)}`}
-        alt="pedrotx"
-      />
-    ),
+    // ImageResponse renders this image into PNG; next/image is not supported here.
+    // eslint-disable-next-line @next/next/no-img-element
+    <img
+      width={size.width}
+      height={size.height}
+      src={`data:image/svg+xml;utf8,${encodeURIComponent(MARK)}`}
+      alt="pedrotx"
+    />,
     { ...size },
   );
 }

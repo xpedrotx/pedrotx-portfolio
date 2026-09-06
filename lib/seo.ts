@@ -1,8 +1,6 @@
+import { isIndexable } from "@/lib/indexing";
 import type { Metadata } from "next";
-import {
-  SITE_SEO,
-  type ConstructMetadataOptions,
-} from "@/constant/seo";
+import { SITE_SEO, type ConstructMetadataOptions } from "@/constant/seo";
 import { selected_works, works } from "@/constant/projects";
 import { localePath } from "@/i18n/routing";
 
@@ -19,11 +17,6 @@ const LOCALE_TO_OG: Record<string, string> = {
  * ALLOW_INDEXING is explicitly "true". Keeps the *.vercel.app URL out of Google
  * until the real domain is wired up.
  */
-function isIndexable(): boolean {
-  const env = process.env.VERCEL_ENV;
-  if (env && env !== "production") return false;
-  return process.env.ALLOW_INDEXING === "true";
-}
 
 export function constructMetadata({
   title,
@@ -58,7 +51,9 @@ export function constructMetadata({
       : metaTitle,
     description: metaDescription,
     keywords: metaKeywords,
-    authors: authors || [{ name: SITE_SEO.author.name, url: SITE_SEO.author.url }],
+    authors: authors || [
+      { name: SITE_SEO.author.name, url: SITE_SEO.author.url },
+    ],
     creator: SITE_SEO.creator,
     publisher: SITE_SEO.publisher,
     metadataBase: new URL(SITE_SEO.siteUrl),
@@ -198,7 +193,7 @@ export function generateOrganizationJsonLd() {
  * JSON-LD Schema Generator for BreadcrumbList (Nested Pages)
  */
 export function generateBreadcrumbJsonLd(
-  items: { name: string; url: string }[]
+  items: { name: string; url: string }[],
 ) {
   return {
     "@context": "https://schema.org",
@@ -207,7 +202,9 @@ export function generateBreadcrumbJsonLd(
       "@type": "ListItem",
       position: index + 1,
       name: item.name,
-      item: item.url.startsWith("http") ? item.url : `${SITE_SEO.siteUrl}${item.url}`,
+      item: item.url.startsWith("http")
+        ? item.url
+        : `${SITE_SEO.siteUrl}${item.url}`,
     })),
   };
 }
@@ -233,7 +230,8 @@ export function generateProjectsItemListJsonLd() {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
     name: "Projects & Selected Works",
-    description: "Full-stack web applications, AI tools, and open-source GitHub repositories.",
+    description:
+      "Full-stack web applications, AI tools, and open-source GitHub repositories.",
     url: `${SITE_SEO.siteUrl}/projects`,
     mainEntity: {
       "@type": "ItemList",
@@ -249,4 +247,3 @@ export function generateProjectsItemListJsonLd() {
     },
   };
 }
-

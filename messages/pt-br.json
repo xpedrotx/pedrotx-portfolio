@@ -46,12 +46,31 @@
     "resume": "Ver currículo"
   },
   "sections": {
-    "about": { "number": "02", "title": "Sobre" },
-    "skills": { "number": "03", "title": "Habilidades" },
-    "journey": { "number": "04", "title": "Jornada" },
-    "experience": { "number": "04", "title": "Experiência" },
-    "work": { "number": "05", "title": "Projetos", "seeAll": "Ver todos os projetos" },
-    "contact": { "number": "06", "title": "Contato" }
+    "about": {
+      "number": "02",
+      "title": "Sobre"
+    },
+    "skills": {
+      "number": "03",
+      "title": "Habilidades"
+    },
+    "journey": {
+      "number": "04",
+      "title": "Jornada"
+    },
+    "experience": {
+      "number": "04",
+      "title": "Experiência"
+    },
+    "work": {
+      "number": "05",
+      "title": "Projetos",
+      "seeAll": "Ver todos os projetos"
+    },
+    "contact": {
+      "number": "06",
+      "title": "Contato"
+    }
   },
   "journey": {
     "kicker": "// save points",
@@ -204,17 +223,30 @@
       "successTitle": "Mensagem recebida!",
       "successBody": "Sua mensagem chegou. Respondo assim que possível.",
       "sendAnother": "Enviar outra mensagem",
-      "privacyNotice": "Ao enviar, você concorda com o tratamento dos seus dados descrito na",
+      "privacyNotice": "Usaremos os dados para responder ao seu contato, conforme a",
       "privacyNoticeLink": "Política de Privacidade",
       "errors": {
         "required": "Preencha este campo",
         "email": "Digite um email válido",
-        "generic": "Algo deu errado. Tente de novo."
+        "generic": "Algo deu errado. Tente de novo.",
+        "tooLong": "O texto excede o limite deste campo.",
+        "invalid": "Confira os dados informados.",
+        "forbidden": "Atualize a página e tente novamente.",
+        "rateLimit": "Você atingiu o limite de mensagens. Tente novamente mais tarde.",
+        "unavailable": "O formulário está temporariamente indisponível. Escreva para contato@pedrotx.com.br.",
+        "verification": "Conclua a verificação de segurança e tente novamente.",
+        "delivery": "Não foi possível enviar. Tente novamente ou escreva para contato@pedrotx.com.br."
       },
       "toast": {
         "successTitle": "Mensagem enviada! 🚀",
         "successBody": "Sua mensagem chegou na minha caixa de entrada. Respondo em breve!",
         "errorTitle": "Falha ao enviar a mensagem"
+      },
+      "labels": {
+        "email": "Seu email",
+        "name": "Seu nome",
+        "reason": "Motivo do contato",
+        "message": "Sua mensagem"
       }
     }
   },
@@ -284,11 +316,11 @@
       "sections": [
         {
           "heading": "1. Quem trata os dados",
-          "body": "Pedro Teixeira, pessoa física, é o responsável (controlador) pelo tratamento dos dados coletados neste site. Contato: contato@pedrotx.com.br. Por se tratar de agente de tratamento de pequeno porte, nos termos da Resolução CD/ANPD nº 2/2022 e da Resolução CD/ANPD nº 18/2024, não há obrigatoriedade de indicação formal de um Encarregado (DPO); esse mesmo canal de contato cumpre essa função."
+          "body": "Pedro Teixeira, pessoa física, é o responsável (controlador) pelo tratamento dos dados deste site. Solicitações sobre privacidade e direitos dos titulares são atendidas em contato@pedrotx.com.br."
         },
         {
           "heading": "2. Base legal do tratamento",
-          "body": "O formulário de contato é tratado com base no legítimo interesse em responder a mensagens recebidas (art. 7º, IX, da LGPD) e no seu consentimento ao preencher e enviar o formulário voluntariamente. Cookies de analytics e anúncios são tratados apenas com base no seu consentimento explícito (art. 7º, I), dado pelo banner de cookies. As métricas cookieless do Vercel Analytics são tratadas com base no legítimo interesse em manter e melhorar o site."
+          "body": "Os dados do formulário são usados para responder ao contato, com base no legítimo interesse de atender às solicitações recebidas (art. 7º, IX, da LGPD), respeitando os direitos do titular. O envio não autoriza publicidade. Cookies do Google e identificadores de campanhas dependem de consentimento (art. 7º, I). Métricas de funcionamento sem cookies e medidas de prevenção de abuso atendem ao interesse legítimo de manter o site disponível e seguro."
         },
         {
           "heading": "3. Dados coletados pelo formulário de contato",
@@ -300,11 +332,11 @@
         },
         {
           "heading": "5. Preferências salvas no navegador",
-          "body": "Tema (claro/escuro), idioma e a sua escolha de cookies ficam salvos no armazenamento local do seu navegador. Esses dados não são enviados para Pedro Teixeira."
+          "body": "O navegador guarda preferências de tema e idioma, a escolha de cookies e caches de informações públicas do GitHub. Após sua autorização, parâmetros de campanha e identificadores de anúncios podem ser guardados durante a sessão. Ao revogar a autorização pelo rodapé, o site remove essa atribuição e os cookies do Google que consegue acessar."
         },
         {
           "heading": "6. Compartilhamento e transferência internacional de dados",
-          "body": "Os dados podem passar por provedores de infraestrutura necessários para o site funcionar: Vercel (hospedagem e envio de email transacional), Google (analytics, quando consentido) e Cloudflare Turnstile (proteção contra spam no formulário, quando ativo). Esses provedores podem processar dados em servidores fora do Brasil; nesses casos, o tratamento segue as garantias exigidas pelo art. 33 da LGPD, como cláusulas contratuais e certificações de proteção de dados adotadas por esses fornecedores."
+          "body": "O site utiliza Vercel para hospedagem e métricas de funcionamento, Resend para envio de emails, o provedor da caixa de contato para receber mensagens, Google para analytics e anúncios quando autorizados, e Cloudflare Turnstile para proteção contra spam quando ativo. Se o limite compartilhado estiver configurado, a Upstash recebe um identificador derivado do IP, protegido por HMAC, com expiração de até uma hora. Provedores podem processar dados fora do Brasil. Os mecanismos contratuais aplicáveis a essas transferências devem ser verificados conforme o art. 33 da LGPD e a regulamentação da ANPD; informações podem ser solicitadas ao contato de privacidade."
         },
         {
           "heading": "7. Seus direitos como titular",
@@ -312,7 +344,7 @@
         },
         {
           "heading": "8. Retenção",
-          "body": "Mensagens enviadas pelo formulário de contato ficam na caixa de email de Pedro Teixeira até serem apagadas manualmente. Não há banco de dados de visitantes neste site."
+          "body": "Mensagens ficam na caixa de email até exclusão manual. Solicitações de exclusão podem ser enviadas a contato@pedrotx.com.br e serão avaliadas considerando a finalidade e eventuais obrigações de conservação. O conteúdo do formulário não é salvo em um banco de dados da aplicação. Contadores de prevenção de abuso expiram em até uma hora; dados de campanhas no navegador duram a sessão ou até a revogação."
         },
         {
           "heading": "9. Segurança",

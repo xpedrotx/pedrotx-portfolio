@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "email:dev": "email dev"
+    "email:dev": "email dev",
+    "test": "node --test tests/*.test.mjs"
   },
   "dependencies": {
     "@base-ui/react": "^1.6.0",

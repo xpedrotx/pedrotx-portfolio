@@ -1,3 +1,4 @@
+import { getConsent } from "./consent";
 /**
  * Campaign attribution helpers. Reads UTM params from the current URL on first
  * visit and keeps them for the session so a later form submit can be tied back
@@ -24,7 +25,7 @@ const STORAGE_KEY = "pedrotx_attribution";
 
 /** Call once on mount (client only). Captures attribution on the first page seen. */
 export function captureAttribution(): void {
-  if (typeof window === "undefined") return;
+  if (typeof window === "undefined" || getConsent() !== "granted") return;
   try {
     const existing = window.sessionStorage.getItem(STORAGE_KEY);
     if (existing) return;
@@ -35,9 +36,12 @@ export function captureAttribution(): void {
       const value = params.get(key);
       if (value) data[key] = value.slice(0, 200);
     }
-    data.landing_page = window.location.pathname + window.location.search;
-    if (document.referrer && !document.referrer.startsWith(window.location.origin)) {
-      data.referrer = document.referrer.slice(0, 300);
+    data.landing_page = window.location.pathname;
+    if (
+      document.referrer &&
+      !document.referrer.startsWith(window.location.origin)
+    ) {
+      data.referrer = new URL(document.referrer).origin;
     }
 
     // Store even when empty so we don't re-read on internal navigation.
@@ -48,7 +52,7 @@ export function captureAttribution(): void {
 }
 
 export function getAttribution(): Attribution {
-  if (typeof window === "undefined") return {};
+  if (typeof window === "undefined" || getConsent() !== "granted") return {};
   try {
     const raw = window.sessionStorage.getItem(STORAGE_KEY);
     return raw ? (JSON.parse(raw) as Attribution) : {};

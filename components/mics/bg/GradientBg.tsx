@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useHydrated } from "@/hooks/use-hydrated";
 import { useTheme } from "next-themes";
 import { GrainGradient } from "@paper-design/shaders-react";
 
@@ -21,9 +21,7 @@ const PALETTE = {
 
 export function GradientBackground() {
   const { resolvedTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => setMounted(true), []);
+  const mounted = useHydrated();
 
   const palette =
     mounted && resolvedTheme === "light" ? PALETTE.light : PALETTE.dark;

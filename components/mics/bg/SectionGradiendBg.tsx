@@ -1,18 +1,13 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef } from "react";
+import { useHydrated } from "@/hooks/use-hydrated";
 import { useInView } from "motion/react";
 import { useTheme } from "next-themes";
 import { GrainGradient } from "@paper-design/shaders-react";
 
 type Shape =
-  | "truchet"
-  | "wave"
-  | "dots"
-  | "corners"
-  | "ripple"
-  | "blob"
-  | "sphere";
+  "truchet" | "wave" | "dots" | "corners" | "ripple" | "blob" | "sphere";
 
 export interface SectionGradiendBgProps {
   /** Picks a palette variation within the current theme's accent family. */
@@ -61,12 +56,13 @@ export function SectionGradiendBg({
   const containerRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(containerRef, { margin: "100px" });
   const { resolvedTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
-  useEffect(() => setMounted(true), []);
+  const mounted = useHydrated();
 
   const themeKey = mounted && resolvedTheme === "light" ? "light" : "dark";
   const palette = PALETTES[themeKey];
-  const resolved = colors ?? [...palette[((seed % palette.length) + palette.length) % palette.length]];
+  const resolved = colors ?? [
+    ...palette[((seed % palette.length) + palette.length) % palette.length],
+  ];
   const colorBack = colors ? "hsl(0, 0%, 0%)" : BACK[themeKey];
 
   return (

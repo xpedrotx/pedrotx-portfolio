@@ -1,12 +1,13 @@
 import type { NextConfig } from "next";
 import createNextIntlPlugin from "next-intl/plugin";
-import { socials } from "./constant";
+import { socials, profile } from "./constant";
+import { isIndexable } from "./lib/indexing";
 
 const withNextIntl = createNextIntlPlugin("./i18n/request.ts");
 
 const isDev = process.env.NODE_ENV === "development";
 
-const CONTACT_EMAIL = process.env.NEXT_PUBLIC_CONTACT_EMAIL || "you@example.com";
+const CONTACT_EMAIL = process.env.NEXT_PUBLIC_CONTACT_EMAIL || profile.email;
 const RESUME_PATH = "/docs/resume.pdf";
 
 // Content-Security-Policy. GA / Google Ads / Vercel are allow-listed because the
@@ -57,7 +58,12 @@ const nextConfig: NextConfig = {
       {
         source: "/docs/:path*",
         headers: [
-          { key: "X-Robots-Tag", value: "index, follow, max-snippet:-1" },
+          {
+            key: "X-Robots-Tag",
+            value: isIndexable()
+              ? "index, follow, max-snippet:-1"
+              : "noindex, nofollow",
+          },
           { key: "Content-Disposition", value: "inline" },
         ],
       },

@@ -46,12 +46,31 @@
     "resume": "View resume"
   },
   "sections": {
-    "about": { "number": "02", "title": "About" },
-    "skills": { "number": "03", "title": "Skills" },
-    "journey": { "number": "04", "title": "Journey" },
-    "experience": { "number": "04", "title": "Experience" },
-    "work": { "number": "05", "title": "Projects", "seeAll": "See all projects" },
-    "contact": { "number": "06", "title": "Contact" }
+    "about": {
+      "number": "02",
+      "title": "About"
+    },
+    "skills": {
+      "number": "03",
+      "title": "Skills"
+    },
+    "journey": {
+      "number": "04",
+      "title": "Journey"
+    },
+    "experience": {
+      "number": "04",
+      "title": "Experience"
+    },
+    "work": {
+      "number": "05",
+      "title": "Projects",
+      "seeAll": "See all projects"
+    },
+    "contact": {
+      "number": "06",
+      "title": "Contact"
+    }
   },
   "journey": {
     "kicker": "// save points",
@@ -204,17 +223,30 @@
       "successTitle": "Message received!",
       "successBody": "Your message landed. I'll get back to you as soon as I can.",
       "sendAnother": "Send another message",
-      "privacyNotice": "By submitting, you agree to the data handling described in the",
+      "privacyNotice": "We use your information to respond to your inquiry, as described in our",
       "privacyNoticeLink": "Privacy Policy",
       "errors": {
         "required": "Please fill out this field",
         "email": "Please enter a valid email address",
-        "generic": "Something went wrong. Try again."
+        "generic": "Something went wrong. Try again.",
+        "tooLong": "This text exceeds the field limit.",
+        "invalid": "Please check the information provided.",
+        "forbidden": "Refresh the page and try again.",
+        "rateLimit": "You have reached the message limit. Please try again later.",
+        "unavailable": "The form is temporarily unavailable. Email contato@pedrotx.com.br.",
+        "verification": "Complete the security verification and try again.",
+        "delivery": "Your message could not be sent. Try again or email contato@pedrotx.com.br."
       },
       "toast": {
         "successTitle": "Message sent! 🚀",
         "successBody": "Your message landed in my inbox. I'll reply soon!",
         "errorTitle": "Failed to send message"
+      },
+      "labels": {
+        "email": "Your email",
+        "name": "Your name",
+        "reason": "Reason for contacting me",
+        "message": "Your message"
       }
     }
   },
@@ -284,11 +316,11 @@
       "sections": [
         {
           "heading": "1. Who processes the data",
-          "body": "Pedro Teixeira, an individual, is the controller responsible for the data processed on this site. Contact: contato@pedrotx.com.br. As a small-scale data processing agent under Brazil's ANPD Resolutions No. 2/2022 and No. 18/2024, formal appointment of a Data Protection Officer is not required; this same contact channel fulfills that role."
+          "body": "Pedro Teixeira, an individual, is the controller responsible for personal data on this site. Privacy requests and data subject requests are handled at contato@pedrotx.com.br."
         },
         {
           "heading": "2. Legal basis for processing",
-          "body": "The contact form is processed based on legitimate interest in responding to messages received (LGPD art. 7, IX) and on your consent when you voluntarily fill out and submit the form. Analytics and advertising cookies are processed only with your explicit consent (art. 7, I), given through the cookie banner. Cookieless Vercel Analytics metrics are processed based on legitimate interest in maintaining and improving the site."
+          "body": "Contact form data is used to respond to inquiries, based on the legitimate interest in handling incoming requests (LGPD art. 7, IX), while respecting data subject rights. Submitting the form does not authorize advertising. Google cookies and campaign identifiers require consent (art. 7, I). Cookieless operational metrics and abuse prevention serve the legitimate interest in keeping the site available and secure."
         },
         {
           "heading": "3. Data collected by the contact form",
@@ -300,11 +332,11 @@
         },
         {
           "heading": "5. Preferences saved in your browser",
-          "body": "Theme (light/dark), language, and your cookie choice are saved in your browser's local storage. This data is not sent to Pedro Teixeira."
+          "body": "Your browser stores theme and language preferences, your cookie choice, and caches of public GitHub information. After authorization, campaign parameters and advertising identifiers may be stored for the session. Revoking authorization from the footer removes this attribution and Google cookies accessible to the site."
         },
         {
           "heading": "6. Sharing and international data transfer",
-          "body": "Data may pass through infrastructure providers needed to run the site: Vercel (hosting and transactional email delivery), Google (analytics, when consented), and Cloudflare Turnstile (spam protection on the contact form, when enabled). These providers may process data on servers outside Brazil; in those cases, processing follows the safeguards required by LGPD art. 33, such as contractual clauses and data protection certifications adopted by these providers."
+          "body": "The site uses Vercel for hosting and operational metrics, Resend for sending emails, the contact inbox provider for receiving messages, Google for analytics and advertising when authorized, and Cloudflare Turnstile for spam protection when enabled. When shared rate limiting is configured, Upstash receives an HMAC-protected identifier derived from the IP, expiring within one hour. Providers may process data outside Brazil. Applicable contractual transfer mechanisms must be verified under LGPD art. 33 and ANPD regulations; details can be requested through the privacy contact."
         },
         {
           "heading": "7. Your rights as a data subject",
@@ -312,7 +344,7 @@
         },
         {
           "heading": "8. Retention",
-          "body": "Messages submitted through the contact form stay in Pedro Teixeira's inbox until manually deleted. There is no visitor database on this site."
+          "body": "Messages remain in the email inbox until manually deleted. Deletion requests can be sent to contato@pedrotx.com.br and will be evaluated considering their purpose and any retention obligations. Form content is not saved in an application database. Abuse prevention counters expire within one hour; browser campaign data lasts for the session or until consent is revoked."
         },
         {
           "heading": "9. Security",
