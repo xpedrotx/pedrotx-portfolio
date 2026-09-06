@@ -25,7 +25,6 @@ import {
   SiTypescript,
   SiVercel,
   SiVite,
-  SiClaude,
   SiGooglegemini,
 } from "react-icons/si";
 
@@ -80,7 +79,6 @@ export const skillsData: SkillsCategory[] = [
       { title: "Windows", logoComponent: FaWindows, color: "#0078D6" },
       { title: "Windows Server", logoComponent: FaServer, color: "#00188F" },
       { title: "Hardware", logoComponent: FaMicrochip, color: "#6B7280" },
-      { title: "Claude", logoComponent: SiClaude, color: "#D97757" },
       { title: "ChatGPT", logoComponent: OpenAiIcon, color: "#10A37F" },
       { title: "Gemini", logoComponent: SiGooglegemini, color: "#4285F4" },
     ],
