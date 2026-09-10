@@ -1,7 +1,6 @@
 import type { IconType } from "react-icons";
 
 import { FaGithub, FaInstagram, FaLinkedin } from "react-icons/fa6";
-import { SiLeetcode } from "react-icons/si";
 
 interface Social {
   name: string;
@@ -28,11 +27,5 @@ export const socials = [
     handle: "xpedrotx",
     url: "https://instagram.com/xpedrotx",
     icon: FaInstagram,
-  },
-  {
-    name: "LeetCode",
-    handle: "pedrotx",
-    url: "https://leetcode.com/u/pedrotx",
-    icon: SiLeetcode,
   },
 ] satisfies Social[];
