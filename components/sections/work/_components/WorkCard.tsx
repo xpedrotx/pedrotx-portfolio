@@ -1,5 +1,7 @@
 "use client";
 
+import { useState } from "react";
+import Image from "next/image";
 import { motion } from "motion/react";
 import { TechBadge } from "@/components/common/tech-badge";
 import { SectionGradiendBg } from "../../../mics/bg/SectionGradiendBg";
@@ -8,6 +10,8 @@ export interface WorkCardProps {
   name: string;
   description: string;
   technologies: string[];
+  preview?: string;
+  previewScroll?: boolean;
   links: {
     live?: string;
     github?: string;
@@ -19,13 +23,25 @@ export const WorkCard = ({
   name,
   description,
   technologies,
+  preview,
+  previewScroll = false,
   links,
   index = 0,
 }: WorkCardProps) => {
   const liveUrl = links?.live;
   const githubUrl = links?.github;
+  const [previewArmed, setPreviewArmed] = useState(false);
+  const [hovering, setHovering] = useState(false);
 
   const formattedIndex = String(index + 1).padStart(3, "0");
+
+  const enter = () => {
+    if (preview) {
+      setPreviewArmed(true);
+      setHovering(true);
+    }
+  };
+  const leave = () => setHovering(false);
 
   return (
     <motion.div
@@ -38,11 +54,37 @@ export const WorkCard = ({
         delay: (index % 2) * 0.15,
         ease: [0.16, 1, 0.3, 1],
       }}
+      onMouseEnter={enter}
+      onMouseLeave={leave}
       className="group relative flex h-full w-full flex-col overflow-hidden rounded-[28px] border border-border bg-card shadow-2xl transition-colors duration-300 hover:border-card-border-hover hover:shadow-accent/5"
     >
       {/* Gradient Background */}
       <div className="relative h-44 w-full shrink-0 overflow-hidden sm:h-52">
         <SectionGradiendBg seed={index} shape="truchet" />
+
+        {preview && previewArmed && (
+          <Image
+            src={preview}
+            alt={name}
+            fill
+            sizes="(min-width: 768px) 50vw, 100vw"
+            className={
+              "object-cover " +
+              (previewScroll ? "" : "object-top ") +
+              (hovering ? "opacity-100" : "opacity-0")
+            }
+            style={
+              previewScroll
+                ? {
+                    objectPosition: hovering ? "50% 100%" : "50% 0%",
+                    transition: hovering
+                      ? "opacity 450ms ease-out, object-position 7000ms linear"
+                      : "opacity 350ms ease-out, object-position 550ms ease-out",
+                  }
+                : { transition: "opacity 450ms ease-out" }
+            }
+          />
+        )}
       </div>
 
       {/* Dark Folder Section */}

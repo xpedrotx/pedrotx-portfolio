@@ -25,6 +25,8 @@ export const WorkSection = () => {
               name={project.name}
               description={tItems(project.id)}
               technologies={project.technologies}
+              preview={project.preview}
+              previewScroll={project.previewScroll}
               links={project.links}
             />
           ))}

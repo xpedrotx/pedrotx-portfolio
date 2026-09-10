@@ -3,6 +3,10 @@ export interface Project {
   id: string;
   name: string;
   technologies: string[];
+  /** Path under /public shown on card hover for projects with a live site. */
+  preview?: string;
+  /** When the preview is a full-page capture, scroll through it on hover. */
+  previewScroll?: boolean;
   links: {
     live?: string;
     github?: string;
@@ -22,6 +26,8 @@ export const selected_works: Project[] = [
     id: "drageovana",
     name: "Dra. Geovana Roque",
     technologies: ["Next.js", "TypeScript", "Tailwind CSS"],
+    preview: "/images/previews/drageovana.jpg",
+    previewScroll: true,
     links: {
       live: "https://drageovana.com",
     },
@@ -30,6 +36,8 @@ export const selected_works: Project[] = [
     id: "wedding",
     name: "Wedding",
     technologies: ["HTML", "CSS", "JavaScript"],
+    preview: "/images/previews/wedding.jpg",
+    previewScroll: true,
     links: {
       github: "https://github.com/xpedrotx/wedding",
       live: "https://wedding.pedrotx.com.br",

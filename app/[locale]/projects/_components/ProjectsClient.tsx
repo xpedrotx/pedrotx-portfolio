@@ -46,6 +46,8 @@ export default function ProjectsClient() {
                     name={project.name}
                     description={tItems(project.id)}
                     technologies={project.technologies}
+                    preview={project.preview}
+                    previewScroll={project.previewScroll}
                     links={project.links}
                     index={idx}
                   />
