@@ -12,8 +12,8 @@ export const SnakeAnimation = () => {
   if (failed) return null;
 
   return (
-    <div className="mt-1">
-      <span className="block font-mono text-[10px] uppercase text-muted-foreground font-semibold">
+    <div className="mt-3 flex flex-col items-center gap-2">
+      <span className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground font-semibold">
         {label}
       </span>
       {/* Animated SVG proxied from the profile repo; next/image would strip the animation. */}
@@ -23,7 +23,7 @@ export const SnakeAnimation = () => {
         alt={label}
         loading="lazy"
         onError={() => setFailed(true)}
-        className="mt-1.5 w-full max-w-md opacity-90"
+        className="mx-auto w-full max-w-xl opacity-90"
       />
     </div>
   );
