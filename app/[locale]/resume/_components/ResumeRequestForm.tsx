@@ -71,7 +71,7 @@ export function ResumeRequestForm() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           ...data,
-          company: honeypotRef.current?.value ?? "",
+          website: honeypotRef.current?.value ?? "",
           turnstileToken: token,
         }),
       });
@@ -123,10 +123,13 @@ export function ResumeRequestForm() {
       <input
         ref={honeypotRef}
         type="text"
-        name="company"
+        name="website"
         tabIndex={-1}
         autoComplete="off"
         aria-hidden="true"
+        data-1p-ignore="true"
+        data-lpignore="true"
+        data-form-type="other"
         className="absolute -left-[9999px] h-0 w-0 opacity-0"
       />
 

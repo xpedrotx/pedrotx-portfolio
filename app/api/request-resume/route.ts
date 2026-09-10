@@ -58,7 +58,7 @@ export async function POST(request: NextRequest) {
   if (!body || typeof body !== "object" || Array.isArray(body))
     return fail("invalid", 400);
   const input = body as Record<string, unknown>;
-  if (typeof input.company === "string" && input.company.trim())
+  if (typeof input.website === "string" && input.website.trim())
     return NextResponse.json({ message: "ok" });
 
   const result = validateResumeRequest(input);
