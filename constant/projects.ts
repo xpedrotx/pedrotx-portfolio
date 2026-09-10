@@ -27,11 +27,12 @@ export const selected_works: Project[] = [
     },
   },
   {
-    id: "finaribot",
-    name: "FinariBot",
-    technologies: ["JavaScript", "Node.js", "Discord.js"],
+    id: "wedding",
+    name: "Wedding",
+    technologies: ["HTML", "CSS", "JavaScript"],
     links: {
-      github: "https://github.com/xpedrotx/FinariBot",
+      github: "https://github.com/xpedrotx/wedding",
+      live: "https://wedding.pedrotx.com.br",
     },
   },
   {
@@ -47,12 +48,11 @@ export const selected_works: Project[] = [
 
 export const works: Project[] = [
   {
-    id: "wedding",
-    name: "Wedding",
-    technologies: ["HTML", "CSS", "JavaScript"],
+    id: "finaribot",
+    name: "FinariBot",
+    technologies: ["JavaScript", "Node.js", "Discord.js"],
     links: {
-      github: "https://github.com/xpedrotx/wedding",
-      live: "https://wedding.pedrotx.com.br",
+      github: "https://github.com/xpedrotx/FinariBot",
     },
   },
 ];
