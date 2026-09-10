@@ -9,6 +9,13 @@ export const CodingStatsSlide = () => {
   const t = useTranslations("about.codingStats");
   const { github, loading } = useCodingStats();
 
+  const cards: { key: string; value: number }[] = [
+    { key: "followers", value: github?.followers ?? 0 },
+    { key: "following", value: github?.following ?? 0 },
+    { key: "stars", value: github?.stars ?? 0 },
+    { key: "commits", value: github?.commits ?? 0 },
+  ];
+
   return (
     <motion.div
       key="slide-2"
@@ -38,41 +45,19 @@ export const CodingStatsSlide = () => {
         </div>
       ) : (
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
-          <div className="flex flex-col p-3 rounded-xl border border-card-border bg-muted/80 backdrop-blur-md">
-            <span className="font-mono text-xl sm:text-2xl font-extrabold text-primary">
-              {github?.repos ?? 0}
-            </span>
-            <span className="font-mono text-[10px] uppercase text-muted-foreground mt-1 font-semibold">
-              {t("repos")}
-            </span>
-          </div>
-
-          <div className="flex flex-col p-3 rounded-xl border border-card-border bg-muted/80 backdrop-blur-md">
-            <span className="font-mono text-xl sm:text-2xl font-extrabold text-primary">
-              {github?.followers ?? 0}
-            </span>
-            <span className="font-mono text-[10px] uppercase text-muted-foreground mt-1 font-semibold">
-              {t("followers")}
-            </span>
-          </div>
-
-          <div className="flex flex-col p-3 rounded-xl border border-card-border bg-muted/80 backdrop-blur-md">
-            <span className="font-mono text-xl sm:text-2xl font-extrabold text-primary">
-              {github?.following ?? 0}
-            </span>
-            <span className="font-mono text-[10px] uppercase text-muted-foreground mt-1 font-semibold">
-              {t("following")}
-            </span>
-          </div>
-
-          <div className="flex flex-col p-3 rounded-xl border border-card-border bg-muted/80 backdrop-blur-md">
-            <span className="font-mono text-xl sm:text-2xl font-extrabold text-primary">
-              {github?.gists ?? 0}
-            </span>
-            <span className="font-mono text-[10px] uppercase text-muted-foreground mt-1 font-semibold">
-              {t("gists")}
-            </span>
-          </div>
+          {cards.map((card) => (
+            <div
+              key={card.key}
+              className="flex flex-col p-3 rounded-xl border border-card-border bg-muted/80 backdrop-blur-md"
+            >
+              <span className="font-mono text-xl sm:text-2xl font-extrabold text-primary">
+                {card.value}
+              </span>
+              <span className="font-mono text-[10px] uppercase text-muted-foreground mt-1 font-semibold">
+                {t(card.key)}
+              </span>
+            </div>
+          ))}
         </div>
       )}
 

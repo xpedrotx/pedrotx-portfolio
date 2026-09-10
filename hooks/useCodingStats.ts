@@ -1,13 +1,12 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { socials } from "@/constant";
 
 export interface GithubStats {
-  repos: number;
   followers: number;
   following: number;
-  gists: number;
+  stars: number;
+  commits: number;
   handle: string;
 }
 
@@ -21,8 +20,8 @@ interface CachedStats {
   timestamp: number;
 }
 
-const STORAGE_KEY = "pedrotx-portfolio-github-stats";
-const ONE_WEEK_MS = 7 * 24 * 60 * 60 * 1000;
+const STORAGE_KEY = "pedrotx-portfolio-github-stats-v2";
+const ONE_DAY_MS = 24 * 60 * 60 * 1000;
 
 export const useCodingStats = (): CodingStats => {
   const [stats, setStats] = useState<CodingStats>({
@@ -33,17 +32,11 @@ export const useCodingStats = (): CodingStats => {
   useEffect(() => {
     let isMounted = true;
 
-    const githubHandle =
-      socials.find((s) => s.name.toLowerCase() === "github")?.handle ||
-      "xpedrotx";
-
     const loadStats = async () => {
       let cached: CachedStats | null = null;
       try {
         const stored = localStorage.getItem(STORAGE_KEY);
-        if (stored) {
-          cached = JSON.parse(stored);
-        }
+        if (stored) cached = JSON.parse(stored);
       } catch {}
 
       const now = Date.now();
@@ -51,52 +44,29 @@ export const useCodingStats = (): CodingStats => {
         cached &&
         cached.timestamp &&
         cached.data &&
-        now - cached.timestamp < ONE_WEEK_MS;
+        now - cached.timestamp < ONE_DAY_MS;
 
       if (isCacheValid && cached) {
-        if (isMounted) {
-          setStats({
-            github: cached.data,
-            loading: false,
-          });
-        }
+        if (isMounted) setStats({ github: cached.data, loading: false });
         return;
       }
 
       try {
-        const res = await fetch(`https://api.github.com/users/${githubHandle}`);
+        const res = await fetch("/api/github-stats");
         if (!res.ok) throw new Error("Failed to fetch GitHub stats");
-        const data = await res.json();
-
-        const githubData: GithubStats = {
-          repos: data.public_repos ?? 0,
-          followers: data.followers ?? 0,
-          following: data.following ?? 0,
-          gists: data.public_gists ?? 0,
-          handle: githubHandle,
-        };
+        const data = (await res.json()) as GithubStats;
 
         try {
-          const cachePayload: CachedStats = {
-            data: githubData,
-            timestamp: now,
-          };
-          localStorage.setItem(STORAGE_KEY, JSON.stringify(cachePayload));
+          localStorage.setItem(
+            STORAGE_KEY,
+            JSON.stringify({ data, timestamp: now } satisfies CachedStats),
+          );
         } catch {}
 
-        if (isMounted) {
-          setStats({
-            github: githubData,
-            loading: false,
-          });
-        }
+        if (isMounted) setStats({ github: data, loading: false });
       } catch {
-        if (isMounted) {
-          setStats({
-            github: cached?.data || null,
-            loading: false,
-          });
-        }
+        if (isMounted)
+          setStats({ github: cached?.data ?? null, loading: false });
       }
     };
 

@@ -147,13 +147,12 @@
     },
     "codingStats": {
       "title": "GitHub activity",
-      "repos": "Repositories",
       "followers": "Followers",
       "following": "Following",
-      "gists": "Gists",
       "stars": "Stars",
       "loadError": "Couldn't load stats right now.",
-      "contributionsLabel": "Contributions in the last year"
+      "contributionsLabel": "Contributions in the last year",
+      "commits": "Commits"
     }
   },
   "skills": {
