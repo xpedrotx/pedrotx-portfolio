@@ -12,7 +12,7 @@ import { isAllowedOrigin } from "@/lib/request-origin";
 import { profile } from "@/constant/profile";
 
 const OWNER_EMAIL = process.env.CONTACT_TO_EMAIL || profile.email;
-const NOREPLY_ADDRESS = "noreply@pedrotx.com.br";
+const SENDER_ADDRESS = profile.email;
 function fail(code: string, status: number, headers?: Record<string, string>) {
   return NextResponse.json({ code }, { status, headers });
 }
@@ -61,7 +61,7 @@ export async function POST(request: NextRequest) {
   const resend = new Resend(process.env.RESEND_API_KEY);
   try {
     const { error } = await resend.emails.send({
-      from: "PEDROTX <" + NOREPLY_ADDRESS + ">",
+      from: "Portfólio Pedrotx <" + SENDER_ADDRESS + ">",
       to: OWNER_EMAIL,
       replyTo: senderEmail,
       subject: ("Novo contato: " + senderName + ", " + reasonToContact).slice(
@@ -91,9 +91,8 @@ export async function POST(request: NextRequest) {
   }
   try {
     const { error } = await resend.emails.send({
-      from: "Pedrotx | Desenvolvedor <" + NOREPLY_ADDRESS + ">",
+      from: "Pedro Teixeira <" + SENDER_ADDRESS + ">",
       to: senderEmail,
-      replyTo: OWNER_EMAIL,
       subject: "Recebi sua mensagem. Respondo em breve",
       react: ClientConfirmationEmail({
         userName: senderName,

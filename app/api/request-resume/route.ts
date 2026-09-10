@@ -16,7 +16,7 @@ import { profile } from "@/constant/profile";
 export const runtime = "nodejs";
 
 const OWNER_EMAIL = process.env.CONTACT_TO_EMAIL || profile.email;
-const NOREPLY_ADDRESS = "noreply@pedrotx.com.br";
+const SENDER_ADDRESS = profile.email;
 const RESUME_FILE = join(process.cwd(), "assets", "resume.pdf");
 const RESUME_ATTACHMENT_NAME = "Pedro-Teixeira-Curriculo.pdf";
 
@@ -79,9 +79,8 @@ export async function POST(request: NextRequest) {
 
   try {
     const { error } = await resend.emails.send({
-      from: "Pedrotx | Desenvolvedor <" + NOREPLY_ADDRESS + ">",
+      from: "Pedro Teixeira <" + SENDER_ADDRESS + ">",
       to: requesterEmail,
-      replyTo: OWNER_EMAIL,
       subject: "Meu currículo, como pedido",
       react: ResumeDeliveryEmail({ userName: requesterName }),
       attachments: [{ filename: RESUME_ATTACHMENT_NAME, content: pdf }],
@@ -94,7 +93,7 @@ export async function POST(request: NextRequest) {
 
   try {
     const { error } = await resend.emails.send({
-      from: "PEDROTX <" + NOREPLY_ADDRESS + ">",
+      from: "Portfólio Pedrotx <" + SENDER_ADDRESS + ">",
       to: OWNER_EMAIL,
       replyTo: requesterEmail,
       subject: "Novo pedido de currículo: " + requesterName,
