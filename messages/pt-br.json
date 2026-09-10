@@ -13,8 +13,7 @@
     "work": "Projetos",
     "contact": "Contato",
     "resume": "Currículo",
-    "projects": "Projetos",
-    "downloadResume": "Baixar currículo"
+    "projects": "Projetos"
   },
   "theme": {
     "toggle": "Alternar tema",
@@ -43,7 +42,7 @@
     "rotating": ["codando", "curioso", "no jogo", "aprendendo", "evoluindo"],
     "quote": "Continue codando.",
     "contact": "Fale comigo",
-    "resume": "Ver currículo"
+    "resume": "Solicitar currículo"
   },
   "sections": {
     "about": {
@@ -261,10 +260,35 @@
   "resume": {
     "back": "Voltar ao portfólio",
     "title": "Currículo",
-    "subtitle": "Trajetória, formação e stack, versão resumida.",
-    "download": "Baixar PDF",
-    "openInNewTab": "Abrir em nova aba",
-    "unavailable": "O PDF do currículo ainda não está disponível. Volte em breve."
+    "requestIntro": "Prefiro enviar meu currículo direto pra quem tem interesse de verdade. Deixa seu nome e email que ele chega no seu inbox em PDF na hora.",
+    "form": {
+      "nameLabel": "Nome",
+      "namePlaceholder": "Seu nome",
+      "emailLabel": "Email",
+      "emailPlaceholder": "voce@email.com",
+      "submit": "Solicitar currículo",
+      "privacyNotice": "Ao solicitar, você concorda com o tratamento dos seus dados descrito na",
+      "privacyNoticeLink": "Política de Privacidade",
+      "successTitle": "Enviado",
+      "successBody": "Mandei meu currículo para {email}. Se não aparecer em alguns minutos, dá uma olhada no spam.",
+      "errors": {
+        "required": "Preencha este campo",
+        "email": "Digite um email válido",
+        "tooLong": "Texto muito longo",
+        "invalid": "Confira os dados e tente de novo",
+        "forbidden": "Requisição bloqueada",
+        "rateLimit": "Muitos pedidos. Tente de novo mais tarde.",
+        "unavailable": "Serviço indisponível no momento. Tente de novo em breve.",
+        "verification": "Confirme que você não é um robô",
+        "delivery": "Não consegui enviar agora. Tente de novo ou me chame pelo contato.",
+        "generic": "Algo deu errado. Tente de novo."
+      },
+      "toast": {
+        "successTitle": "Currículo a caminho",
+        "successBody": "Chega no seu email em instantes.",
+        "errorTitle": "Não foi possível enviar"
+      }
+    }
   },
   "legal": {
     "back": "Voltar ao portfólio",

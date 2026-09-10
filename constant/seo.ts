@@ -120,17 +120,16 @@ export const PAGE_SEO: Record<
   resume: {
     title: "Currículo",
     description:
-      "Currículo e trajetória de Pedro Teixeira, desenvolvedor full-stack e estudante de Engenharia de Software.",
+      "Solicite o currículo de Pedro Teixeira, desenvolvedor e estudante de Engenharia de Software. O PDF é enviado por email na hora.",
     keywords: [
       "Pedro Teixeira currículo",
       "Pedro Teixeira CV",
       "currículo desenvolvedor",
-      "Full Stack Developer CV",
-      "currículo Next.js developer",
-      "React developer",
+      "solicitar currículo",
+      "currículo Full Stack Developer",
     ],
     path: "/resume",
-    type: "profile",
+    type: "website",
   },
   terms: {
     title: "Termos de Uso",

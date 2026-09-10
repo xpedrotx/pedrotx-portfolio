@@ -1,14 +1,12 @@
 import type { NextConfig } from "next";
 import createNextIntlPlugin from "next-intl/plugin";
 import { socials, profile } from "./constant";
-import { isIndexable } from "./lib/indexing";
 
 const withNextIntl = createNextIntlPlugin("./i18n/request.ts");
 
 const isDev = process.env.NODE_ENV === "development";
 
 const CONTACT_EMAIL = process.env.NEXT_PUBLIC_CONTACT_EMAIL || profile.email;
-const RESUME_PATH = "/docs/resume.pdf";
 
 // Content-Security-Policy. GA / Google Ads / Vercel are allow-listed because the
 // analytics layer can load them after consent; everything else is same-origin.
@@ -52,22 +50,13 @@ const nextConfig: NextConfig = {
     ],
   },
 
+  // The resume PDF is delivered only by email, so the API route needs it bundled.
+  outputFileTracingIncludes: {
+    "/api/request-resume": ["./assets/resume.pdf"],
+  },
+
   async headers() {
-    return [
-      { source: "/(.*)", headers: securityHeaders },
-      {
-        source: "/docs/:path*",
-        headers: [
-          {
-            key: "X-Robots-Tag",
-            value: isIndexable()
-              ? "index, follow, max-snippet:-1"
-              : "noindex, nofollow",
-          },
-          { key: "Content-Disposition", value: "inline" },
-        ],
-      },
-    ];
+    return [{ source: "/(.*)", headers: securityHeaders }];
   },
 
   async redirects() {
@@ -78,7 +67,7 @@ const nextConfig: NextConfig = {
         destination: `mailto:${CONTACT_EMAIL}`,
         permanent: true,
       },
-      { source: "/direct-resume", destination: RESUME_PATH, permanent: true },
+      { source: "/direct-resume", destination: "/resume", permanent: true },
       ...socials.map((social) => ({
         source: `/${social.name.toLowerCase()}`,
         destination: social.url,

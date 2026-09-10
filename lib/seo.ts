@@ -131,12 +131,6 @@ export function generateWebSiteJsonLd() {
         name: "Resume & Curriculum Vitae",
         url: `${SITE_SEO.siteUrl}/resume`,
       },
-      {
-        "@type": "DigitalDocument",
-        name: `${SITE_SEO.author.name} Resume PDF`,
-        fileFormat: "application/pdf",
-        url: `${SITE_SEO.siteUrl}/direct-resume`,
-      },
     ],
   };
 }
@@ -155,13 +149,8 @@ export function generateSiteNavigationJsonLd() {
     },
     {
       name: "Resume & Curriculum Vitae",
-      description: `Background, technical skills, education, and experience of ${SITE_SEO.author.name}.`,
+      description: `Request the resume of ${SITE_SEO.author.name}, delivered by email as a PDF.`,
       url: `${baseUrl}/resume`,
-    },
-    {
-      name: "Direct Resume PDF",
-      description: `Direct view and download of the resume PDF of ${SITE_SEO.author.name}.`,
-      url: `${baseUrl}/direct-resume`,
     },
   ];
 

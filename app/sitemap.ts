@@ -11,7 +11,7 @@ const PATHS: {
 }[] = [
   { path: "", changeFrequency: "daily", priority: 1.0 },
   { path: "/projects", changeFrequency: "weekly", priority: 0.9 },
-  { path: "/resume", changeFrequency: "monthly", priority: 0.8 },
+  { path: "/resume", changeFrequency: "yearly", priority: 0.4 },
   { path: "/terms", changeFrequency: "yearly", priority: 0.2 },
   { path: "/privacy", changeFrequency: "yearly", priority: 0.2 },
 ];

@@ -13,8 +13,7 @@
     "work": "Projects",
     "contact": "Contact",
     "resume": "Resume",
-    "projects": "Projects",
-    "downloadResume": "Download resume"
+    "projects": "Projects"
   },
   "theme": {
     "toggle": "Toggle theme",
@@ -43,7 +42,7 @@
     "rotating": ["coding", "curious", "in the game", "learning", "leveling up"],
     "quote": "Keep coding.",
     "contact": "Contact me",
-    "resume": "View resume"
+    "resume": "Request resume"
   },
   "sections": {
     "about": {
@@ -261,10 +260,35 @@
   "resume": {
     "back": "Back to portfolio",
     "title": "Resume",
-    "subtitle": "Background, education, and stack, the short version.",
-    "download": "Download PDF",
-    "openInNewTab": "Open in new tab",
-    "unavailable": "The resume PDF isn't available yet. Check back soon."
+    "requestIntro": "I'd rather send my resume straight to people who are genuinely interested. Drop your name and email and it lands in your inbox as a PDF right away.",
+    "form": {
+      "nameLabel": "Name",
+      "namePlaceholder": "Your name",
+      "emailLabel": "Email",
+      "emailPlaceholder": "you@email.com",
+      "submit": "Request resume",
+      "privacyNotice": "By requesting, you agree to the data handling described in the",
+      "privacyNoticeLink": "Privacy Policy",
+      "successTitle": "Sent",
+      "successBody": "I sent my resume to {email}. If it doesn't show up in a few minutes, check your spam folder.",
+      "errors": {
+        "required": "Please fill out this field",
+        "email": "Please enter a valid email address",
+        "tooLong": "Text is too long",
+        "invalid": "Check the details and try again",
+        "forbidden": "Request blocked",
+        "rateLimit": "Too many requests. Try again later.",
+        "unavailable": "Service is unavailable right now. Try again soon.",
+        "verification": "Please confirm you're not a robot",
+        "delivery": "I couldn't send it right now. Try again or reach me through the contact form.",
+        "generic": "Something went wrong. Try again."
+      },
+      "toast": {
+        "successTitle": "Resume on its way",
+        "successBody": "It reaches your email in moments.",
+        "errorTitle": "Couldn't send"
+      }
+    }
   },
   "legal": {
     "back": "Back to portfolio",

@@ -36,9 +36,7 @@ export const ActionBtn = () => {
         <Button
           nativeButton={false}
           variant="ghost"
-          render={
-            <Link href="/resume" target="_blank" rel="noopener noreferrer" />
-          }
+          render={<Link href="/resume" />}
           className="group relative h-auto p-0 bg-transparent hover:bg-transparent text-primary/80 hover:text-primary font-medium text-sm sm:text-base tracking-wide transition-colors rounded-none gap-1 focus-visible:ring-0 cursor-pointer"
         >
           <span>{t("resume")}</span>

@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { Menu as MenuIcon, X, Download } from "lucide-react";
+import { Menu as MenuIcon, X } from "lucide-react";
 import { useTranslations } from "next-intl";
 
 import { Link, usePathname, useRouter } from "@/i18n/navigation";
@@ -13,8 +13,6 @@ import {
   SheetDescription,
 } from "@/components/ui/sheet";
 import { socials } from "@/constant";
-
-const RESUME_PATH = "/docs/resume.pdf";
 
 interface SectionItem {
   key: string;
@@ -60,10 +58,7 @@ export const Menu = () => {
     }
   };
 
-  const pageItems = PAGE_ITEMS.filter(
-    (item) => pathname !== item.link,
-  );
-  const showResumeDownload = pathname === "/resume";
+  const pageItems = PAGE_ITEMS.filter((item) => pathname !== item.link);
 
   return (
     <Sheet open={open} onOpenChange={setOpen}>
@@ -135,21 +130,6 @@ export const Menu = () => {
               {t("pages")}
             </span>
             <ul className="flex w-full min-w-0 flex-col gap-1">
-              {showResumeDownload && (
-                <li className="group/menu-item relative">
-                  <a
-                    href={RESUME_PATH}
-                    download="Pedro_Teixeira_Resume.pdf"
-                    onClick={() => setOpen(false)}
-                    className="h-auto py-2 px-3 bg-accent/10 hover:bg-accent/20 border border-accent/30 text-accent rounded-xl transition-all duration-200 flex items-center justify-between"
-                  >
-                    <span className="text-base sm:text-xl font-semibold uppercase tracking-tight flex items-center gap-2">
-                      <Download className="w-4 h-4 text-accent" />
-                      {t("downloadResume")}
-                    </span>
-                  </a>
-                </li>
-              )}
               {pageItems.map((item, idx) => (
                 <li key={item.key} className="group/menu-item relative">
                   <Link
