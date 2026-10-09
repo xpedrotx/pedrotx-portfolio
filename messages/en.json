@@ -174,7 +174,8 @@
       "drageovana": "Telemedicine site for Dr. Geovana Roque: bio, how the online consultation works, pricing, FAQ, and booking.",
       "finaribot": "A personal-finance Discord bot: logs expenses, builds reports, and reminds you of bills.",
       "portfolio": "My first portfolio, built with plain HTML and CSS plus a few JavaScript scripts.",
-      "wedding": "A wedding site with a countdown, photo gallery, and RSVP form."
+      "wedding": "A wedding site with a countdown, photo gallery, and RSVP form.",
+      "bolsosincero": "A personal-finance assistant inside WhatsApp: logs expenses from a chat message, tracks budgets, credit cards and bills, and shows everything on a web dashboard. In development."
     },
     "page": {
       "subtitle": "Web apps and bots, from my first HTML portfolio to projects running in production.",

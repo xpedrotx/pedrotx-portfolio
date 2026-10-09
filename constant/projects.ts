@@ -44,6 +44,19 @@ export const selected_works: Project[] = [
     },
   },
   {
+    id: "bolsosincero",
+    name: "Bolso Sincero",
+    technologies: ["Python", "FastAPI", "PostgreSQL", "Next.js", "Node.js", "Docker"],
+    preview: "/images/previews/bolsosincero.jpg",
+    previewScroll: true,
+    links: {
+      live: "https://bolsosincero.com",
+    },
+  },
+];
+
+export const works: Project[] = [
+  {
     id: "portfolio",
     name: "Portfólio v1",
     technologies: ["HTML", "CSS", "JavaScript"],
@@ -52,9 +65,6 @@ export const selected_works: Project[] = [
       live: "https://xpedrotx.github.io",
     },
   },
-];
-
-export const works: Project[] = [
   {
     id: "finaribot",
     name: "FinariBot",

@@ -174,7 +174,8 @@
       "drageovana": "Site de telemedicina da Dra. Geovana Roque: apresentação, como funciona a consulta online, valores, FAQ e agendamento.",
       "finaribot": "Bot de finanças pessoais para Discord: registra gastos, gera relatórios e lembra de contas a pagar.",
       "portfolio": "Meu primeiro portfólio, feito em HTML e CSS puros com alguns scripts em JavaScript.",
-      "wedding": "Site de casamento com contagem regressiva, galeria de fotos e confirmação de presença."
+      "wedding": "Site de casamento com contagem regressiva, galeria de fotos e confirmação de presença.",
+      "bolsosincero": "Assistente de finanças pessoais dentro do WhatsApp: registra gastos por mensagem, controla orçamentos, cartões e boletos, e mostra tudo num painel web. Em desenvolvimento."
     },
     "page": {
       "subtitle": "Aplicações web e bots, do primeiro portfólio em HTML a projetos rodando em produção.",
