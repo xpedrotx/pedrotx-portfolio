@@ -1,0 +1,9 @@
+   {
+     "redirects": [
+       {
+         "source": "/wedding/:path*",
+         "destination": "https://wedding.pedrotx.com.br/:path*",
+         "permanent": true
+       }
+     ]
+   }
